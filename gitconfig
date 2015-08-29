@@ -1,0 +1,7 @@
+[user]
+	email = dstrong@glyx.co.uk
+	name = Daniel Strong
+[push]
+	default = simple
+[core]
+	editor = vim
