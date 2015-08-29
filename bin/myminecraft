@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-cd $HOME
-java -jar .minecraft/minecraft.jar
