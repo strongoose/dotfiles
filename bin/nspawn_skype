@@ -1,0 +1,14 @@
+#!/bin/bash
+set -e
+DEST=/mnt/stor/vm/skype
+if [ ! -d "$DEST" ];then
+    mkdir -p "$DEST/var/lib/pacman/";
+    echo sudo skype\|sudo pacman --arch i686 --root "$DEST" --cachedir /var/cache/pacman/pkg --config /etc/pacman.conf -Sy - --noconfirm
+    sudo systemd-nspawn -D "$DEST" groupadd skype
+    sudo systemd-nspawn -D "$DEST" useradd -g skype skype
+    sudo mkdir -p $DEST/home/skype/.config/pulse
+    sudo cp ~/.config/pulse/cookie $DEST/home/skype/.config/pulse/
+    sudo chmod 755 -R $DEST/home/skype/
+fi
+sudo systemd-nspawn -D "$DEST" --bind=/tmp/.X11-unix --share-system sudo -u skype env DISPLAY=:0 PULSE_SERVER=desktop skype
+
