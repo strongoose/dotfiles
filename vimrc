@@ -18,7 +18,6 @@ NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'morhetz/gruvbox'
 NeoBundle 'Lokaltog/powerline'
-NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'ervandew/supertab'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'scrooloose/nerdtree'
@@ -31,7 +30,6 @@ NeoBundle 'vim-scripts/TaskList.vim'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'dag/vim-fish'
 NeoBundle 'vim-latex/vim-latex'
-"NeoBundle 'vim-scripts/pep8'
 
 " You can specify revision/branch/tag.
 " NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
