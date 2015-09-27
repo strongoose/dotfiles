@@ -74,7 +74,8 @@ autocmd FileType python setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4 
 "let g:pyflakes_python_version = 3
 autocmd FileType python set list
 
-autocmd FileType bash setlocal tabstop=2 expandtab shiftwidth=4 softtabstop=4 textwidth=0
+autocmd FileType bash setlocal tabstop=2 expandtab shiftwidth=4 softtabstop=4 textwidth=0 foldmethod=manual
+autocmd FileType sh setlocal tabstop=2 expandtab shiftwidth=4 softtabstop=4 textwidth=0 foldmethod=manual
 
 " Fix some key combinations vim doesn't recognise.
 map [3$ <S-Del>
