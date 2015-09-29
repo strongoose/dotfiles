@@ -8,8 +8,5 @@
     ~/.vimrc: vimrc
     ~/.zshrc: zshrc
     ~/.zshrc.local: zshrc.local
-    ~/bin:
-        path: bin/
-        create: true
     ~/.Xresources: Xresources
     ~/.alias: alias
