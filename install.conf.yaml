@@ -7,8 +7,5 @@
         create: true
     ~/.vimrc: vimrc
     ~/.zshrc: zshrc
-    ~/bin:
-        path: bin/
-        create: true
     ~/.Xresources: Xresources
     ~/.alias: alias
