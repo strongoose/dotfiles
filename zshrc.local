@@ -17,5 +17,12 @@ if [ -e /usr/bin/virtualenvwrapper.sh ]; then
                                      path venv vcs percent
 fi
 
+# If we have todo.txt installed, add it to PATH and set up alias
+TODODIR=$HOME/.todo
+if [ -e $TODODIR ]; then
+    PATH=$PATH:$TODODIR
+    alias t="todo.sh"
+fi
+
 # Aliases
 source ~/.alias
