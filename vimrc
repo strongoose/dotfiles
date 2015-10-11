@@ -52,7 +52,7 @@ set history=256
 set incsearch " search while search command is still being typed
 set cursorline
 set cursorcolumn
-" tab stuff
+set showmatch
 set tabstop=4
 set shiftwidth=4
 set expandtab
@@ -61,6 +61,7 @@ set textwidth=79
 set colorcolumn=81
 set ttymouse=urxvt
 set mouse=a
+set foldenable
 set foldmethod=indent
 set foldlevel=99
 set number
