@@ -45,37 +45,34 @@ filetype plugin indent on
 NeoBundleCheck
 
 " settings
-set nocompatible
-set backspace=eol,start
-set nobackup
+set nocompatible " disable Vi compatibility
+set backspace=eol,start " allow backspacing over eols and past start of insert
+set nobackup " don't bother with backup files
 set history=256
-set ruler
-set showcmd
-set incsearch
+set incsearch " search while search command is still being typed
 set cursorline
 set cursorcolumn
-set spellsuggest=7
+" tab stuff
 set tabstop=4
 set shiftwidth=4
 set expandtab
+set smarttab
 set textwidth=79
 set colorcolumn=81
-set background=dark
-set smarttab
-set ttymouse=xterm2
+set ttymouse=urxvt
+set mouse=a
 set foldmethod=indent
 set foldlevel=99
 set number
+set wildmenu
 set wildmode=longest,list,full
 set t_Co=256
 set encoding=utf-8
 
-autocmd FileType python setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4 textwidth=72 colorcolumn=73,81
-"let g:pyflakes_python_version = 3
-autocmd FileType python set list
-
-autocmd FileType bash setlocal tabstop=2 expandtab shiftwidth=4 softtabstop=4 textwidth=0 foldmethod=manual
-autocmd FileType sh setlocal tabstop=2 expandtab shiftwidth=4 softtabstop=4 textwidth=0 foldmethod=manual
+" FileType specific settings
+autocmd FileType python setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4 textwidth=72 colorcolumn=73,81 list
+autocmd FileType sh setlocal tabstop=2 expandtab shiftwidth=4 softtabstop=4 textwidth=0
+autocmd FileType lua set shiftwidth=2 softtabstop=2
 
 " Fix some key combinations vim doesn't recognise.
 map [3$ <S-Del>
@@ -85,19 +82,15 @@ map Oa <c-Up>
 map Ob <c-Down>
 
 " key maps
-map <c-j> <c-w>j
-map <c-k> <c-w>k
-map <c-l> <c-w>l
-map <c-h> <c-w>h
-map <C-Right> <c-w>l
-map <C-Left> <c-w>h
-map <C-Up> <c-w>k
-map <C-Down> <c-w>j
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+map <C-h> <C-w>h
 map <C-L> :redraw!<CR>
 nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
-"map <F5> :w<CR>:!python % <CR>
+map <F5> :w<CR>:!python % <CR>
 nnoremap <F7> :set nolist!<CR>:set foldcolumn=0<CR>
-"map <leader>TT :TaskList<CR>
+map <leader>TT :TaskList<CR>
 
 " Color
 colorscheme gruvbox
@@ -148,9 +141,11 @@ autocmd FileType latex setlocal sw=2 iskeyword+=:
 let g:Tex_DefaultTargetFormat = 'pdf'
 let g:Tex_ViewRule_pdf = 'mupdf'
 let g:Tex_CompileRule_pdf = 'xelatex -synctex=1 -interaction=nonstopmode $*'
-
-" PEP8
-"let g:pep8_map='<leader>8'
+" vim-latex/plugin/imaps.vim vmaps and nmaps <C-j> to <Plug>IMAP_JumpForward
+" But I want <C-j> to be mapped to <C-W>j, so we need to noremap
+" <Plug>IMAP_JumpForward
+nnoremap <C-space> <Plug>IMAP_JumpForward
+vnoremap <C-space> <Plug>IMAP_JumpForward
 
 " Add the virtualenv's site-packages to vim path
 py << EOF
@@ -182,5 +177,3 @@ cmap ww!! w !sudo tee > /dev/null %
 
 " Fix a mapping conflict with TaskList
 nnoremap <leader>v <Plug>TaskList
-
-autocmd FileType lua set shiftwidth=2 softtabstop=2
