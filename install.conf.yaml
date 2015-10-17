@@ -8,3 +8,6 @@
     ~/.Xresources: Xresources
     ~/.alias: alias
     ~/.xprofile: xprofile
+
+- shell: 
+    - [ sh ./neobundle-install.sh, Install NeoBundle for vim ]

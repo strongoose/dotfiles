@@ -64,6 +64,7 @@ set mouse=a
 set foldenable
 set foldmethod=indent
 set foldlevel=99
+set scrolloff=3
 set number
 set wildmenu
 set wildmode=longest,list,full
@@ -87,7 +88,6 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 map <C-h> <C-w>h
-map <C-L> :redraw!<CR>
 nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
 map <F5> :w<CR>:!python % <CR>
 nnoremap <F7> :set nolist!<CR>:set foldcolumn=0<CR>
