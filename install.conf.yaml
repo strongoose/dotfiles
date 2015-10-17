@@ -10,4 +10,7 @@
     ~/.xprofile: xprofile
 
 - shell: 
-    - [ sh ./neobundle-install.sh, Install NeoBundle for vim ]
+    - 
+        command: sh ./neobundle-install.sh
+        stdout: true
+        stderr: true
