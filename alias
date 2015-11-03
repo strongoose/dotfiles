@@ -4,7 +4,7 @@ sprunge () {
 }
 
 # Aliases
-alias vimless='/usr/share/vim/vim74/macros/less.sh'
+alias vimless='/usr/share/vim/vim73/macros/less.sh'
 alias grep='grep --color=auto'
 alias djangoversion='python -c "import django; print(django.get_version())"'
 alias myip='curl icanhazip.com'

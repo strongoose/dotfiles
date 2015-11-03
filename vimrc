@@ -1,3 +1,5 @@
+syntax on
+
 if has('vim_starting')
   set nocompatible               " Be iMproved
 
@@ -6,7 +8,7 @@ if has('vim_starting')
 endif
 
 " Required:
-call neobundle#begin(expand('/home/dan/.vim/bundle'))
+call neobundle#begin(expand('~/.vim/bundle'))
 
 " Let NeoBundle manage NeoBundle
 " Required:
@@ -59,7 +61,6 @@ set expandtab
 set smarttab
 set textwidth=79
 set colorcolumn=81
-set ttymouse=urxvt
 set mouse=a
 set foldenable
 set foldmethod=indent
@@ -89,7 +90,6 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 map <C-h> <C-w>h
 nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
-map <F5> :w<CR>:!python % <CR>
 nnoremap <F7> :set nolist!<CR>:set foldcolumn=0<CR>
 map <leader>TT :TaskList<CR>
 
@@ -127,6 +127,7 @@ nnoremap <F6> :GundoToggle<CR>
 noremap <S-RIGHT> :MBEbn<CR>
 noremap <S-LEFT> :MBEbp<CR>
 noremap <S-Del> :MBEbd<CR>
+noremap <F5> :MBEToggle<CR>
 
 " Tagbar
 let g:tagbar_autofocus = 1
