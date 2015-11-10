@@ -6,7 +6,7 @@ if has('vim_starting')
 endif
 
 " Required:
-call neobundle#begin(expand('/home/dan/.vim/bundle'))
+call neobundle#begin(expand('~/dan/.vim/bundle'))
 
 " Let NeoBundle manage NeoBundle
 " Required:
