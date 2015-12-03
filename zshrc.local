@@ -1,9 +1,10 @@
 # Virtualenvwrapper
-if [ -e /usr/bin/virtualenvwrapper.sh ]; then
+venvwrapper_path=/usr/local/bin/virtualenvwrapper.sh
+if [ -e $venvwrapper_path ]; then
     export WORKON_HOME=~/.venvs
     mkdir -p $WORKON_HOME
 
-    source /usr/bin/virtualenvwrapper.sh
+    source $venvwrapper_path
 
     # Virtualenv prompt
     function virtual_env_prompt () {
