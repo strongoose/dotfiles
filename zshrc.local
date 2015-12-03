@@ -30,3 +30,10 @@ source ~/.alias
 
 # Java
 export JAVA_HOME=$(/usr/libexec/java_home)
+
+# Ruby
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+# Brew wants /usr/local/bin before /usr/bin
+export PATH="/usr/local/bin:$PATH"
