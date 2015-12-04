@@ -14,7 +14,7 @@ yamlval () {
 }
 
 eyamled () {
-    recipients=$(find $(dirname $1)/ -name '*.rcp')
+    recipients=$(find $(dirname $1)/ -maxdepth 1 -mindepth 1 -name '*.rcp')
     if [ $(echo $recipients | wc -l) -gt 1 ]; then
         echo "More than one .rcp file in target file's directory:
 $recipients" 1>&2
