@@ -23,7 +23,7 @@ $recipients" 1>&2
         echo "No .rcp file." 1>&2
         return 1
     fi
-    eyaml edit -n gpg --gpg-recipients-file $recipients $1
+    eyaml edit -n gpg --gpg-always-trust --gpg-recipients-file $recipients $1
 }
 
 # Aliases
