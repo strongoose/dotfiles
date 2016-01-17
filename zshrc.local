@@ -24,5 +24,11 @@ if [ -e $TODODIR ]; then
     alias t="todo.sh"
 fi
 
+# Go language path
+if [ -d ~/go ]; then
+    export GOPATH=~/go
+    export PATH=$PATH:~/go/bin
+fi
+
 # Aliases
 source ~/.alias

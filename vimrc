@@ -61,8 +61,6 @@ set expandtab
 set smarttab
 set textwidth=79
 set colorcolumn=81
-set ttymouse=urxvt
-set mouse=a
 set foldenable
 set foldmethod=indent
 set foldlevel=99
