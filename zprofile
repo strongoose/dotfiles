@@ -1,4 +1,4 @@
- For gpg key re-encryption etc
+# For gpg key re-encryption etc
 if [ $(ps ax|grep -i gpg-agent| grep whoami | wc -l) -eq 0 ];then
     eval $(gpg-agent --daemon --write-env-file "${HOME}/.gpg-agent-info" "$@")
 fi
