@@ -34,6 +34,7 @@ NeoBundle 'vim-scripts/TaskList.vim'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'dag/vim-fish'
 NeoBundle 'vim-latex/vim-latex'
+NeoBundle 'ekalinin/Dockerfile.vim'
 
 " You can specify revision/branch/tag.
 " NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
