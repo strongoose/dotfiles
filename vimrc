@@ -64,7 +64,6 @@ set expandtab
 set smarttab
 set textwidth=79
 set colorcolumn=81
-set mouse=a
 set foldenable
 set foldmethod=indent
 set foldlevel=99
@@ -74,6 +73,7 @@ set wildmenu
 set wildmode=longest,list,full
 set t_Co=256
 set encoding=utf-8
+set nowrap
 
 " FileType specific settings
 autocmd FileType python setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4 textwidth=72 colorcolumn=73,81 list
