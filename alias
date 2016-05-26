@@ -26,6 +26,18 @@ $recipients" 1>&2
     eyaml edit -n gpg --gpg-always-trust --gpg-recipients-file $recipients $1
 }
 
+togit () {
+    (
+        cd $TODODIR && git $@
+    )
+}
+
+dtgit () {
+    (
+        cd ~/.dotfiles && git $@
+    )
+}
+
 # Aliases
 alias vimless='/usr/share/vim/vim73/macros/less.sh'
 alias grep='grep --color=auto'
@@ -36,3 +48,4 @@ alias wttr='curl wttr.in/'
 alias t="todo.sh"
 alias ta="todo.sh add"
 alias tl="todo.sh ls"
+alias tls="tl"
