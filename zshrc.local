@@ -55,13 +55,8 @@ if [ -e $TODODIR ]; then
 fi
 
 ## For gpg key re-encryption etc
-if ps aux | grep -i gpg-agent | grep $(whoami); then
-    eval $(gpg-agent --daemon --write-env-file "${HOME}/.gpg-agent-info" "$@")
-fi
-if [[ -f "${HOME}/.gpg-agent-info" ]]; then
-    . "${HOME}/.gpg-agent-info"
-    export GPG_AGENT_INFO
-    export SSH_AUTH_SOCK
+if ! ps aux | grep -i gpg-agent | grep $(whoami); then
+    eval $(gpg-agent --daemon "${HOME}/.gpg-agent-info" "$@")
 fi
 gpg-connect-agent /bye
 
