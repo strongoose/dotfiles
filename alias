@@ -8,3 +8,8 @@ alias vimless='/usr/share/vim/vim74/macros/less.sh'
 alias grep='grep --color=auto'
 alias djangoversion='python -c "import django; print(django.get_version())"'
 alias myip='curl icanhazip.com'
+alias pcp='pass show -c'
+alias wttr='curl wttr.in/'
+alias t="todo.sh"
+alias ta="todo.sh add"
+alias tl="todo.sh ls"

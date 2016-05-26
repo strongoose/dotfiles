@@ -6,7 +6,7 @@
 ! Last Modified: 11 Dec 2013
 ! -----------------------------------------------------------------------------
 
-*background: #282828
+*background: #111111
 *foreground: #ebdbb2
 ! Black + DarkGrey
 *color0:  #282828
@@ -32,6 +32,9 @@
 ! LightGrey + White
 *color7:  #bdae93
 *color15: #ebdbb2
+! Custom:
+! tmux status line colour
+*color16: #181818
 
 ! ------------
 ! urxvt config

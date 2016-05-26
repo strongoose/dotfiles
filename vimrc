@@ -1,3 +1,5 @@
+syntax on
+
 if has('vim_starting')
   set nocompatible               " Be iMproved
 
@@ -32,6 +34,8 @@ NeoBundle 'vim-scripts/TaskList.vim'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'dag/vim-fish'
 NeoBundle 'vim-latex/vim-latex'
+NeoBundle 'ekalinin/Dockerfile.vim'
+NeoBundle 'wting/rust.vim'
 
 " You can specify revision/branch/tag.
 " NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
@@ -51,9 +55,7 @@ set nocompatible " disable Vi compatibility
 set backspace=eol,start " allow backspacing over eols and past start of insert
 set nobackup " don't bother with backup files
 set history=256
-set incsearch " search while search command is still being typed
-set cursorline
-set cursorcolumn
+set incsearch
 set showmatch
 set tabstop=4
 set shiftwidth=4
@@ -84,13 +86,12 @@ map Oa <c-Up>
 map Ob <c-Down>
 
 " key maps
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-map <C-h> <C-w>h
-nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
-map <F5> :w<CR>:!python % <CR>
-nnoremap <F7> :set nolist!<CR>:set foldcolumn=0<CR>
+map <C-S-j> <C-w>j
+map <C-S-k> <C-w>k
+map <C-S-l> <C-w>l
+map <C-S-h> <C-w>h
+nnoremap <F2> :set nonumber!
+nnoremap <F7> :set nolist!
 map <leader>TT :TaskList<CR>
 
 " Color
