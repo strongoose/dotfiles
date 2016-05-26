@@ -7,6 +7,15 @@ fi
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+=======
+# Virtualenvwrapper
+venvwrapper_path=/usr/local/bin/virtualenvwrapper.sh
+if [ -e $venvwrapper_path ]; then
+    export WORKON_HOME=~/.venvs
+    mkdir -p $WORKON_HOME
+
+    source $venvwrapper_path
+>>>>>>> osx
 
 ## Python (virtualenv + virtualenvwrapper)
 if which virtualenv; then
@@ -20,11 +29,18 @@ if which virtualenv; then
     grml_theme_has_token venv || grml_theme_add_token venv -f virtual_env_prompt
     zstyle ':prompt:grml:left:setup' items rc change-root user at host\
                                      path venv vcs percent
-    # Virtualenvwrapper
-    if [ -e /usr/bin/virtualenvwrapper.sh ]; then
+    # Virtualenvwrapper (hacky, I'm afraid)
+    if [[ -e "/usr/bin/virtualenvwrapper.sh" ]]; then
+        # Linux
+        venvwrapper_path="/usr/bin/virtualenvwrapper.sh"
+    elif [[ -e "/usr/local/bin/virtualenvwrapper.sh" ]]; then
+        # OSX
+        venvwrapper_path="/usr/local/bin/virtualenvwrapper.sh"
+    fi
+    if [[ -z $venvwrapper_path ]]; then
         export WORKON_HOME=~/.venvs
         mkdir -p $WORKON_HOME
-        source /usr/bin/virtualenvwrapper.sh
+        source $venvwrapper_path
     fi
 fi
 

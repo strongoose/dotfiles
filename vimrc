@@ -26,13 +26,11 @@ NeoBundle 'ervandew/supertab'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'sjl/gundo.vim'
-NeoBundle 'fholgado/minibufexpl.vim'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'vim-scripts/TaskList.vim'
 NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'dag/vim-fish'
 NeoBundle 'vim-latex/vim-latex'
 NeoBundle 'ekalinin/Dockerfile.vim'
 NeoBundle 'wting/rust.vim'
@@ -51,9 +49,9 @@ filetype plugin indent on
 NeoBundleCheck
 
 " settings
-set nocompatible " disable Vi compatibility
-set backspace=eol,start " allow backspacing over eols and past start of insert
-set nobackup " don't bother with backup files
+set backspace=eol,start
+set nobackup
+set noswapfile
 set history=256
 set incsearch
 set showmatch
@@ -62,7 +60,7 @@ set shiftwidth=4
 set expandtab
 set smarttab
 set textwidth=79
-set colorcolumn=81
+set colorcolumn=80
 set foldenable
 set foldmethod=indent
 set foldlevel=99
@@ -72,11 +70,15 @@ set wildmenu
 set wildmode=longest,list,full
 set t_Co=256
 set encoding=utf-8
+set nowrap
+set ruler
 
 " FileType specific settings
 autocmd FileType python setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4 textwidth=72 colorcolumn=73,81 list
 autocmd FileType sh setlocal tabstop=2 expandtab shiftwidth=4 softtabstop=4 textwidth=0
 autocmd FileType lua set shiftwidth=2 softtabstop=2
+autocmd FileType markdown call WordProcessorMode()
+autocmd FileType text call WordProcessorMode()
 
 " Fix some key combinations vim doesn't recognise.
 map [3$ <S-Del>
@@ -86,10 +88,10 @@ map Oa <c-Up>
 map Ob <c-Down>
 
 " key maps
-map <C-S-j> <C-w>j
-map <C-S-k> <C-w>k
-map <C-S-l> <C-w>l
-map <C-S-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+map <C-h> <C-w>h
 nnoremap <F2> :set nonumber!
 nnoremap <F7> :set nolist!
 map <leader>TT :TaskList<CR>
@@ -123,11 +125,6 @@ let NERDTreeShowHidden=0
 
 " Gundo
 nnoremap <F6> :GundoToggle<CR>
-
-" Minibuffer
-noremap <S-RIGHT> :MBEbn<CR>
-noremap <S-LEFT> :MBEbp<CR>
-noremap <S-Del> :MBEbd<CR>
 
 " Tagbar
 let g:tagbar_autofocus = 1
@@ -173,6 +170,32 @@ augroup resCur
   autocmd!
   autocmd BufWinEnter * call ResCur()
 augroup END
+
+" Define word processor mode
+function! WordProcessorMode()
+    map j gj
+    map k gk
+
+    setlocal nofoldenable
+
+    setlocal wrap
+    setlocal linebreak
+
+    setlocal formatoptions+=1 " Don't break lines after 1 letter words
+    setlocal formatprg=par
+    setlocal spelllang=en_gb
+
+    setlocal nonumber
+    setlocal nocursorcolumn
+    setlocal colorcolumn=0
+    setlocal laststatus=0
+    setlocal noruler
+endfunction
+
+com! Wr call WordProcessorMode()
+
+" Quickly edit vimrc
+com! Erc vsp ~/.vimrc
 
 " Use ww!! as a shortcut to save using sudo 
 cmap ww!! w !sudo tee > /dev/null %

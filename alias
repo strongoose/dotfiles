@@ -3,8 +3,31 @@ sprunge () {
         cat - | curl -F 'sprunge=<-' http://sprunge.us
 }
 
+yamlval () {
+    if (ruby -e "require 'yaml'; YAML.load_file('$1')"); then
+        echo "That YAML was probably fine."
+        return 0
+    else
+        echo "That was bad YAML."
+        return 1
+    fi
+}
+
+eyamled () {
+    recipients=$(find $(dirname $1)/ -maxdepth 1 -mindepth 1 -name '*.rcp')
+    if [ $(echo $recipients | wc -l) -gt 1 ]; then
+        echo "More than one .rcp file in target file's directory:
+$recipients" 1>&2
+        return 1
+    elif [ -z $recipients ]; then
+        echo "No .rcp file." 1>&2
+        return 1
+    fi
+    eyaml edit -n gpg --gpg-always-trust --gpg-recipients-file $recipients $1
+}
+
 # Aliases
-alias vimless='/usr/share/vim/vim74/macros/less.sh'
+alias vimless='/usr/share/vim/vim73/macros/less.sh'
 alias grep='grep --color=auto'
 alias djangoversion='python -c "import django; print(django.get_version())"'
 alias myip='curl icanhazip.com'
