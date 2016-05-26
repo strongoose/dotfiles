@@ -9,7 +9,7 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 ## Python (virtualenv + virtualenvwrapper)
-if which virtualenv; then
+if which virtualenv >/dev/null; then
     # Virtualenv prompt
     function virtual_env_prompt () {
         REPLY=${VIRTUAL_ENV+${VIRTUAL_ENV:t}}
@@ -42,7 +42,7 @@ if [ -d ~/go ]; then
 fi
 
 ## Homebrew
-if which brew && [[ $(brew -v) =~ "Homebrew" ]]; then
+if which brew >/dev/null && [[ $(brew -v) =~ "Homebrew" ]]; then
     export PATH="/usr/local/bin:$PATH"
     # Homebrew API token
     export HOMEBREW_GITHUB_API_TOKEN=4e0638b515119c317168edd50840cf48f9aece05
