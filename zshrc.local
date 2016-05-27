@@ -45,7 +45,7 @@ fi
 if which brew >/dev/null && [[ $(brew -v) =~ "Homebrew" ]]; then
     export PATH="/usr/local/bin:$PATH"
     # Homebrew API token
-    export HOMEBREW_GITHUB_API_TOKEN=4e0638b515119c317168edd50840cf48f9aece05
+    [[ -f ~/.homebrew-token ]] && source ~/.homebrew-token
 fi
 
 ## If we have todo.txt installed, add it to PATH and set up alias
