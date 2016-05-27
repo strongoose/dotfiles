@@ -55,7 +55,7 @@ if [ -e $TODODIR ]; then
 fi
 
 ## For gpg key re-encryption etc
-if ! ps aux | grep -i gpg-agent | grep $(whoami); then
+if ! ps aux | grep -i gpg-agent | grep $(whoami) 2>&1 >/dev/null; then
     eval $(gpg-agent --daemon "${HOME}/.gpg-agent-info" "$@")
 fi
 gpg-connect-agent /bye
