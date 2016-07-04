@@ -33,7 +33,7 @@ if which virtualenv >/dev/null; then
         # OSX
         venvwrapper_path="/usr/local/bin/virtualenvwrapper.sh"
     fi
-    if [[ -z $venvwrapper_path ]]; then
+    if [[ -n $venvwrapper_path ]]; then
         export WORKON_HOME=~/.venvs
         mkdir -p $WORKON_HOME
         source $venvwrapper_path
