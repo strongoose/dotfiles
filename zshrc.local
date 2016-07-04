@@ -1,3 +1,8 @@
+# Attach to or start tmux
+if [[ ! "$TERM" = "screen" ]]; then
+   exec tmux new-session -As main
+fi
+
 ## Java
 if [[ -d /usr/libexec/java_home ]]; then
     export JAVA_HOME=$(/usr/libexec/java_home)
@@ -65,8 +70,3 @@ bindkey '^Xh' _complete_help
 
 ## Aliases
 source ~/.alias
-
-# Attach to or start tmux
-if [[ ! "$TERM" = "screen" ]]; then
-   exec tmux new-session -As main
-fi
