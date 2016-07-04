@@ -147,7 +147,7 @@ nnoremap <C-space> <Plug>IMAP_JumpForward
 vnoremap <C-space> <Plug>IMAP_JumpForward
 
 " Add the virtualenv's site-packages to vim path
-py << EOF
+py3 << EOF
 import os.path
 import sys
 import vim
