@@ -38,6 +38,10 @@ dtgit () {
     )
 }
 
+dn () {
+   python -c "import random; print random.randrange(1, $1 + 1)"
+}
+
 # Aliases
 alias vimless='/usr/share/vim/vim73/macros/less.sh'
 alias grep='grep --color=auto'
@@ -49,3 +53,4 @@ alias t="todo.sh"
 alias ta="todo.sh add"
 alias tl="todo.sh ls"
 alias tls="tl"
+alias upgrade="sudo apt-get update && sudo apt-get upgrade"
