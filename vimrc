@@ -31,7 +31,6 @@ NeoBundle 'majutsushi/tagbar'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'vim-scripts/TaskList.vim'
 NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'vim-latex/vim-latex'
 NeoBundle 'ekalinin/Dockerfile.vim'
 NeoBundle 'wting/rust.vim'
 
