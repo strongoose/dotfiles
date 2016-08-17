@@ -53,6 +53,12 @@ if which brew >/dev/null && [[ $(brew -v) =~ "Homebrew" ]]; then
     [[ -f ~/.homebrew-token ]] && source ~/.homebrew-token
 fi
 
+## Terraform
+TERRAFORM_PATH=/opt/terraform/latest
+if [[ -e $TERRAFORM_PATH ]]; then
+    export PATH="$TERRAFORM_PATH:$PATH"
+fi
+
 ## If we have todo.txt installed, add it to PATH and set up alias
 TODODIR=$HOME/todo
 if [ -e $TODODIR ]; then
