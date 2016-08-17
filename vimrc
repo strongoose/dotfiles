@@ -33,6 +33,7 @@ NeoBundle 'vim-scripts/TaskList.vim'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'ekalinin/Dockerfile.vim'
 NeoBundle 'wting/rust.vim'
+NeoBundle 'hashivim/vim-terraform'
 
 " You can specify revision/branch/tag.
 " NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
