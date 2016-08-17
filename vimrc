@@ -58,7 +58,6 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set smarttab
-set textwidth=79
 set colorcolumn=80
 set foldenable
 set foldmethod=indent
