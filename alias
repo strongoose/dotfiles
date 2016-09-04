@@ -17,9 +17,9 @@ eyamled () {
     for file in $@; do
         recipients=$(find $(dirname $1)/ -maxdepth 1 -mindepth 1 -name '*.rcp')
         if [ $(echo $recipients | wc -l) -gt 1 ]; then
-            echo "More than one .rcp file in same directory as $file:\n$recipients" 1>&2
+            echo "More than one .rcp file in same directory as $file:\n$recipients" 1>&2; return 1
         elif [ -z $recipients ]; then
-            echo "No .rcp file for $file" 1>&2
+            echo "No .rcp file for $file" 1>&2; return 1
         fi
         eyaml edit -n gpg --gpg-always-trust --gpg-recipients-file $recipients $file
     done
