@@ -9,6 +9,7 @@
     ~/.Xresources: Xresources
     ~/.alias: alias
     ~/.xprofile: xprofile
+    ~/.gnupg/gpg-agent.conf: gnupg/gpg-agent.conf
 
 - shell: 
     - 

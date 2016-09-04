@@ -1,1 +1,2 @@
-[ ! -z $(which gpg-agent) ] && gpg-connect-agent /bye && export SSH_AUTH_SOCK=$HOME/.gnupg/S.gpg-agent.ssh
+gpg-connect-agent /bye
+export SSH_AUTH_SOCK=$HOME/.gnupg/S.gpg-agent.ssh
