@@ -31,6 +31,11 @@ dn () {
    python -c "import random; print random.randrange(1, $1 + 1)"
 }
 
+# Die aliases
+for n in 2 3 4 6 8 10 12 20; do
+  alias d$n="dn $n"
+done
+
 # Aliases
 alias vimless='/usr/share/vim/vim73/macros/less.sh'
 alias grep='grep --color=auto'
