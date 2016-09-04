@@ -25,17 +25,7 @@ eyamled () {
     done
 }
 
-togit () {
-    (
-        cd $TODODIR && git $@
-    )
-}
 
-dtgit () {
-    (
-        cd ~/.dotfiles && git $@
-    )
-}
 
 dn () {
    python -c "import random; print random.randrange(1, $1 + 1)"
