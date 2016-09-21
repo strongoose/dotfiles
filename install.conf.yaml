@@ -27,3 +27,7 @@
         command: sh ./neobundle-install.sh
         stdout: true
         stderr: true
+    -
+        command: sh ./vundle-install.sh
+        stdout: true
+        stderr: true
