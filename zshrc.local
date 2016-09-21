@@ -13,32 +13,23 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
-## Python (virtualenv + virtualenvwrapper)
-if which virtualenv >/dev/null; then
-    # Virtualenv prompt
-    function virtual_env_prompt () {
-        REPLY=${VIRTUAL_ENV+${VIRTUAL_ENV:t}}
-        if [ ! -z $REPLY ]; then
-            REPLY="%F{magenta}{%f%F{cyan}$REPLY%F{magenta}}%f "
-        fi
-    }
-    grml_theme_has_token venv || grml_theme_add_token venv -f virtual_env_prompt
-    zstyle ':prompt:grml:left:setup' items rc change-root user at host\
-                                     path venv vcs percent
-    # Virtualenvwrapper (hacky, I'm afraid)
-    if [[ -e "/usr/bin/virtualenvwrapper.sh" ]]; then
-        # Linux
-        venvwrapper_path="/usr/bin/virtualenvwrapper.sh"
-    elif [[ -e "/usr/local/bin/virtualenvwrapper.sh" ]]; then
-        # OSX
-        venvwrapper_path="/usr/local/bin/virtualenvwrapper.sh"
+# pyenv
+export PATH="/home/dan/.pyenv/bin:$PATH"
+export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+pyenv virtualenvwrapper
+
+## virtualenv zsh prompt
+function virtual_env_prompt () {
+    REPLY=${VIRTUAL_ENV+${VIRTUAL_ENV:t}}
+    if [ ! -z $REPLY ]; then
+        REPLY="%F{magenta}{%f%F{cyan}$REPLY%F{magenta}}%f "
     fi
-    if [[ -n $venvwrapper_path ]]; then
-        export WORKON_HOME=~/.venvs
-        mkdir -p $WORKON_HOME
-        source $venvwrapper_path
-    fi
-fi
+}
+grml_theme_has_token venv || grml_theme_add_token venv -f virtual_env_prompt
+zstyle ':prompt:grml:left:setup' items rc change-root user at host\
+                                 path venv vcs percent
 
 ## Go
 if [ -d ~/go ]; then
