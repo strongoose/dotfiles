@@ -1,5 +1,11 @@
 - clean: ['~']
 
+- shell: # Pre-install
+    -
+        command: mkdir -p ~/.config/nvim
+        stdout: true
+        stderr: true
+
 - link:
     ~/.tmux.conf: tmux.conf
     ~/.gitconfig: gitconfig
@@ -10,9 +16,10 @@
     ~/.alias: alias
     ~/.xprofile: xprofile
     ~/.gnupg/gpg-agent.conf: gnupg/gpg-agent.conf
+    ~/.config/nvim/init.vim: nvim/init.vim
 
-- shell: 
-    - 
+- shell: # Post-install
+    -
         command: sh ./neobundle-install.sh
         stdout: true
         stderr: true
