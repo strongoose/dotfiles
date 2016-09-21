@@ -40,7 +40,7 @@
 ! urxvt config
 ! ------------
 
-URxvt.font: xft:Inconsolata:size=12.5:antialias=true
+URxvt.font: xft:Inconsolata:size=16.5:antialias=true
 URxvt.scrollBar: false
 ! Disable urxvt ctrl-shift mapping: I need that in Vim!
 URxvt.iso14755_52: False
