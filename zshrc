@@ -1,5 +1,9 @@
 #### zsh/ohmyzsh
 
+## Zsh completion help
+bindkey '^Xh' _complete_help
+
+
 export ZSH=/home/dan/.oh-my-zsh
 
 ZSH_THEME="random"
