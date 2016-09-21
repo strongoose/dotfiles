@@ -24,6 +24,7 @@
     ~/.gnupg/gpg-agent.conf: gnupg/gpg-agent.conf
     ~/.config/nvim/init.vim: nvim/init.vim
     ~/.oh-my-zsh/custom/aliases.zsh: oh-my-zsh/custom/aliases.zsh
+    ~/.oh-my-zsh/custom/z.zsh: oh-my-zsh/custom/z.zsh
 
 - shell: # Post-install
     -

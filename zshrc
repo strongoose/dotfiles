@@ -9,6 +9,9 @@ HIST_STAMPS="yyyy-mm-dd"
 
 plugins=(git)
 
+# Set z options before sourcing oh-my-zsh
+export _Z_CMD=j
+
 source $ZSH/oh-my-zsh.sh
 
 
