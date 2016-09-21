@@ -15,7 +15,6 @@
     ~/.gitconfig: gitconfig
     ~/.vimrc: vimrc
     ~/.zshrc: zshrc
-    ~/.zshrc.local: zshrc.local
     ~/.Xresources: Xresources
     ~/.alias: alias
     ~/.xprofile: xprofile
