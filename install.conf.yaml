@@ -17,7 +17,6 @@
 - link:
     ~/.tmux.conf: tmux.conf
     ~/.gitconfig: gitconfig
-    ~/.vimrc: vimrc
     ~/.zshrc: zshrc
     ~/.Xresources: Xresources
     ~/.xprofile: xprofile
@@ -27,10 +26,6 @@
     ~/.oh-my-zsh/custom/z.zsh: oh-my-zsh/custom/z.zsh
 
 - shell: # Post-install
-    -
-        command: sh ./neobundle-install.sh
-        stdout: true
-        stderr: true
     -
         command: sh ./vundle-install.sh
         stdout: true
