@@ -6,11 +6,20 @@
 ! Last Modified: 11 Dec 2013
 ! -----------------------------------------------------------------------------
 
-*background: #111111
+! -------
+! gruvbox
+! -------
+
+! hard contrast:
+!*background: #1d2021
+! normal contrast:
+*background: #282828
+! soft contrast:
+!*background: #32302f
 *foreground: #ebdbb2
 ! Black + DarkGrey
 *color0:  #282828
-*color8:  #7c6f64
+*color8:  #928374
 ! DarkRed + Red
 *color1:  #cc241d
 *color9:  #fb4934
@@ -30,11 +39,8 @@
 *color6:  #689d6a
 *color14: #8ec07c
 ! LightGrey + White
-*color7:  #bdae93
+*color7:  #a89984
 *color15: #ebdbb2
-! Custom:
-! tmux status line colour
-*color16: #181818
 
 ! ------------
 ! urxvt config
@@ -42,12 +48,4 @@
 
 URxvt.font: xft:Inconsolata:size=16.5:antialias=true
 URxvt.scrollBar: false
-! Disable urxvt ctrl-shift mapping: I need that in Vim!
-URxvt.iso14755_52: False
-URxvt.iso14755: False
-
-! ------------
-! dzen2 config
-! ------------
-
-dzen2.font: xft:Inconsolata:size=10.5:antialias=true
+URxvt.intensityStyles: false
