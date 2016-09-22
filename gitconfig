@@ -1,11 +1,11 @@
 [user]
-	email = daniel.strong@digital.hmrc.gov.uk
-	name = Daniel Strong
+    email = daniel.strong@digital.hmrc.gov.uk
+    name = Daniel Strong
 [push]
-	default = simple
+    default = simple
 [core]
-	editor = vim
+    editor = nvim
 [alias]
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     cmt = commit -v
     dff = diff --word-diff
