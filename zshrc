@@ -6,7 +6,7 @@ bindkey '^Xh' _complete_help
 
 export ZSH=/home/dan/.oh-my-zsh
 
-ZSH_THEME="random"
+ZSH_THEME="jonathan"
 
 # Timestamp format for history
 HIST_STAMPS="yyyy-mm-dd"
