@@ -25,6 +25,11 @@ nnoremap <F4> :GundoToggle<CR>
 " Load pylint
 let g:syntastic_python_checkers = ['pylint']
 
+"" Gruvbox
+let g:gruvbox_italic=1
+colorscheme gruvbox
+set background=dark
+
 
 """" Options
 
@@ -61,12 +66,16 @@ autocmd FileType text set nonumber
 
 """" Keybindings
 
-" Pane naivgation
+"" Pane naivgation
 noremap <leader>w <C-w>w
 noremap <leader>j <C-w>j
 noremap <leader>k <C-w>k
 noremap <leader>l <C-w>l
 noremap <leader>h <C-w>h
+"tnoremap <C-leader>w <C-\><C-n><C-w>h
+"tnoremap <C-leader>j <C-\><C-n><C-w>j
+"tnoremap <C-leader>k <C-\><C-n><C-w>k
+"tnoremap <C-leader>l <C-\><C-n><C-w>l
 noremap <leader><Up> <C-w>j
 noremap <leader><Down> <C-w>k
 noremap <leader><Right> <C-w>l
@@ -74,6 +83,14 @@ noremap <leader><Left> <C-w>h
 
 " Toggle number with F2
 nnoremap <F2> :set nonumber!
+
+" Escape from terminal mode
+tnoremap <Esc> <C-\><C-n>
+
+" Copy/paste to/from clipboard with automatic :set paste
+noremap <leader>y "*y
+noremap <leader>yy "*Y
+noremap <leader>p :set paste<CR>:put *<CR>:set nopaste<CR>
 
 
 """" Miscellanious
@@ -106,3 +123,6 @@ augroup END
 
 " Use ww!! as a shortcut to save using sudo 
 cmap ww!! w !sudo tee > /dev/null %
+
+" Use true colour
+"set termguicolors
