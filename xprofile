@@ -2,5 +2,6 @@
 setxkbmap -option caps:ctrl_modifier
 
 # GPG Agent
-gpg-connect-agent /bye
+# Pipe output to /dev/null to silence warnings from lightdm
+gpg-connect-agent /bye 2>&1 >/dev/null
 export SSH_AUTH_SOCK=$HOME/.gnupg/S.gpg-agent.ssh
