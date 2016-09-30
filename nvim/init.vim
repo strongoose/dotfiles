@@ -66,6 +66,9 @@ autocmd FileType lua set tabstop=2
 " Text: don't number lines
 autocmd FileType text set nonumber
 
+" Themes: set the filetype on oh-my-zsh themes to zsh
+autocmd BufRead,BufNewFile *.zsh-theme setfiletype zsh
+
 
 """" Keybindings
 
