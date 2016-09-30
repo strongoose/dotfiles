@@ -30,6 +30,9 @@ let g:gruvbox_italic=1
 colorscheme gruvbox
 set background=dark
 
+" Use true colour
+set termguicolors
+
 
 """" Options
 
@@ -123,6 +126,3 @@ augroup END
 
 " Use ww!! as a shortcut to save using sudo 
 cmap ww!! w !sudo tee > /dev/null %
-
-" Use true colour
-"set termguicolors
