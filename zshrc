@@ -1,5 +1,8 @@
 #### zsh/ohmyzsh
 
+# path should be a unique array
+typeset -aU path
+
 ## Zsh completion help
 bindkey '^Xh' _complete_help
 
@@ -28,19 +31,19 @@ else
   export EDITOR='nvim'
 fi
 
-## opt to PATH
-PATH=$PATH:/opt/bin
+## opt to path
+path=( $path /opt/bin )
 
 
 #### Langs
 
 ## Ruby (rvm)
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export path=( $path $HOME/.rvm/bin ) # Add RVM to path for scripting
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 ## pyenv
-export PATH="/home/dan/.pyenv/bin:$PATH"
+export path=( /home/dan/.pyenv/bin $path )
 export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
@@ -49,10 +52,10 @@ pyenv virtualenvwrapper
 ## Go
 if [ -d ~/go ]; then
     export GOPATH=~/go
-    export PATH=$PATH:~/go/bin
+    export path=( $path ~/go/bin )
 fi
 
 ## Rust
 if [ -d $HOME/.cargo/ ]; then
-    export PATH=$PATH:$HOME/.cargo/bin
+    export path=( $path $HOME/.cargo/bin )
 fi
