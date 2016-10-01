@@ -18,7 +18,6 @@
     ~/.tmux.conf: tmux.conf
     ~/.gitconfig: gitconfig
     ~/.zshrc: zshrc
-    ~/.Xresources: Xresources
     ~/.xprofile: xprofile
     ~/.gnupg/gpg-agent.conf: gnupg/gpg-agent.conf
     ~/.config/nvim/init.vim: nvim/init.vim
