@@ -37,7 +37,7 @@ path=( $path /opt/bin )
 
 #### Langs
 
-## Ruby (rvm)
+## RVM
 export path=( $path $HOME/.rvm/bin ) # Add RVM to path for scripting
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
