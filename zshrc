@@ -47,6 +47,9 @@ export path=( /home/dan/.pyenv/bin $path )
 export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+# This step is really slow (0.8s on first loading a new shell, 0.5 thereafter)
+# The lazy version is faster, but still 0.3s on first load (reload with lazy is
+# snappy)
 pyenv virtualenvwrapper
 
 ## Go
