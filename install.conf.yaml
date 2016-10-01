@@ -9,10 +9,6 @@
         command: mkdir -p ~/.config/nvim
         stdout: true
         stderr: true
-    -
-        command: mkdir -p ~/.oh-my-zsh/custom
-        stdout: true
-        stderr: true
 
 - link:
     ~/.tmux.conf: tmux.conf
