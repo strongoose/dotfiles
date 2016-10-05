@@ -78,10 +78,6 @@ noremap <leader>j <C-w>j
 noremap <leader>k <C-w>k
 noremap <leader>l <C-w>l
 noremap <leader>h <C-w>h
-"tnoremap <C-leader>w <C-\><C-n><C-w>h
-"tnoremap <C-leader>j <C-\><C-n><C-w>j
-"tnoremap <C-leader>k <C-\><C-n><C-w>k
-"tnoremap <C-leader>l <C-\><C-n><C-w>l
 noremap <leader><Up> <C-w>j
 noremap <leader><Down> <C-w>k
 noremap <leader><Right> <C-w>l
