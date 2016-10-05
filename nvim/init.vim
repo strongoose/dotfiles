@@ -94,10 +94,14 @@ nnoremap <F2> :set nonumber!
 tnoremap <Esc> <C-\><C-n>
 
 " Copy/paste to/from clipboard with automatic :set paste
-noremap <leader>y "*y
-noremap <leader>yy "*Y
+" +: CLIPBOARD
+" *: PRIMARY
+noremap <leader>y "+y
+noremap <leader>yy "+Y
 noremap <leader>p :set paste<CR>:put *<CR>:set nopaste<CR>
 
+" Search for visually selected text
+vnoremap // y/<C-R>"<CR>
 
 """" Miscellanious
 
