@@ -14,33 +14,27 @@ yamlval () {
 }
 
 eyamled () {
-    recipients=$(find $(dirname $1)/ -maxdepth 1 -mindepth 1 -name '*.rcp')
-    if [ $(echo $recipients | wc -l) -gt 1 ]; then
-        echo "More than one .rcp file in target file's directory:
-$recipients" 1>&2
-        return 1
-    elif [ -z $recipients ]; then
-        echo "No .rcp file." 1>&2
-        return 1
-    fi
-    eyaml edit -n gpg --gpg-always-trust --gpg-recipients-file $recipients $1
+    for file in $@; do
+        recipients=$(find $(dirname $1)/ -maxdepth 1 -mindepth 1 -name '*.rcp')
+        if [ $(echo $recipients | wc -l) -gt 1 ]; then
+            echo "More than one .rcp file in same directory as $file:\n$recipients" 1>&2; return 1
+        elif [ -z $recipients ]; then
+            echo "No .rcp file for $file" 1>&2; return 1
+        fi
+        eyaml edit -n gpg --gpg-always-trust --gpg-recipients-file $recipients $file
+    done
 }
 
-togit () {
-    (
-        cd $TODODIR && git $@
-    )
-}
 
-dtgit () {
-    (
-        cd ~/.dotfiles && git $@
-    )
-}
 
 dn () {
    python -c "import random; print random.randrange(1, $1 + 1)"
 }
+
+# Die aliases
+for n in 2 3 4 6 8 10 12 20; do
+  alias d$n="dn $n"
+done
 
 # Aliases
 alias vimless='/usr/share/vim/vim73/macros/less.sh'
@@ -49,8 +43,5 @@ alias djangoversion='python -c "import django; print(django.get_version())"'
 alias myip='curl icanhazip.com'
 alias pcp='pass show -c'
 alias wttr='curl wttr.in/'
-alias t="todo.sh"
-alias ta="todo.sh add"
-alias tl="todo.sh ls"
-alias tls="tl"
 alias upgrade="sudo apt-get update && sudo apt-get upgrade"
+alias vim="nvim"

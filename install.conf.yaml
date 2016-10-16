@@ -1,17 +1,27 @@
 - clean: ['~']
 
+- shell: # Pre-install
+    -
+        command: mkdir -p ~/.gnupg
+        stdout: true
+        stderr: true
+    -
+        command: mkdir -p ~/.config/nvim
+        stdout: true
+        stderr: true
+
 - link:
     ~/.tmux.conf: tmux.conf
     ~/.gitconfig: gitconfig
-    ~/.vimrc: vimrc
     ~/.zshrc: zshrc
-    ~/.zshrc.local: zshrc.local
-    ~/.Xresources: Xresources
-    ~/.alias: alias
     ~/.xprofile: xprofile
+    ~/.gnupg/gpg-agent.conf: gnupg/gpg-agent.conf
+    ~/.config/nvim/init.vim: nvim/init.vim
+    ~/.oh-my-zsh/custom/aliases.zsh: oh-my-zsh/custom/aliases.zsh
+    ~/.oh-my-zsh/custom/z.zsh: oh-my-zsh/custom/z.zsh
 
-- shell: 
-    - 
-        command: sh ./neobundle-install.sh
+- shell: # Post-install
+    -
+        command: sh ./vundle-install.sh
         stdout: true
         stderr: true

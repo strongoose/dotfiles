@@ -1,1 +1,7 @@
-[ ! -z $(which gpg-agent) ] && gpg-connect-agent /bye && export SSH_AUTH_SOCK=$HOME/.gnupg/S.gpg-agent.ssh
+# Set Caps lock to be an additional Ctrl key
+setxkbmap -option caps:ctrl_modifier
+
+# GPG Agent
+# Pipe output to /dev/null to silence warnings from lightdm
+gpg-connect-agent /bye 2>&1 >/dev/null
+export SSH_AUTH_SOCK=$HOME/.gnupg/S.gpg-agent.ssh
