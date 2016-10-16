@@ -43,13 +43,15 @@ export path=( $path $HOME/.rvm/bin ) # Add RVM to path for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 ## pyenv
-export path=( /home/dan/.pyenv/bin $path )
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-# This step is really slow (0.8s on first loading a new shell, 0.5 thereafter)
-# The lazy version is faster, but still 0.3s on first load (reload with lazy is
-# snappy)
-pyenv virtualenvwrapper
+if [[ -s "$HOME/.pyenv/bin" ]]; then
+    export path=( /home/dan/.pyenv/bin $path )
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+    # This step is really slow (0.8s on first loading a new shell, 0.5 thereafter)
+    # The lazy version is faster, but still 0.3s on first load (reload with lazy is
+    # snappy)
+    pyenv virtualenvwrapper
+fi
 
 ## Go
 if [ -d ~/go ]; then
