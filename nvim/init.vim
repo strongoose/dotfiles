@@ -11,6 +11,7 @@ Plugin 'sjl/gundo.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'hashivim/vim-terraform'
 Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-surround.git'
 
 call vundle#end()
 filetype plugin indent on
@@ -66,6 +67,9 @@ autocmd FileType lua set tabstop=2
 " Text: don't number lines
 autocmd FileType text set nonumber
 
+" Go: use tabs
+autocmd FileType go setlocal noexpandtab
+
 " Themes: set the filetype on oh-my-zsh themes to zsh
 autocmd BufRead,BufNewFile *.zsh-theme setfiletype zsh
 
@@ -100,19 +104,6 @@ noremap <leader>p :set paste<CR>:put *<CR>:set nopaste<CR>
 vnoremap // y/<C-R>"<CR>
 
 """" Miscellanious
-
-" Add the virtualenv's site-packages to vim path
-py3 << EOF
-import os.path
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-    project_base_dir = os.environ['VIRTUAL_ENV']
-    sys.path.insert(0, project_base_dir)
-    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-    with open(activate_this) as f:
-        code = compile(f.read(), activate_this, 'exec')
-        exec(code, dict(__file__=activate_this))
-EOF
 
 " Restore to file position from previous editing
 function! ResCur()
