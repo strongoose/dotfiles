@@ -3,10 +3,6 @@
 # path should be a unique array
 typeset -aU path
 
-## Zsh completion help
-bindkey '^Xh' _complete_help
-
-
 export ZSH=/home/dan/.oh-my-zsh
 
 ZSH_THEME="ouroboros"
@@ -20,6 +16,16 @@ plugins=(git)
 export _Z_CMD=j
 
 source $ZSH/oh-my-zsh.sh
+
+
+#### Zsh settings
+
+## Zsh completion help
+bindkey '^Xh' _complete_help
+
+## Incremental search
+bindkey '^R' history-incremental-pattern-search-backward
+bindkey '^F' history-incremental-pattern-search-forward
 
 
 #### Environment
