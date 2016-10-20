@@ -60,9 +60,10 @@ if [[ -s "$HOME/.pyenv/bin" ]]; then
 fi
 
 ## Go
-if [ -d ~/go ]; then
-    export GOPATH=~/go
-    export path=( $path ~/go/bin )
+GOPATH='/usr/local/go/'
+if [ -d $GOPATH ]; then
+    export GOPATH
+    export path=( $path $GOPATH/bin )
 fi
 
 ## Rust
