@@ -70,6 +70,9 @@ autocmd FileType text set nonumber
 " Go: use tabs
 autocmd FileType go setlocal noexpandtab
 
+" YAML: 2 space tabstop
+autocmd FileType yaml setlocal tabstop=2
+
 " Themes: set the filetype on oh-my-zsh themes to zsh
 autocmd BufRead,BufNewFile *.zsh-theme setfiletype zsh
 
