@@ -46,3 +46,4 @@ alias wttr='curl wttr.in/'
 alias upgrade="sudo apt-get update && sudo apt-get upgrade"
 alias vim="nvim"
 alias xclip="xclip -selection clipboard"
+alias ssh="TERM=xterm ssh"
