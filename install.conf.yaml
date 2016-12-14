@@ -19,6 +19,8 @@
     ~/.config/nvim/init.vim: nvim/init.vim
     ~/.oh-my-zsh/custom/aliases.zsh: oh-my-zsh/custom/aliases.zsh
     ~/.oh-my-zsh/custom/z.zsh: oh-my-zsh/custom/z.zsh
+    ~/.gitconfig: git/gitconfig
+    ~/.gitignore: git/gitignore
 
 - shell: # Post-install
     -
