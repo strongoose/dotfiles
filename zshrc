@@ -48,6 +48,10 @@ export path=( $path $HOME/.rvm/bin ) # Add RVM to path for scripting
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
+## Python
+export WORKON_HOME=~/.virtualenvs
+source /usr/bin/virtualenvwrapper.sh
+
 ## Go
 GOPATH='/usr/local/go/'
 if [ -d $GOPATH ]; then
