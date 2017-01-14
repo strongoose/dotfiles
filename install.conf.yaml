@@ -21,6 +21,7 @@
     ~/.oh-my-zsh/custom/z.zsh: oh-my-zsh/custom/z.zsh
     ~/.gitconfig: git/gitconfig
     ~/.gitignore: git/gitignore
+    ~/.spacemacs: spacemacs
 
 - shell: # Post-install
     -
