@@ -7,6 +7,16 @@
     editor = nvim
     excludesfile = /home/dan/.gitignore
 [alias]
-    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-    co = checkout
-    st = status
+    a   = add
+    aa  = add .
+    ci  = commit -v
+    co  = checkout
+    d   = diff
+    dc  = diff --word-diff --word-diff-regex='.'
+    dci = diff --word-diff --word-diff-regex='.' --cached
+    di  = diff --cached
+    dw  = diff --word-diff
+    dwi = diff --word-diff --cached
+    lg  = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    s   = status
+    st  = status
