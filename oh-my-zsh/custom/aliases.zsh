@@ -48,3 +48,4 @@ alias vim="nvim"
 alias xclip="xclip -selection clipboard"
 alias ssh="TERM=xterm ssh"
 alias mkvirtualenv="mkvirtualenv -a ./"
+alias sl='ls'
