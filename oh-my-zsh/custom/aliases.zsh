@@ -43,9 +43,9 @@ alias djangoversion='python -c "import django; print(django.get_version())"'
 alias myip='curl icanhazip.com'
 alias pcp='pass show -c'
 alias wttr='curl wttr.in/'
-alias upgrade="sudo apt-get update && sudo apt-get upgrade"
-alias vim="nvim"
-alias xclip="xclip -selection clipboard"
-alias ssh="TERM=xterm ssh"
-alias mkvirtualenv="mkvirtualenv -a ./"
+alias upgrade='sudo apt-get update && sudo apt-get upgrade'
+alias vim='nvim'
+alias xclip='xclip -selection clipboard'
+alias ssh='TERM=xterm ssh'
+alias mkvirtualenv='mkvirtualenv -a ./'
 alias sl='ls'
