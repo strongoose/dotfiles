@@ -3,6 +3,8 @@
     name = Daniel Strong
 [push]
     default = simple
+[branch]
+    autosetuprebase = always
 [core]
     editor = nvim
     excludesfile = /home/dan/.gitignore
