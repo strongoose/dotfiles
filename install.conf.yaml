@@ -24,6 +24,7 @@
     ~/.gitignore: git/gitignore
     ~/.spacemacs: spacemacs
     ~/.ansible.cfg: ansible.cfg
+    ~/.pylintrc: pylintrc
 
 - shell: # Post-install
     -
