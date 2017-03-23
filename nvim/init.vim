@@ -9,7 +9,6 @@ Plugin 'morhetz/gruvbox'
 Plugin 'scrooloose/nerdtree'
 Plugin 'sjl/gundo.vim'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'hashivim/vim-terraform'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-surround.git'
 
@@ -25,6 +24,7 @@ nnoremap <F4> :GundoToggle<CR>
 "" Syntastic
 " Load pylint
 let g:syntastic_python_checkers = ['pylint']
+let g:syntastic_sh_checkers = ['shellcheck']
 
 "" Gruvbox
 let g:gruvbox_italic=1
