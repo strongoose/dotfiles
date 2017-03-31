@@ -11,23 +11,35 @@
         stderr: true
 
 - link:
-    ~/.tmux.conf: tmux.conf
-    ~/.gitconfig: gitconfig
-    ~/.zshrc: zshrc
-    ~/.zprofile: zprofile
-    ~/.xprofile: xprofile
-    ~/.gnupg/gpg-agent.conf: gnupg/gpg-agent.conf
+    # vim/Vundle
+    ~/.config/nvim/bundle/Vundle.vim: Vundle.vim
     ~/.config/nvim/init.vim: nvim/init.vim
-    ~/.oh-my-zsh/custom/aliases.zsh: oh-my-zsh/custom/aliases.zsh
-    ~/.oh-my-zsh/custom/z.zsh: oh-my-zsh/custom/z.zsh
+
+    # tmux
+    ~/.tmux.conf: tmux.conf
+
+    # git
+    ~/.gitconfig: gitconfig
     ~/.gitconfig: git/gitconfig
     ~/.gitignore: git/gitignore
-    ~/.spacemacs: spacemacs
-    ~/.ansible.cfg: ansible.cfg
-    ~/.pylintrc: pylintrc
 
-- shell: # Post-install
-    -
-        command: sh ./vundle-install.sh
-        stdout: true
-        stderr: true
+    # zsh
+    ~/.zshrc: zshrc
+    ~/.zprofile: zprofile
+    ~/.oh-my-zsh/custom/aliases.zsh: oh-my-zsh/custom/aliases.zsh
+    ~/.oh-my-zsh/custom/z.zsh: oh-my-zsh/custom/z.zsh
+
+    # Xorg
+    ~/.xprofile: xprofile
+
+    # GPG
+    ~/.gnupg/gpg-agent.conf: gnupg/gpg-agent.conf
+
+    # specemacs
+    ~/.spacemacs: spacemacs
+
+    # ansible
+    ~/.ansible.cfg: ansible.cfg
+
+    # pylint
+    ~/.pylintrc: pylintrc

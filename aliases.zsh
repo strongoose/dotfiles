@@ -37,6 +37,7 @@ for n in 2 3 4 6 8 10 12 20; do
 done
 
 # Aliases
+alias ls='ls --color=auto'
 alias vimless='/usr/share/vim/vim73/macros/less.sh'
 alias grep='grep --color=auto'
 alias djangoversion='python -c "import django; print(django.get_version())"'

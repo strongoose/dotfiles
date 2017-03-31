@@ -8,9 +8,11 @@ source ~/.dotfiles/antigen/antigen.zsh
 antigen bundle git
 antigen bundle pip
 antigen bundle lein
-antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-completions
 
-antigen theme ouroboros8/dotfiles zsh-themes/ouroboros
+antigen use oh-my-zsh
+antigen theme agnoster
 
 antigen apply
 
@@ -19,24 +21,23 @@ antigen apply
 export _Z_CMD=j
 source ~/.dotfiles/z.zsh
 
+##### Zsh settings
 
-#### Zsh settings
-
-## Zsh completion help
+### Zsh completion help
 bindkey '^Xh' _complete_help
 
-## Incremental search
+### Incremental search
 bindkey '^R' history-incremental-pattern-search-backward
 bindkey '^F' history-incremental-pattern-search-forward
 
-# Timestamp format for history
+## Timestamp format for history
 export SHARE_HISTORY="true"
 
-## Biggest history
+### Biggest history
 export HISTSIZE=9223372036854775807 # LONG_MAX (64-bit)
 export SAVEHIST=9223372036854775807
 
-## Aliases
+### Aliases
 source ~/.dotfiles/aliases.zsh
 
 
