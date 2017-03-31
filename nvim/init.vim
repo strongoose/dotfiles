@@ -11,6 +11,8 @@ Plugin 'sjl/gundo.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-surround.git'
+Plugin 'tpope/vim-fireplace'
+Plugin 'venantius/vim-eastwood'
 
 call vundle#end()
 filetype plugin indent on
@@ -51,6 +53,9 @@ set list
 
 " Show line numbers
 set number
+
+" hlsearch is just annoying
+set nohlsearch
 
 
 """" FileTypes
