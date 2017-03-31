@@ -3,19 +3,21 @@
 # path should be a unique array
 typeset -aU path
 
-export ZSH=/home/dan/.oh-my-zsh
+source ~/.dotfiles/antigen/antigen.zsh
 
-ZSH_THEME="ouroboros"
+antigen bundle git
+antigen bundle pip
+antigen bundle lein
+antigen bundle zsh-users/zsh-syntax-highlighting
 
-# Timestamp format for history
-HIST_STAMPS="yyyy-mm-dd"
+antigen theme ouroboros8/dotfiles zsh-themes/ouroboros
 
-plugins=(git)
+antigen apply
 
-# Set z options before sourcing oh-my-zsh
+
+#### Z (could probably manage this with antigen)
 export _Z_CMD=j
-
-source $ZSH/oh-my-zsh.sh
+source ~/.dotfiles/z.zsh
 
 
 #### Zsh settings
@@ -27,9 +29,15 @@ bindkey '^Xh' _complete_help
 bindkey '^R' history-incremental-pattern-search-backward
 bindkey '^F' history-incremental-pattern-search-forward
 
+# Timestamp format for history
+export SHARE_HISTORY="true"
+
 ## Biggest history
 export HISTSIZE=9223372036854775807 # LONG_MAX (64-bit)
 export SAVEHIST=9223372036854775807
+
+## Aliases
+source ~/.dotfiles/aliases.zsh
 
 
 #### Environment
