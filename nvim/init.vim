@@ -15,6 +15,7 @@ Plugin 'tpope/vim-fireplace'
 Plugin 'venantius/vim-eastwood'
 Plugin 'pearofducks/ansible-vim'
 Plugin 'hashivim/vim-terraform'
+Plugin 'christoomey/vim-tmux-navigator'
 
 call vundle#end()
 filetype plugin indent on
@@ -34,6 +35,16 @@ let g:syntastic_sh_checkers = ['shellcheck']
 let g:gruvbox_italic=1
 colorscheme gruvbox
 set background=dark
+
+"" Vim Tmux Navigator
+" Disable default mappings
+let g:tmux_navigator_no_mappings = 1
+
+nnoremap <silent> <M-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <M-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <M-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <M-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <M-w> :TmuxNavigatePrevious<cr>
 
 " Use true colour
 set termguicolors
@@ -87,15 +98,7 @@ autocmd BufRead,BufNewFile *.zsh-theme setfiletype zsh
 """" Keybindings
 
 "" Pane naivgation
-noremap <leader>w <C-w>w
-noremap <leader>j <C-w>j
-noremap <leader>k <C-w>k
-noremap <leader>l <C-w>l
-noremap <leader>h <C-w>h
-noremap <leader><Up> <C-w>j
-noremap <leader><Down> <C-w>k
-noremap <leader><Right> <C-w>l
-noremap <leader><Left> <C-w>h
+" See Vim Tmux Navigator settings above
 
 " Toggle number with F2
 nnoremap <F2> :set nonumber!
