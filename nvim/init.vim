@@ -13,6 +13,8 @@ Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-surround.git'
 Plugin 'tpope/vim-fireplace'
 Plugin 'venantius/vim-eastwood'
+Plugin 'pearofducks/ansible-vim'
+Plugin 'hashivim/vim-terraform'
 
 call vundle#end()
 filetype plugin indent on
