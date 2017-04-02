@@ -10,6 +10,7 @@ antigen bundle pip
 antigen bundle lein
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
+antigen bundle Tarrasch/zsh-autoenv
 
 antigen use oh-my-zsh
 antigen theme agnoster
