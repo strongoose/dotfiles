@@ -1,14 +1,18 @@
 - clean: ['~']
 
 - shell: # Pre-install
-    -
-        command: mkdir -p ~/.gnupg
-        stdout: true
-        stderr: true
-    -
-        command: mkdir -p ~/.config/nvim
-        stdout: true
-        stderr: true
+
+    - command: git submodule update --init
+      stdout: true
+      stderr: true
+
+    - command: mkdir -p ~/.gnupg
+      stdout: true
+      stderr: true
+
+    - command: mkdir -p ~/.config/nvim
+      stdout: true
+      stderr: true
 
 - link:
     # vim/Vundle
@@ -19,15 +23,12 @@
     ~/.tmux.conf: tmux.conf
 
     # git
-    ~/.gitconfig: gitconfig
     ~/.gitconfig: git/gitconfig
     ~/.gitignore: git/gitignore
 
     # zsh
     ~/.zshrc: zshrc
     ~/.zprofile: zprofile
-    ~/.oh-my-zsh/custom/aliases.zsh: oh-my-zsh/custom/aliases.zsh
-    ~/.oh-my-zsh/custom/z.zsh: oh-my-zsh/custom/z.zsh
 
     # Xorg
     ~/.xprofile: xprofile
