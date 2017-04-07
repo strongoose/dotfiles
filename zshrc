@@ -45,7 +45,7 @@ source ~/.dotfiles/aliases.zsh
 #### Environment
 
 ## opt to path
-path=( $path /opt/bin )
+path=( $path /opt/bin .local/bin )
 
 ### Langs
 
@@ -57,6 +57,7 @@ export path=( $path "$HOME/.rvm/bin" ) # Add RVM to path for scripting
 ## Python
 virtualenvwrapper_path="$(which virtualenvwrapper.sh)"
 if [[ -n "$virtualenvwrapper_path" ]]; then
+    export VIRTUALENVWRAPPER_PYTHON=$(which python3)
     export WORKON_HOME=~/.virtualenvs
     source "$virtualenvwrapper_path"
 fi
