@@ -44,9 +44,38 @@ source ~/.dotfiles/aliases.zsh
 
 #### Environment
 
+## opt to path
+path=( $path /opt/bin )
+
+### Langs
+
+## RVM
+export path=( $path "$HOME/.rvm/bin" ) # Add RVM to path for scripting
+# Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+## Python
+virtualenvwrapper_path="$(which virtualenvwrapper.sh)"
+if [[ -n "$virtualenvwrapper_path" ]]; then
+    export WORKON_HOME=~/.virtualenvs
+    source "$virtualenvwrapper_path"
+fi
+
+## Go
+GOPATH='/usr/local/go/'
+if [ -d "$GOPATH" ]; then
+    export GOPATH
+    export path=( $path "$GOPATH/bin" )
+fi
+
+## Rust
+if [ -d "$HOME/.cargo/" ]; then
+    export path=( $path "$HOME/.cargo/bin" )
+fi
+
 # Editor
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
+if which nvim >/dev/null; then
+    export EDITOR='nvim'
 else
-  export EDITOR='nvim'
+    export EDITOR='vim'
 fi
