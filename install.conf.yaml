@@ -10,7 +10,7 @@
       stdout: true
       stderr: true
 
-    - command: mkdir -p ~/.config/nvim
+    - command: mkdir -p ~/.config/nvim/bundle/
       stdout: true
       stderr: true
 
