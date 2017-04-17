@@ -65,6 +65,7 @@ export path=( $path "$HOME/.rvm/bin" ) # Add RVM to path for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 ## Python
+export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python3"
 virtualenvwrapper_path="$(which virtualenvwrapper.sh)"
 if [[ -n "$virtualenvwrapper_path" ]]; then
     export WORKON_HOME=~/.virtualenvs
