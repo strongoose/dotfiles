@@ -28,7 +28,6 @@
 
     # zsh
     ~/.zshrc: zshrc
-    ~/.zprofile: zprofile
 
     # Xorg
     ~/.xprofile: xprofile
