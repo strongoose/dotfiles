@@ -17,6 +17,7 @@ Plugin 'pearofducks/ansible-vim'
 Plugin 'hashivim/vim-terraform'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'benmills/vimux'
+Plugin 'lervag/vimtex'
 
 call vundle#end()
 filetype plugin indent on
@@ -120,6 +121,7 @@ noremap <leader>p :set paste<CR>:put *<CR>:set nopaste<CR>
 
 " Search for visually selected text
 vnoremap // y/<C-R>"<CR>
+
 
 """" Miscellanious
 
