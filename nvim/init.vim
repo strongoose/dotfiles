@@ -16,6 +16,8 @@ Plugin 'venantius/vim-eastwood'
 Plugin 'pearofducks/ansible-vim'
 Plugin 'hashivim/vim-terraform'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'benmills/vimux'
+Plugin 'lervag/vimtex'
 
 call vundle#end()
 filetype plugin indent on
@@ -45,6 +47,10 @@ nnoremap <silent> <M-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <M-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <M-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <M-w> :TmuxNavigatePrevious<cr>
+
+"" Vimux
+nnoremap <Leader>vp :VimuxPromptCommand<CR>
+nnoremap <Leader>vc :VimuxCloseRunner<CR>
 
 " Use true colour
 set termguicolors
@@ -115,6 +121,7 @@ noremap <leader>p :set paste<CR>:put *<CR>:set nopaste<CR>
 
 " Search for visually selected text
 vnoremap // y/<C-R>"<CR>
+
 
 """" Miscellanious
 

@@ -47,6 +47,16 @@ source ~/.dotfiles/aliases.zsh
 ## opt to path
 path=( $path /opt/bin .local/bin )
 
+### gpg-agent SSH support
+# Fedora: https://github.com/fedora-infra/ssh-gpg-smartcard-config/blob/master/YubiKey.rst
+if [ -f /etc/fedora-release ]; then
+    if [ ! -f /run/user/$(id -u)/gpg-agent.env ]; then
+        killall gpg-agent;
+        eval $(gpg-agent --daemon --enable-ssh-support > /run/user/$(id -u)/gpg-agent.env);
+    fi
+    . /run/user/$(id -u)/gpg-agent.env
+fi
+
 ### Langs
 
 ## RVM
@@ -55,6 +65,7 @@ export path=( $path "$HOME/.rvm/bin" ) # Add RVM to path for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 ## Python
+export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python3"
 virtualenvwrapper_path="$(which virtualenvwrapper.sh)"
 if [[ -n "$virtualenvwrapper_path" ]]; then
     export VIRTUALENVWRAPPER_PYTHON=$(which python3)
