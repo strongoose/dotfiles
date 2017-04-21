@@ -37,6 +37,7 @@ for n in 2 3 4 6 8 10 12 20; do
 done
 
 # Aliases
+alias c='cd'
 alias grep='grep --color=auto'
 alias gs='g s'
 alias ls='ls --color=auto'
