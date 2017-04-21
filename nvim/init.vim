@@ -17,7 +17,7 @@ Plugin 'pearofducks/ansible-vim'
 Plugin 'hashivim/vim-terraform'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'benmills/vimux'
-Plugin 'lervag/vimtex'
+Plugin 'vim-latex/vim-latex'
 
 call vundle#end()
 filetype plugin indent on
@@ -51,6 +51,13 @@ nnoremap <silent> <M-w> :TmuxNavigatePrevious<cr>
 "" Vimux
 nnoremap <Leader>vp :VimuxPromptCommand<CR>
 nnoremap <Leader>vc :VimuxCloseRunner<CR>
+
+"" Vim-LaTeX
+" Use XeLaTeX
+let g:Tex_CompileRule_dvi = 'xelatex -no-pdf $*'
+let g:Tex_CompileRule_pdf = 'xelatex $*'
+" Output PDF by default
+let g:Tex_DefaultTargetFormat = 'pdf'
 
 " Use true colour
 set termguicolors

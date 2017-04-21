@@ -37,15 +37,12 @@ for n in 2 3 4 6 8 10 12 20; do
 done
 
 # Aliases
-alias ls='ls --color=auto'
-alias vimless='/usr/share/vim/vim73/macros/less.sh'
 alias grep='grep --color=auto'
-alias djangoversion='python -c "import django; print(django.get_version())"'
+alias gs='g s'
+alias ls='ls --color=auto'
 alias myip='curl icanhazip.com'
 alias pcp='pass show -c'
-alias wttr='curl wttr.in/'
+alias sl='ls'
 alias upgrade='sudo apt-get update && sudo apt-get upgrade'
 alias vim='nvim'
 alias xclip='xclip -selection clipboard'
-alias ssh='TERM=xterm ssh'
-alias sl='ls'

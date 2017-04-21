@@ -20,5 +20,6 @@
     dw  = diff --word-diff
     dwi = diff --word-diff --cached
     lg  = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    pl  = pull
     s   = status
     st  = status
