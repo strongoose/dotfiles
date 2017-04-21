@@ -54,7 +54,6 @@ nnoremap <Leader>vc :VimuxCloseRunner<CR>
 
 "" Vim-LaTeX
 " Use XeLaTeX
-let g:Tex_CompileRule_dvi = 'xelatex -no-pdf $*'
 let g:Tex_CompileRule_pdf = 'xelatex $*'
 " Output PDF by default
 let g:Tex_DefaultTargetFormat = 'pdf'
