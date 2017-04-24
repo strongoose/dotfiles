@@ -82,6 +82,14 @@ set number
 " hlsearch is just annoying
 set nohlsearch
 
+" Highlight cursor line and collumn
+set cursorline
+set cursorcolumn
+
+" Display line, collumn number and percentage progress through file in
+" statusbar
+set ruler
+
 
 """" FileTypes
 
