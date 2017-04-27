@@ -58,7 +58,6 @@ nnoremap <Leader>vc :VimuxCloseRunner<CR>
 
 "" Vim-LaTeX
 " Use XeLaTeX
-let g:Tex_CompileRule_dvi = 'xelatex -no-pdf $*'
 let g:Tex_CompileRule_pdf = 'xelatex $*'
 " Output PDF by default
 let g:Tex_DefaultTargetFormat = 'pdf'
@@ -86,6 +85,14 @@ set number
 
 " hlsearch is just annoying
 set nohlsearch
+
+" Highlight cursor line and collumn
+set cursorline
+set cursorcolumn
+
+" Display line, collumn number and percentage progress through file in
+" statusbar
+set ruler
 
 
 """" FileTypes
