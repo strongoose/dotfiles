@@ -18,6 +18,7 @@ Plugin 'hashivim/vim-terraform'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'benmills/vimux'
 Plugin 'vim-latex/vim-latex'
+Plugin 'leshill/vim-json'
 
 call vundle#end()
 filetype plugin indent on
@@ -47,6 +48,9 @@ nnoremap <silent> <M-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <M-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <M-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <M-w> :TmuxNavigatePrevious<cr>
+
+"" Vim Terraform
+nnoremap <Leader>tf :TerraformFmt<CR>
 
 "" Vimux
 nnoremap <Leader>vp :VimuxPromptCommand<CR>
