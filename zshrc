@@ -74,10 +74,10 @@ if [[ -n "$virtualenvwrapper_path" ]]; then
 fi
 
 ## Go
-GOPATH='/usr/local/go/'
-if [ -d "$GOPATH" ]; then
-    export GOPATH
-    export path=( $path "$GOPATH/bin" )
+GOROOT='/usr/local/go/'
+if [ -d "$GOROOT" ]; then
+    export GOROOT
+    export path=( $path "$GOROOT/bin" )
 fi
 
 ## Rust
