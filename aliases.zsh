@@ -28,7 +28,7 @@ eyamled () {
 
 
 dn () {
-   python -c "import random; print random.randrange(1, $1 + 1)"
+    python -c "import random; print(random.randrange(1, $1 + 1))"
 }
 
 # Die aliases
