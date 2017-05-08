@@ -31,12 +31,9 @@ bindkey '^Xh' _complete_help
 bindkey '^R' history-incremental-pattern-search-backward
 bindkey '^F' history-incremental-pattern-search-forward
 
-## Timestamp format for history
-export SHARE_HISTORY="true"
-
 ### Biggest history
-export HISTSIZE=9223372036854775807 # LONG_MAX (64-bit)
-export SAVEHIST=9223372036854775807
+export HISTSIZE=9999999999999999 # LONG_MAX (64-bit)
+export SAVEHIST=9999999999999999
 
 ### Aliases
 source ~/.dotfiles/aliases.zsh
