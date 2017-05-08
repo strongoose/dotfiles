@@ -2,7 +2,7 @@
 
 - shell: # Pre-install
 
-    - command: git submodule update --init
+    - command: git submodule update --init --remote
       stdout: true
       stderr: true
 
