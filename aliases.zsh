@@ -31,6 +31,105 @@ dn () {
     python -c "import random; print(random.randrange(1, $1 + 1))"
 }
 
+bp () {
+
+    usage () {
+        >&2 echo "$0 [ --python ] DEST"
+    }
+
+    FORCE="false"
+
+    [ $# -eq 0 ] && usage
+
+    while [ $# -ge 1 ]; do
+        case $1 in
+            -f)
+                FORCE="true"
+                ;;
+            --python)
+                LANG=python
+                ;;
+            *)
+                if [ $# -ge 2 ]; then
+                    usage
+                    return
+                else
+                    DEST=$1
+                fi
+                ;;
+        esac
+        shift
+    done
+
+    if [[ -e $DEST ]] && ! $FORCE; then
+        echo "Destination file $DEST already exists!"
+        return
+    fi
+
+    if [[ "$LANG" == "python" ]]; then
+        cat<<EOS > $DEST
+#!/usr/bin/env python
+'''
+FIXME: docstring
+'''
+import argparse
+
+def parse_args():
+    '''
+    Parse script arguments.
+    '''
+
+    parser = argparse.ArgumentParser(
+        description='FIXME: script description'
+    )
+
+    parser.add_argument('ARG', help='')
+
+    return parser.parse_args()
+
+if __name__ == '__main__':
+
+    ARGS = parse_args()
+EOS
+    else
+        cat<<EOS > $DEST
+#!/bin/bash
+
+set -eo pipefail
+
+function err {
+  >&2 echo "\$@"
+  exit 1
+}
+
+function usage {
+  usage=\$(cat<<EOF
+Usage: $0 ARGS
+
+FIXME: description.
+EOF
+)
+  err "\$usage"
+}
+
+[ \$# -eq 0 ] && usage
+
+while [ \$# -ge 1 ]; do
+    case \$1 in
+        --opts)
+            OPTS="FIXME"
+            ;;
+        *)
+            usage
+            ;;
+    esac
+    shift
+done
+EOS
+    fi
+
+}
+
 # Die aliases
 for n in 2 3 4 6 8 10 12 20; do
   alias d$n="dn $n"
