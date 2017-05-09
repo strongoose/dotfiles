@@ -1,6 +1,17 @@
 # Things that are technically not aliases
 sprunge () {
-        cat - | curl -F 'sprunge=<-' http://sprunge.us
+    cat - | curl -F 'sprunge=<-' http://sprunge.us
+}
+
+gtf () {
+    LATEST_RELEASE=$(curl https://api.github.com/repos/hashicorp/terraform/releases/latest | jq --raw-output '.tag_name' | cut -c 2-)
+    if [[ $(terraform --version | head -n1 | sed 's/^Terraform v//') != ${LATEST_RELEASE} ]]; then
+       echo "Installing Terraform ${LATEST_RELEASE}..."
+       curl https://releases.hashicorp.com/terraform/${LATEST_RELEASE}/terraform_${LATEST_RELEASE}_linux_amd64.zip | gunzip - > /opt/bin/terraform
+       sudo chmod 775 /opt/bin/terraform
+    else
+       echo "Latest Terraform already installed."
+    fi
 }
 
 yamlval () {
