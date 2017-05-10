@@ -146,17 +146,12 @@ vnoremap // y/<C-R>"<CR>
 """" Miscellanious
 
 " Restore to file position from previous editing
-function! ResCur()
-  if line("'\"") <= line("$")
-    normal! g`"
-    return 1
-  endif
-endfunction
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
-augroup resCur
-  autocmd!
-  autocmd BufWinEnter * call ResCur()
-augroup END
+" Set nowrap if there are really long lines in the file (e.g. hiera-eyaml
+" encrypted fields) Note that the system call returns '<numlines> <path>', but
+" the `>` seems to just ignore the non-numeric part.
+autocmd BufReadPost * if system('wc -L ' . expand('%')) > 200 | setlocal nowrap | endif
 
 " Use ww!! as a shortcut to save using sudo 
 cmap ww!! w !sudo tee > /dev/null %
