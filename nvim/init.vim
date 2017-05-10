@@ -94,20 +94,20 @@ set cursorcolumn
 " statusbar
 set ruler
 
+" Don't autowrap in most files
+set textwidth=0
+
 
 """" FileTypes
 
 " Python: show PEP8 code/comment widths, set textwidth to code width
 autocmd FileType python setlocal textwidth=72 colorcolumn=73,81
 
-" Bash: don't try to manage textwidth
-autocmd FileType sh setlocal textwidth=0
-
 " Lua: expand tabs to two spaces
-autocmd FileType lua set tabstop=2
+autocmd FileType lua setlocal tabstop=2
 
-" Text: don't number lines
-autocmd FileType text set nonumber
+" Text: don't number lines, wrap to 80
+autocmd FileType text setlocal nonumber textwidth=80
 
 " Go: use tabs
 autocmd FileType go setlocal noexpandtab
@@ -118,6 +118,8 @@ autocmd FileType yaml setlocal tabstop=2
 " Themes: set the filetype on oh-my-zsh themes to zsh
 autocmd BufRead,BufNewFile *.zsh-theme setfiletype zsh
 
+" Markdown: wrap at 80
+autocmd FileType markdown setlocal textwidth=80
 
 """" Keybindings
 
