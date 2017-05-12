@@ -56,11 +56,6 @@ fi
 
 ### Langs
 
-## RVM
-export path=( $path "$HOME/.rvm/bin" ) # Add RVM to path for scripting
-# Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
 ## Python
 export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python3"
 virtualenvwrapper_path="$(which virtualenvwrapper.sh)"
@@ -71,7 +66,7 @@ if [[ -n "$virtualenvwrapper_path" ]]; then
 fi
 
 ## Go
-GOROOT='/usr/local/go/'
+GOROOT='/usr/local/go'
 if [ -d "$GOROOT" ]; then
     export GOROOT
     export path=( $path "$GOROOT/bin" )
@@ -81,6 +76,11 @@ fi
 if [ -d "$HOME/.cargo/" ]; then
     export path=( $path "$HOME/.cargo/bin" )
 fi
+
+## RVM
+export path=( "$HOME/.rvm/gems/ruby-2.4.0/bin" $path ) # Add RVM to path for scripting
+# Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # Editor
 if which nvim >/dev/null; then
