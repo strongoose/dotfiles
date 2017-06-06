@@ -14,6 +14,10 @@
       stdout: true
       stderr: true
 
+    - command: mkdir -p ~/.local/bin
+      stdout: true
+      stderr: true
+
 - link:
     # vim/Vundle
     ~/.config/nvim/bundle/Vundle.vim: Vundle.vim
@@ -40,3 +44,6 @@
 
     # pylint
     ~/.pylintrc: pylintrc
+
+    # Misc scripts
+    ~/.local/bin/gettf: scripts/gettf

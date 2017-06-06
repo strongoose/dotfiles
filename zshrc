@@ -42,7 +42,7 @@ source ~/.dotfiles/aliases.zsh
 #### Environment
 
 ## opt to path
-path=( $path /opt/bin "$HOME/.local/bin" )
+path=( $path "$HOME/.local/bin" )
 
 ### gpg-agent SSH support
 # Fedora: https://github.com/fedora-infra/ssh-gpg-smartcard-config/blob/master/YubiKey.rst
