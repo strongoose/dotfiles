@@ -52,6 +52,9 @@ if [ -f /etc/fedora-release ]; then
         eval $(gpg-agent --daemon --enable-ssh-support > /run/user/$(id -u)/gpg-agent.env);
     fi
     . /run/user/$(id -u)/gpg-agent.env
+else
+    gpg-connect-agent /bye 2>&1 >/dev/null
+    export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 fi
 
 ### Langs
