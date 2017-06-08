@@ -153,5 +153,8 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "norm
 " the `>` seems to just ignore the non-numeric part.
 autocmd BufReadPost * if system('wc -L ' . expand('%')) > 200 | setlocal nowrap | endif
 
+" Local chdir to file directory on read
+autocmd BufRead,BufNewFile * silent! lcd %:p:h
+
 " Use ww!! as a shortcut to save using sudo 
 cmap ww!! w !sudo tee > /dev/null %
