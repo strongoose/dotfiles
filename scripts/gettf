@@ -21,4 +21,4 @@ fi
 
 echo "Installing Terraform v$LATEST_RELEASE to $BIN_DIR"
 curl "https://releases.hashicorp.com/terraform/${LATEST_RELEASE}/terraform_${LATEST_RELEASE}_linux_amd64.zip" | gunzip - > "$BIN_DIR/terraform"
-chmod 775 "${BIN_DIR}/terraform"
+chmod 770 "${BIN_DIR}/terraform"
