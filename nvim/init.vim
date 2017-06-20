@@ -19,6 +19,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'benmills/vimux'
 Plugin 'vim-latex/vim-latex'
 Plugin 'leshill/vim-json'
+Plugin 'junegunn/fzf'
 
 call vundle#end()
 filetype plugin indent on

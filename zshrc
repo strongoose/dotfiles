@@ -94,3 +94,8 @@ fi
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+# fzf (https://github.com/junegunn/fzf)
+export FZF_DEFAULT_COMMAND="--height 25% --border"
+export FZF_DEFAULT_OPTS="--height 25% --border"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
