@@ -57,6 +57,11 @@ else
     export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 fi
 
+### hub (https://github.com/github/hub)
+if which hub 2>&1 >/dev/null; then
+    alias git=hub
+fi
+
 ### Langs
 
 ## Python
