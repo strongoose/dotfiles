@@ -15,6 +15,7 @@
     a   = add
     aa  = add .
     ci  = commit
+    ca  = commit -a
     co  = checkout
     d   = diff
     dc  = diff --word-diff --word-diff-regex='.'
@@ -27,4 +28,5 @@
     pl  = pull
     pr  = pull-request
     s   = status
+    smash = commit -a --amend
     st  = status
