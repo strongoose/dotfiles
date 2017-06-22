@@ -5,14 +5,17 @@
     default = simple
 [branch]
     autosetuprebase = always
+[commit]
+    verbose = true
 [core]
     editor = nvim
     excludesfile = /home/dan/.gitignore
-	pager = diff-so-fancy | less --tabs=4 -RFX
+    pager = diff-so-fancy | less --tabs=4 -RFX
 [alias]
     a   = add
     aa  = add .
-    ci  = commit -v
+    ci  = commit
+    ca  = commit -a
     co  = checkout
     d   = diff
     dc  = diff --word-diff --word-diff-regex='.'
@@ -25,4 +28,5 @@
     pl  = pull
     pr  = pull-request
     s   = status
+    smash = commit -a --amend
     st  = status
