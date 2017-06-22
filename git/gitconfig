@@ -5,6 +5,8 @@
     default = simple
 [branch]
     autosetuprebase = always
+[commit]
+    verbose = true
 [core]
     editor = nvim
     excludesfile = /home/dan/.gitignore
@@ -12,7 +14,7 @@
 [alias]
     a   = add
     aa  = add .
-    ci  = commit -v
+    ci  = commit
     co  = checkout
     d   = diff
     dc  = diff --word-diff --word-diff-regex='.'
