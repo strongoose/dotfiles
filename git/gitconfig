@@ -1,6 +1,8 @@
 [user]
     email = dstrong@glyx.co.uk
     name = Daniel Strong
+[includeIf "gitdir:~/hmrc/**"]
+    path = ~/hmrc/dotfiles/gitconfig
 [push]
     default = simple
 [branch]
