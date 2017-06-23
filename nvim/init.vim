@@ -149,6 +149,9 @@ vnoremap // y/<C-R>"<CR>
 
 """" Miscellanious
 
+" Remove trailing whitespace before write
+autocmd BufWritePre * :%s/\s\+$//e
+
 " Restore to file position from previous editing
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
@@ -160,5 +163,5 @@ autocmd BufReadPost * if system('wc -L ' . expand('%')) > 200 | setlocal nowrap 
 " Local chdir to file directory on read
 autocmd BufRead,BufNewFile * silent! lcd %:p:h
 
-" Use ww!! as a shortcut to save using sudo 
+" Use ww!! as a shortcut to save using sudo
 cmap ww!! w !sudo tee > /dev/null %
