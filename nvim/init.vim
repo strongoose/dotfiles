@@ -163,4 +163,4 @@ autocmd BufReadPost * if system('wc -L ' . expand('%')) > 200 | setlocal nowrap 
 autocmd BufRead,BufNewFile * silent! lcd %:p:h
 
 " Use ww!! as a shortcut to save using sudo
-cmap ww!! w !sudo tee > /dev/null %
+cmap w!! w !sudo tee > /dev/null %
