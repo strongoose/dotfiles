@@ -124,6 +124,9 @@ autocmd BufRead,BufNewFile *.zsh-theme setfiletype zsh
 " Markdown: wrap at 80
 autocmd FileType markdown setlocal textwidth=80
 
+" Ruby: 2 space tabstop
+autocmd FileType yaml setlocal tabstop=2
+
 """" Keybindings
 
 "" Pane naivgation
