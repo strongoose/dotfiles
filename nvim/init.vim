@@ -104,7 +104,7 @@ set textwidth=0
 """" FileTypes
 
 " Python: show PEP8 code/comment widths, set textwidth to code width
-autocmd FileType python setlocal textwidth=72 colorcolumn=73,81
+autocmd FileType python setlocal textwidth=72
 
 " Lua: expand tabs to two spaces
 autocmd FileType lua setlocal tabstop=2
