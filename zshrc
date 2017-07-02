@@ -89,6 +89,10 @@ fi
 source "/usr/share/chruby/chruby.sh"
 source "/usr/share/chruby/auto.sh"
 
+## Node
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
 ## Editor
 if which nvim >/dev/null; then
     export EDITOR='nvim'
