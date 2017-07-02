@@ -85,6 +85,10 @@ if [ -d "$HOME/.cargo/" ]; then
     export path=( $path "$HOME/.cargo/bin" )
 fi
 
+## Ruby
+source "/usr/share/chruby/chruby.sh"
+source "/usr/share/chruby/auto.sh"
+
 ## Editor
 if which nvim >/dev/null; then
     export EDITOR='nvim'
