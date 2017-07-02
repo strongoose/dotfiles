@@ -137,15 +137,15 @@ done
 
 # Aliases
 alias c='cd'
+alias centos='docker run -it --rm centos /bin/bash'
 alias grep='grep --color=auto'
 alias gs='g s'
 alias ls='ls --color=auto'
 alias myip='curl icanhazip.com'
+alias nc='ncat'
 alias pcp='pass show -c'
 alias sl='ls'
+alias ubuntu='docker run -it --rm ubuntu /bin/bash'
 alias upgrade='sudo apt-get update && sudo apt-get upgrade'
 alias vim='nvim'
 alias xclip='xclip -selection clipboard'
-alias nc='ncat'
-alias ubuntu='docker run -it --rm ubuntu /bin/bash'
-alias centos='docker run -it --rm centos /bin/bash'
