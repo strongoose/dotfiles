@@ -16,6 +16,7 @@
 [alias]
     a   = add
     aa  = add .
+    b   = branch
     ci  = commit
     ca  = commit -a
     co  = checkout
@@ -31,4 +32,3 @@
     pr  = pull-request
     s   = status
     smash = commit -a --amend
-    st  = status
