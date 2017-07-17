@@ -30,5 +30,6 @@
     ph  = push -u origin HEAD
     pl  = pull
     pr  = pull-request
+    r   = rebase
     s   = status
     smash = commit -a --amend
