@@ -18,9 +18,9 @@ antigen theme agnoster
 antigen apply
 
 
-#### Z (could probably manage this with antigen)
+#### z (https://github.com/rupa/z)
 export _Z_CMD=j
-source ~/.dotfiles/z.zsh
+source ~/.dotfiles/z/z.sh
 
 ##### Zsh settings
 
