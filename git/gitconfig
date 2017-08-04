@@ -16,6 +16,7 @@
 [alias]
     a   = add
     aa  = add .
+    ai  = add -i
     b   = branch
     ci  = commit
     ca  = commit -a
