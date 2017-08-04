@@ -100,6 +100,9 @@ else
     export EDITOR='vim'
 fi
 
+## Fix VTE issue: https://gnunn1.github.io/tilix-web/manual/vteconfig/
+source /etc/profile.d/vte.sh
+
 ## fzf (https://github.com/junegunn/fzf)
 export FZF_DEFAULT_COMMAND="--height 25% --border"
 export FZF_DEFAULT_OPTS="--height 25% --border"
