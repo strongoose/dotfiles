@@ -12,7 +12,7 @@ if [[ ! -d "$BIN_DIR" ]]; then
 fi
 
 if [[ -x $(which terraform) ]]; then
-    TF_VERSION="$(terraform --version 2>/dev/null | head -n1 | sed 's/^Terraform v//')"
+    TF_VERSION="$(terraform --version 2>/dev/null | awk 'match($0,/^Terraform v([0-9]+\.[0-9]+\.[0-9]+)/,a) {print a[1]}')"
     if [[ "$TF_VERSION" == "$LATEST_RELEASE" ]]; then
         echo "Already up to date: Terraform v$TF_VERSION"
         exit 0
