@@ -53,7 +53,7 @@ nnoremap <silent> <M-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <M-w> :TmuxNavigatePrevious<cr>
 
 "" Vim Terraform
-nnoremap <Leader>tf :TerraformFmt<CR>
+let g:terraform_fmt_on_save = 1
 
 "" Vimux
 nnoremap <Leader>vp :VimuxPromptCommand<CR>
