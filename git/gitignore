@@ -3,3 +3,4 @@
 .ruby-version
 .autoenv.zsh
 .autoenv_leave.zsh
+tf.plan
