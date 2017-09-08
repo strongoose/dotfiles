@@ -138,26 +138,17 @@ autocmd FileType markdown setlocal colorcolumn=120
 " Various: 2 space tabstop
 autocmd FileType ruby,yaml,lua,sh,terraform,Jenkinsfile setlocal tabstop=2
 
-"""" Keybindings
 
-"" Pane naivgation
-" See Vim Tmux Navigator settings above
+"""" Keybindings
 
 " Toggle number with F2
 nnoremap <F2> :set nonumber!
 
-" Escape from terminal mode
-tnoremap <Esc> <C-\><C-n>
+" Clipboard integration
+set clipboard=unnamedplus
 
-" Copy/paste to/from clipboard with automatic :set paste
-" +: CLIPBOARD
-" *: PRIMARY
-noremap <leader>y "+y
-noremap <leader>yy "+Y
-noremap <leader>p :set paste<CR>:put *<CR>:set nopaste<CR>
-
-" Search for visually selected text
-vnoremap // y/<C-R>"<CR>
+" Mouse
+set mouse=a
 
 
 """" Miscellanious
