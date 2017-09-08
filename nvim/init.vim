@@ -3,25 +3,41 @@
 set rtp+=~/.config/nvim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'Shougo/deoplete.nvim'
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'benmills/vimux'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'hashivim/vim-terraform'
+Plugin 'VundleVim/Vundle.vim'            " Plugin manager
+
+"" Look & feel
+Plugin 'morhetz/gruvbox'                 " Colour scheme
+Plugin 'myusuf3/numbers.vim'             " Line numbers
+
+" Tools
+Plugin 'christoomey/vim-tmux-navigator'  " Tmux pane navigation integration
+Plugin 'tpope/vim-fugitive'              " Git integration
+
+"" Navigation
+Plugin 'junegunn/fzf'                    " Fuzzy file finder
 Plugin 'junegunn/fzf.vim'
-Plugin 'leshill/vim-json'
-Plugin 'morhetz/gruvbox'
-Plugin 'myusuf3/numbers.vim'
-Plugin 'pearofducks/ansible-vim'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
-Plugin 'sjl/gundo.vim'
-Plugin 'tpope/vim-fireplace'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround.git'
-Plugin 'venantius/vim-eastwood'
-Plugin 'vim-latex/vim-latex'
+Plugin 'scrooloose/nerdtree'             " File browser
+
+"" Enhancements
+Plugin 'Shougo/deoplete.nvim'            " Completion
+Plugin 'scrooloose/nerdcommenter'        " Code comments
+Plugin 'sjl/gundo.vim'                   " Undo tree navigation
+Plugin 'svermeulen/vim-easyclip'         " Clipboard enhancements
+Plugin 'tpope/vim-repeat'                " Repeat (. operator) support for plugins
+Plugin 'tpope/vim-surround'              " Enclose text with brackets/quotes/tags/etc.
+
+"" Syntax highlighting and coding
+Plugin 'fatih/vim-go'                    " Golang
+Plugin 'hashivim/vim-terraform'          " Terraform
+Plugin 'leshill/vim-json'                " JSON syntax highlighting
+Plugin 'martinda/Jenkinsfile-vim-syntax' " Jenkinsfiles
+Plugin 'pearofducks/ansible-vim'         " Ansible
+Plugin 'tpope/vim-fireplace'             " Clojure
+Plugin 'vim-latex/vim-latex'             " LaTeX
+
+"" Linting
+Plugin 'scrooloose/syntastic'            " General-purpose linter integration
+Plugin 'venantius/vim-eastwood'          " Clojure linting
 
 call vundle#end()
 filetype plugin indent on
