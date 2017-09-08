@@ -52,6 +52,7 @@ nnoremap <F4> :GundoToggle<CR>
 " Load pylint
 let g:syntastic_python_checkers = ['pylint']
 let g:syntastic_sh_checkers = ['shellcheck']
+let g:syntastic_js_checkers = ['jshint']
 
 "" Gruvbox
 let g:gruvbox_italic=1
