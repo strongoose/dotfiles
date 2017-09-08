@@ -88,10 +88,21 @@ fi
 ## Ruby
 source "/usr/share/chruby/chruby.sh"
 source "/usr/share/chruby/auto.sh"
+chruby 2.4 # default to 2.4
 
 ## Node
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+## Perl6
+if [ -d "$HOME/.perl6/" ]; then
+    export path=( $path "$HOME/.perl6/bin" )
+fi
+
+## tfenv
+if [ -d "$HOME/.tfenv/" ]; then
+    export path=( $path "$HOME/.tfenv/bin" )
+fi
 
 ## Editor
 if which nvim >/dev/null; then
