@@ -27,6 +27,7 @@
     di  = diff --cached
     dw  = diff --word-diff
     dwi = diff --word-diff --cached
+    fup = fetch upstream
     lg  = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     ph  = push -u origin HEAD
     pl  = pull
