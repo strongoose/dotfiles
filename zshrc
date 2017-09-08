@@ -118,5 +118,5 @@ source /etc/profile.d/vte.sh
 export FZF_DEFAULT_COMMAND='rg --files --hidden -F'
 export FZF_DEFAULT_OPTS="--height 25% --border"
 # FZF ALL THE THINGS (instead of typing **<TAB> as a completion trigger, just <TAB> will do)
-export FZF_COMPLETION_TRIGGER=""
+export FZF_COMPLETION_TRIGGER="@"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

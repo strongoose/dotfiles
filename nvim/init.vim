@@ -63,6 +63,7 @@ nnoremap <F4> :GundoToggle<CR>
 let g:syntastic_python_checkers = ['pylint']
 let g:syntastic_sh_checkers = ['shellcheck']
 let g:syntastic_js_checkers = ['jshint']
+let g:syntastic_html_checkers = ['tidy']
 
 "" Gruvbox
 let g:gruvbox_italic=1
@@ -181,7 +182,7 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "norm
 autocmd BufReadPost * if system('wc -L ' . expand('%')) > 200 | setlocal nowrap | endif
 
 " Local chdir to file directory on read
-autocmd BufRead,BufNewFile * silent! lcd %:p:h
+"autocmd BufRead,BufNewFile * silent! lcd %:p:h
 
 " Use ww!! as a shortcut to save using sudo
 cmap w!! w !sudo tee > /dev/null %
