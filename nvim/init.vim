@@ -42,6 +42,10 @@ Plugin 'venantius/vim-eastwood'          " Clojure linting
 call vundle#end()
 filetype plugin indent on
 
+"" Python 3
+let g:python3_host_prog = '/home/dan/.virtualenvs/neovim-python3/bin/python'
+let g:python_host_prog = '/home/dan/.virtualenvs/neovim-python2/bin/python'
+
 "" deoplete
 let g:deoplete#enable_at_startup = 1
 " When pop-up menu is visible remap <TAB> to <C-n> for cycling through
