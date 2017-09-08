@@ -123,17 +123,11 @@ set textwidth=0
 " Python: show PEP8 code/comment widths, set textwidth to code width
 autocmd FileType python setlocal textwidth=72
 
-" Lua: expand tabs to two spaces
-autocmd FileType lua setlocal tabstop=2
-
 " Text: don't number lines, wrap to 80
 autocmd FileType text setlocal nonumber textwidth=80
 
 " Go: use tabs
 autocmd FileType go setlocal noexpandtab
-
-" YAML: 2 space tabstop
-autocmd FileType yaml setlocal tabstop=2
 
 " Themes: set the filetype on oh-my-zsh themes to zsh
 autocmd BufRead,BufNewFile *.zsh-theme setfiletype zsh
@@ -141,8 +135,8 @@ autocmd BufRead,BufNewFile *.zsh-theme setfiletype zsh
 " Markdown: wrap at 80
 autocmd FileType markdown setlocal textwidth=80
 
-" Ruby: 2 space tabstop
-autocmd FileType yaml setlocal tabstop=2
+" Various: 2 space tabstop
+autocmd FileType ruby,yaml,lua,sh,terraform,Jenkinsfile setlocal tabstop=2
 
 """" Keybindings
 
