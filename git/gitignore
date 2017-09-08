@@ -4,3 +4,4 @@
 .autoenv.zsh
 .autoenv_leave.zsh
 tf.plan
+_build
