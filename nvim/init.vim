@@ -42,6 +42,12 @@ Plugin 'venantius/vim-eastwood'          " Clojure linting
 call vundle#end()
 filetype plugin indent on
 
+"" deoplete
+let g:deoplete#enable_at_startup = 1
+" When pop-up menu is visible remap <TAB> to <C-n> for cycling through
+" autocomplete options.
+inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+
 "" Nerdtree
 nnoremap <F3> :NERDTreeToggle<CR>
 
@@ -84,6 +90,12 @@ let g:Tex_DefaultTargetFormat = 'pdf'
 
 " Use true colour
 set termguicolors
+
+"" FZF
+nnoremap <C-E> :FZF<CR>
+
+"" easyclip
+let g:EasyClipUseSubstituteDefaults = 1
 
 
 """" Options
