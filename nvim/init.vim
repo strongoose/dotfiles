@@ -168,6 +168,10 @@ set clipboard=unnamedplus
 " Mouse
 set mouse=a
 
+" Inc/Dec numbers (default C-a to increment conflicts with tmux leader)
+nnoremap <C-i> <C-a>
+nnoremap <C-j> <C-x>
+
 
 """" Miscellanious
 
