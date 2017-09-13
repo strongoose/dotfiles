@@ -64,6 +64,7 @@ let g:syntastic_python_checkers = ['pylint']
 let g:syntastic_sh_checkers = ['shellcheck']
 let g:syntastic_js_checkers = ['jshint']
 let g:syntastic_html_checkers = ['tidy']
+let g:syntastic_css_checkers = ['csslint']
 
 "" Gruvbox
 let g:gruvbox_italic=1
@@ -153,7 +154,7 @@ autocmd BufRead,BufNewFile *.zsh-theme setfiletype zsh
 autocmd FileType markdown setlocal colorcolumn=120
 
 " Various: 2 space tabstop
-autocmd FileType ruby,yaml,lua,sh,terraform,Jenkinsfile setlocal tabstop=2
+autocmd FileType html,css,ruby,yaml,lua,sh,terraform,Jenkinsfile setlocal tabstop=2
 
 
 """" Keybindings
