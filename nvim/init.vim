@@ -33,7 +33,6 @@ Plugin 'leshill/vim-json'                " JSON syntax highlighting
 Plugin 'martinda/Jenkinsfile-vim-syntax' " Jenkinsfiles
 Plugin 'pearofducks/ansible-vim'         " Ansible
 Plugin 'tpope/vim-fireplace'             " Clojure
-Plugin 'vim-latex/vim-latex'             " LaTeX
 
 "" Linting
 Plugin 'scrooloose/syntastic'            " General-purpose linter integration
@@ -169,7 +168,7 @@ set clipboard=unnamedplus
 set mouse=a
 
 " Inc/Dec numbers (default C-a to increment conflicts with tmux leader)
-nnoremap <C-i> <C-a>
+nnoremap <C-k> <C-a>
 nnoremap <C-j> <C-x>
 
 
