@@ -120,3 +120,8 @@ export FZF_DEFAULT_OPTS="--height 25% --border"
 # FZF ALL THE THINGS (instead of typing **<TAB> as a completion trigger, just <TAB> will do)
 export FZF_COMPLETION_TRIGGER="@"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Print packages to update
+# Requires passwordless sudo:
+# <username> ALL=(ALL) NOPASSWD: /usr/bin/pacman
+sudo pacman -Syup --print-format "%n"
