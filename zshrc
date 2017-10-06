@@ -1,5 +1,8 @@
 #### zsh/ohmyzsh
 
+# Profile zsh start speed
+#zmodload zsh/zprof
+
 # path should be a unique array
 typeset -aU path
 
@@ -89,10 +92,6 @@ fi
 source "/usr/share/chruby/chruby.sh"
 source "/usr/share/chruby/auto.sh"
 chruby 2.4 # default to 2.4
-
-## Node
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 ## Perl6
 if [ -d "$HOME/.perl6/" ]; then
