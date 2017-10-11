@@ -35,4 +35,5 @@
     pr  = pull-request -c
     r   = rebase
     s   = status
+    sh  = stash
     smash = commit -a --amend
