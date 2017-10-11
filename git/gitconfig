@@ -21,6 +21,7 @@
     ci  = commit
     ca  = commit -a
     co  = checkout
+    cb  = checkout -b
     d   = diff
     dc  = diff --word-diff --word-diff-regex='.'
     dci = diff --word-diff --word-diff-regex='.' --cached
