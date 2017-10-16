@@ -49,7 +49,7 @@ values."
      python
      (shell :variables
             shell-default-term-shell "/bin/zsh"
-            shell-default-shell 'term)
+            shell-default-shell 'ansi-term)
      speed-reading
      spell-checking
      syntax-checking
