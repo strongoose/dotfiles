@@ -134,6 +134,10 @@ set ruler
 " Don't autowrap in most files
 set textwidth=0
 
+" Be smart about case: use ignorecase unless pattern contains uppercase
+set ignorecase
+set smartcase
+
 
 """" FileTypes
 
