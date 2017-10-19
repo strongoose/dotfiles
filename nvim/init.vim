@@ -97,7 +97,7 @@ let g:Tex_DefaultTargetFormat = 'pdf'
 set termguicolors
 
 "" FZF
-nnoremap <C-E> :FZF<CR>
+nnoremap <C-E> :Files<CR>
 
 "" easyclip
 let g:EasyClipUseSubstituteDefaults = 1
