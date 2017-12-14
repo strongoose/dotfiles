@@ -39,6 +39,7 @@ Plugin 'martinda/Jenkinsfile-vim-syntax' " Jenkinsfiles
 Plugin 'pearofducks/ansible-vim'         " Ansible
 Plugin 'rodjek/vim-puppet'               " Puppet
 Plugin 'zchee/deoplete-jedi'             " Python
+Plugin 'rust-lang/rust.vim'              " Rust
 
 " Clojure
 Plugin 'tpope/vim-fireplace'
