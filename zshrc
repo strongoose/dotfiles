@@ -44,8 +44,13 @@ source ~/.dotfiles/aliases.zsh
 
 #### Environment
 
+## on OSX we need to prefix $path with /usr/local/bin for brew to function properly
+if [[ $(uname) == 'Darwin' ]]; then
+    path=( /usr/local/bin $path )
+fi
+
 ## opt to path
-path=( /usr/local/bin $path $HOME/.local/bin )
+path=( $path $HOME/.local/bin )
 
 ### gpg-agent SSH support
 # Fedora: https://github.com/fedora-infra/ssh-gpg-smartcard-config/blob/master/YubiKey.rst
@@ -111,7 +116,10 @@ else
 fi
 
 ## Fix VTE issue: https://gnunn1.github.io/tilix-web/manual/vteconfig/
-#source /etc/profile.d/vte.sh
+VTE_PROFILE=/etc/profile.d/vte.sh
+if [[ -e "$VTE_PROFILE" ]]; then
+    source /etc/profile.d/vte.sh
+fi
 
 ## fzf (https://github.com/junegunn/fzf)
 export FZF_DEFAULT_COMMAND='rg --files --hidden -F'
@@ -121,4 +129,6 @@ export FZF_DEFAULT_OPTS="--height 25% --border"
 # Print packages to update
 # Requires passwordless sudo:
 # <username> ALL=(ALL) NOPASSWD: /usr/bin/pacman
-# sudo pacman -Syup --print-format "%n"
+if grep 'Arch Linux' /etc/os-release >/dev/null 2>&1; then
+    sudo pacman -Syup --print-format "%n"
+fi
