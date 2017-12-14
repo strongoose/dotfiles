@@ -1,3 +1,7 @@
+"""" Leader
+
+let mapleader = ','
+
 """" Plugins
 
 set rtp+=~/.config/nvim/bundle/Vundle.vim
@@ -25,6 +29,7 @@ Plugin 'sjl/gundo.vim'                   " Undo tree navigation
 Plugin 'svermeulen/vim-easyclip'         " Clipboard enhancements
 Plugin 'tpope/vim-repeat'                " Repeat (. operator) support for plugins
 Plugin 'tpope/vim-surround'              " Enclose text with brackets/quotes/tags/etc.
+Plugin 'mhinz/vim-signify'
 
 "" Syntax highlighting and coding
 Plugin 'fatih/vim-go'                    " Golang
@@ -32,7 +37,13 @@ Plugin 'hashivim/vim-terraform'          " Terraform
 Plugin 'leshill/vim-json'                " JSON syntax highlighting
 Plugin 'martinda/Jenkinsfile-vim-syntax' " Jenkinsfiles
 Plugin 'pearofducks/ansible-vim'         " Ansible
-Plugin 'tpope/vim-fireplace'             " Clojure
+Plugin 'rodjek/vim-puppet'               " Puppet
+Plugin 'zchee/deoplete-jedi'             " Python
+
+" Clojure
+Plugin 'tpope/vim-fireplace'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'vim-scripts/paredit.vim'
 
 "" Linting
 Plugin 'scrooloose/syntastic'            " General-purpose linter integration
@@ -42,14 +53,17 @@ call vundle#end()
 filetype plugin indent on
 
 "" Python 3
-let g:python3_host_prog = '/home/dan/.virtualenvs/neovim-python3/bin/python'
-let g:python_host_prog = '/home/dan/.virtualenvs/neovim-python2/bin/python'
+let g:python3_host_prog = $HOME . '/.virtualenvs/neovim-python3/bin/python'
+let g:python_host_prog = $HOME . '/.virtualenvs/neovim-python2/bin/python'
 
 "" deoplete
 let g:deoplete#enable_at_startup = 1
 " When pop-up menu is visible remap <TAB> to <C-n> for cycling through
 " autocomplete options.
 inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+
+"" signify
+let g:signify_vcs_list = [ 'git', 'hg' ]
 
 "" Nerdtree
 nnoremap <F3> :NERDTreeToggle<CR>
@@ -82,10 +96,6 @@ nnoremap <silent> <M-w> :TmuxNavigatePrevious<cr>
 
 "" Vim Terraform
 let g:terraform_fmt_on_save = 1
-
-"" Vimux
-nnoremap <Leader>vp :VimuxPromptCommand<CR>
-nnoremap <Leader>vc :VimuxCloseRunner<CR>
 
 "" Vim-LaTeX
 " Use XeLaTeX
