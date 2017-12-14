@@ -1,8 +1,8 @@
 [user]
     email = dstrong@glyx.co.uk
     name = Daniel Strong
-[includeIf "gitdir:~/hmrc/**"]
-    path = ~/hmrc/dotfiles/gitconfig
+[includeIf "gitdir:~/coop/**"]
+    path = ~/coop/dotfiles/gitconfig
 [push]
     default = simple
 [branch]
@@ -11,7 +11,7 @@
     verbose = true
 [core]
     editor = nvim
-    excludesfile = /home/dan/.gitignore
+    excludesfile = ~/.gitignore
     pager = diff-so-fancy | less --tabs=4 -RFX
 [alias]
     a   = add

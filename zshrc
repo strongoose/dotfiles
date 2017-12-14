@@ -45,7 +45,7 @@ source ~/.dotfiles/aliases.zsh
 #### Environment
 
 ## opt to path
-path=( $path "$HOME/.local/bin" )
+path=( /usr/local/bin $path $HOME/.local/bin )
 
 ### gpg-agent SSH support
 # Fedora: https://github.com/fedora-infra/ssh-gpg-smartcard-config/blob/master/YubiKey.rst
@@ -89,9 +89,9 @@ if [ -d "$HOME/.cargo/" ]; then
 fi
 
 ## Ruby
-source "/usr/share/chruby/chruby.sh"
-source "/usr/share/chruby/auto.sh"
-chruby 2.4 # default to 2.4
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 ## Perl6
 if [ -d "$HOME/.perl6/" ]; then
@@ -111,7 +111,7 @@ else
 fi
 
 ## Fix VTE issue: https://gnunn1.github.io/tilix-web/manual/vteconfig/
-source /etc/profile.d/vte.sh
+#source /etc/profile.d/vte.sh
 
 ## fzf (https://github.com/junegunn/fzf)
 export FZF_DEFAULT_COMMAND='rg --files --hidden -F'
@@ -121,4 +121,4 @@ export FZF_DEFAULT_OPTS="--height 25% --border"
 # Print packages to update
 # Requires passwordless sudo:
 # <username> ALL=(ALL) NOPASSWD: /usr/bin/pacman
-sudo pacman -Syup --print-format "%n"
+# sudo pacman -Syup --print-format "%n"
