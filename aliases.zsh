@@ -7,6 +7,15 @@ dn () {
     python -c "import random; print(random.randrange(1, $1 + 1))"
 }
 
+SECONDARY_PASS_DIR="$HOME/mypass"
+if [[ -d "$SECONDARY_PASS_DIR" ]]; then
+    mypass () {
+        PASSWORD_STORE_DIR=~/.mypass pass "$@"
+    }
+
+    alias mypcp='mypass show -c'
+fi
+
 # Die aliases
 for n in $(seq 2 20); do
   alias d$n="dn $n"
@@ -31,3 +40,10 @@ alias loc='tokei'
 alias l='ls -lhtr'
 alias ll='ls -lhtr'
 alias la='ls -lhatr'
+
+# OSX
+if [[ "$(uname)" == "Darwin" ]]; then
+    alias find='gfind'
+    alias sed='gsed'
+    alias ls='gls --color=auto'
+fi
