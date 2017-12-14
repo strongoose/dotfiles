@@ -44,6 +44,3 @@
 
     # pylint
     ~/.pylintrc: pylintrc
-
-    # Misc scripts
-    ~/.local/bin/gettf: scripts/gettf
