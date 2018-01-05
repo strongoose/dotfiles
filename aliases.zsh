@@ -7,7 +7,7 @@ dn () {
     python -c "import random; print(random.randrange(1, $1 + 1))"
 }
 
-SECONDARY_PASS_DIR="$HOME/mypass"
+SECONDARY_PASS_DIR="$HOME/.mypass"
 if [[ -d "$SECONDARY_PASS_DIR" ]]; then
     mypass () {
         PASSWORD_STORE_DIR=~/.mypass pass "$@"
