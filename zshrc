@@ -82,8 +82,9 @@ if [[ -n "$virtualenvwrapper_path" ]]; then
 fi
 
 ## Go
-GOPATH="$HOME/.local/go"
-if [ -d "$GOPATH" ]; then
+if go version 2>&1 >/dev/null; then
+    GOPATH="$HOME/.local/go"
+    mkdir -p $GOPATH
     export GOPATH
     export path=( $path "$GOPATH/bin" )
 fi
