@@ -21,24 +21,32 @@ for n in $(seq 2 20); do
   alias d$n="dn $n"
 done
 
-# Aliases
+## Aliases
+
+# Convenience
 alias c='cd'
-alias centos='docker run -it --rm centos /bin/bash'
-alias grep='grep --color=auto'
 alias gs='g s'
-alias ls='ls --color=auto'
+alias l='ls -lhtr'
+alias la='ls -lhatr'
+alias ll='ls -lhtr'
 alias myip='curl icanhazip.com'
-alias nc='ncat'
-alias pcp='pass show -c'
 alias sl='ls'
 alias t='true'
-alias ubuntu='docker run -it --rm ubuntu /bin/bash'
-alias vim='nvim'
+
+# Common opts
+alias grep='grep --color=auto'
+alias ls='ls --color=auto'
+alias pcp='pass show -c'
 alias xclip='xclip -selection clipboard'
+
+# Alternative names
 alias loc='tokei'
-alias l='ls -lhtr'
-alias ll='ls -lhtr'
-alias la='ls -lhatr'
+alias nc='ncat'
+alias vim='nvim'
+
+# Docker
+alias centos='docker run -it --rm centos /bin/bash'
+alias ubuntu='docker run -it --rm ubuntu /bin/bash'
 
 # OSX
 if [[ "$(uname)" == "Darwin" ]]; then
