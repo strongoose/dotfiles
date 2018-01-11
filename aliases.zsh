@@ -45,5 +45,6 @@ alias la='ls -lhatr'
 if [[ "$(uname)" == "Darwin" ]]; then
     alias find='gfind'
     alias sed='gsed'
+    alias tar='gtar'
     alias ls='gls --color=auto'
 fi
