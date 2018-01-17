@@ -127,6 +127,9 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden -F'
 export FZF_DEFAULT_OPTS="--height 25% --border"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+## gopass completion
+export fpath=( $fpath "$HOME/.local/go/share/zsh/site-functions" )
+
 # Print packages to update
 # Requires passwordless sudo:
 # <username> ALL=(ALL) NOPASSWD: /usr/bin/pacman
