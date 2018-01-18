@@ -10,11 +10,15 @@
       stdout: true
       stderr: true
 
-    - command: mkdir -p ~/.config/nvim/bundle/
+    - command: mkdir -p ~/.config/nvim/bundle
       stdout: true
       stderr: true
 
     - command: mkdir -p ~/.local/bin
+      stdout: true
+      stderr: true
+
+    - command: mkdir -p ~/.config/gopass
       stdout: true
       stderr: true
 
@@ -44,3 +48,6 @@
 
     # pylint
     ~/.pylintrc: pylintrc
+
+    # gopass
+    ~/.config/gopass/config.yml: gopass/config.yml
