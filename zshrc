@@ -65,8 +65,11 @@ else
     export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 fi
 
-### hub (https://github.com/github/hub)
-if which hub 2>&1 >/dev/null; then
+### hub (https://github.com/github/hub) and lab (https://github.com/zaquestion/lab)
+# Prefer lab because it's hub-aware
+if which lab 2>&1 >/dev/null; then
+    alias git=lab
+elif which hub 2>&1 >/dev/null; then
     alias git=hub
 fi
 
