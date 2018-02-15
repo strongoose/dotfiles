@@ -35,6 +35,7 @@
     ~/.gitignore: git/gitignore
 
     # zsh
+    ~/.zshenv: zshenv
     ~/.zshrc: zshrc
 
     # GPG
