@@ -177,7 +177,7 @@ autocmd FileType html,css,ruby,yaml,lua,sh,terraform,Jenkinsfile setlocal tabsto
 nnoremap <F2> :set nonumber!
 
 " Clipboard integration
-set clipboard=unnamedplus
+set clipboard+=unnamedplus
 
 " Mouse
 set mouse=a
