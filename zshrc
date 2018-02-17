@@ -61,6 +61,9 @@ if [[ -e "$VTE_PROFILE" ]]; then
     source /etc/profile.d/vte.sh
 fi
 
+# FZF
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # Print packages to update
 # Requires passwordless sudo:
 # <username> ALL=(ALL) NOPASSWD: /usr/bin/pacman

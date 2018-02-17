@@ -38,7 +38,6 @@ fi
 ## fzf (https://github.com/junegunn/fzf)
 export FZF_DEFAULT_COMMAND='rg --files --hidden -F'
 export FZF_DEFAULT_OPTS="--height 25% --border"
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ### Development
 
