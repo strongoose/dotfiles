@@ -44,7 +44,7 @@ export FZF_DEFAULT_OPTS="--height 25% --border"
 ## Python (virtualenvwrapper)
 virtualenvwrapper_path="$(which virtualenvwrapper.sh)"
 if [[ -n "$virtualenvwrapper_path" ]]; then
-    export VIRTUALENVWRAPPER_PYTHON=$(which python3)
+    export VIRTUALENVWRAPPER_PYTHON=$(which python3 || which python)
     export WORKON_HOME=~/.virtualenvs
     source "$virtualenvwrapper_path"
 fi
