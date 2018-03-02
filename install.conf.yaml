@@ -49,3 +49,6 @@
 
     # pylint
     ~/.pylintrc: pylintrc
+
+    # gopass
+    ~/.config/gopass/config.yml: gopass/config.yml
