@@ -3,24 +3,32 @@ root:
   autoimport: true
   autosync: true
   cliptimeout: 15
+  cryptobackend: gpg
+  nocolor: false
   noconfirm: false
   nopager: false
-  path: /Users/StroDa/.password-store
+  path: ~/.password-store
   safecontent: false
+  storebackend: fs
+  syncbackend: git
   usesymbols: false
   nocolor: false
-  notifyunclip: false
+  notify: false
 mounts:
   personal:
     askformore: false
     autoimport: true
     autosync: true
     cliptimeout: 15
+    cryptobackend: gpg
+    nocolor: false
     noconfirm: false
     nopager: false
-    path: /Users/StroDa/.password-store-personal
+    path: ~/.password-store-personal
     safecontent: false
+    storebackend: fs
+    syncbackend: git
     usesymbols: false
     nocolor: false
-    notifyunclip: false
-version: 1.6.9
+    notify: false
+version: 1.6.11
