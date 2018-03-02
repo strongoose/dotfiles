@@ -19,6 +19,7 @@
     ai  = add -i
     b   = branch
     br  = branch
+    c   = commit
     ci  = commit
     ca  = commit -a
     co  = checkout
@@ -34,7 +35,6 @@
     ph  = push -u origin HEAD
     pl  = pull
     pr  = pull-request
-    mr  = merge-request
     r   = rebase
     s   = status
     sh  = stash
