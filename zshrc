@@ -129,6 +129,12 @@ path=( "$HOME/.local/bin" $path )
 typeset -aU path
 export path
 
+# Co-op SSH helper
+helper_path="$HOME/coop/dotfiles/coop_ssh"
+if [[ -f "$helper_path" ]]; then
+    source "$helper_path"
+fi
+
 # Print packages to update
 # Requires passwordless sudo:
 # <username> ALL=(ALL) NOPASSWD: /usr/bin/pacman
