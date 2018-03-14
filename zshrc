@@ -3,9 +3,6 @@
 # Profile zsh start speed
 #zmodload zsh/zprof
 
-# path should be a unique array
-typeset -aU path
-
 source ~/.dotfiles/antigen/antigen.zsh
 
 antigen bundle git
@@ -63,6 +60,9 @@ fi
 
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# dedupe path array
+typeset -aU path
 
 # Print packages to update
 # Requires passwordless sudo:
