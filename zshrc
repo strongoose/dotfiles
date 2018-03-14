@@ -49,11 +49,11 @@ fi
 ### Environment
 
 ## gopass completion
-export fpath=( $fpath "$HOME/.local/go/share/zsh/site-functions" )
+export fpath=( "$HOME/.local/go/share/zsh/site-functions" $fpath )
 
 ## tfenv
 if [ -d "$HOME/.tfenv/" ]; then
-    export path=( $path "$HOME/.tfenv/bin" )
+    path=( "$HOME/.tfenv/bin" $path )
 fi
 
 ## Editor
@@ -96,17 +96,17 @@ if go version 2>&1 >/dev/null; then
     GOPATH="$HOME/.local/go"
     mkdir -p $GOPATH
     export GOPATH
-    export path=( $path "$GOPATH/bin" )
+    path=( "$GOPATH/bin" $path )
 fi
 
 ## Rust
 if [ -d "$HOME/.cargo/" ]; then
-    export path=( $path "$HOME/.cargo/bin" )
+    path=( "$HOME/.cargo/bin" $path )
 fi
 
 ## Perl6
 if [ -d "$HOME/.perl6/" ]; then
-    export path=( $path "$HOME/.perl6/bin" )
+    path=( "$HOME/.perl6/bin" $path )
 fi
 
 ## RVM
@@ -122,8 +122,12 @@ fi
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# Scripts in $HOME/.local/bin take precedence:
+path=( "$HOME/.local/bin" $path )
+
 # dedupe path array (-U is for unique array)
 typeset -aU path
+export path
 
 # Print packages to update
 # Requires passwordless sudo:
