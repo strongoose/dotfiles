@@ -1,10 +1,6 @@
-## Homebrew
-if [[ $(uname) == 'Darwin' ]]; then
-    path=( /usr/local/bin $path )
-fi
-
 ## Some misc scripts and things go in .local/bin
-path=( $path $HOME/.local/bin )
+#path=( $HOME/.local/bin $path )
+for i in $path; do echo $i; done
 
 ## gopass completion
 export fpath=( $fpath "$HOME/.local/go/share/zsh/site-functions" )
@@ -66,7 +62,3 @@ fi
 if [ -d "$HOME/.perl6/" ]; then
     export path=( $path "$HOME/.perl6/bin" )
 fi
-
-## Ruby
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export path=( $path "$HOME/.rvm/bin" )
