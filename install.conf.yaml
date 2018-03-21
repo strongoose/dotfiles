@@ -51,3 +51,6 @@
 
     # gopass
     ~/.config/gopass/config.yml: gopass/config.yml
+
+    # virtualenvwrapper
+    ~/.virtualenvs/postmkvirtualenv: virtualenvs/postmkvirtualenv
