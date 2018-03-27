@@ -5,3 +5,4 @@
 .autoenv_leave.zsh
 tf.plan*
 _build
+.vscode
