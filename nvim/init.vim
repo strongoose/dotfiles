@@ -165,7 +165,10 @@ nnoremap <C-j> <C-x>
 autocmd BufWritePre * :%s/\s\+$//e
 
 " Restore to file position from previous editing
-autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+autocmd BufReadPost *
+    \ if line("'\"") > 1 && line("'\"") <= line("$") |
+    \     exe "normal! g`\"" |
+    \ endif
 
 " Set nowrap if there are really long lines in the file (e.g. hiera-eyaml
 " encrypted fields) Note that the system call returns '<numlines> <path>', but
