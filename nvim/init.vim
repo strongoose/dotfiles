@@ -112,7 +112,7 @@ set shiftwidth=0 " use value of tabstop
 set list
 
 " Show line numbers
-set number
+set relativenumber
 
 " Underline search matches
 highlight Search gui=underline guifg=#fbf1c7 guibg=None
