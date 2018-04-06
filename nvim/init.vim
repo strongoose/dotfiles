@@ -27,6 +27,9 @@ Plugin 'tpope/vim-repeat'                " Repeat (. operator) support for plugi
 Plugin 'tpope/vim-surround'              " Enclose text with brackets/quotes/tags/etc.
 Plugin 'mhinz/vim-signify'
 
+"" Language-specific
+Plugin 'hashivim/vim-terraform'
+
 "" Completion
 Plugin 'zchee/deoplete-jedi'             " Python
 
@@ -48,12 +51,6 @@ inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 "" signify
 let g:signify_vcs_list = [ 'git', 'hg' ]
-
-"" Nerdtree
-nnoremap <F3> :NERDTreeToggle<CR>
-
-"" Gundo
-nnoremap <F4> :GundoToggle<CR>
 
 "" Syntastic
 " Load pylint
@@ -81,17 +78,8 @@ nnoremap <silent> <M-w> :TmuxNavigatePrevious<cr>
 "" Vim Terraform
 let g:terraform_fmt_on_save = 1
 
-"" Vim-LaTeX
-" Use XeLaTeX
-let g:Tex_CompileRule_pdf = 'xelatex $*'
-" Output PDF by default
-let g:Tex_DefaultTargetFormat = 'pdf'
-
 " Use true colour
 set termguicolors
-
-"" FZF
-nnoremap <C-E> :Files<CR>
 
 "" easyclip
 let g:EasyClipUseSubstituteDefaults = 1
@@ -112,10 +100,11 @@ set shiftwidth=0 " use value of tabstop
 set list
 
 " Show line numbers
-set number
+set relativenumber
 
 " Underline search matches
-highlight Search gui=underline guifg=#fbf1c7 guibg=None
+autocmd ColorScheme * highlight Search cterm=underline ctermfg=None ctermbg=None
+autocmd ColorScheme * highlight Search gui=underline guifg=None guibg=None
 
 " Highlight cursor line and collumn
 set cursorline
@@ -182,9 +171,6 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "norm
 " encrypted fields) Note that the system call returns '<numlines> <path>', but
 " the `>` seems to just ignore the non-numeric part.
 autocmd BufReadPost * if system('wc -L ' . expand('%')) > 200 | setlocal nowrap | endif
-
-" Local chdir to file directory on read
-"autocmd BufRead,BufNewFile * silent! lcd %:p:h
 
 " Use ww!! as a shortcut to save using sudo
 cmap w!! w !sudo tee > /dev/null %
