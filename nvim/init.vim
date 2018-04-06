@@ -103,7 +103,8 @@ set list
 set relativenumber
 
 " Underline search matches
-highlight Search gui=underline guifg=#fbf1c7 guibg=None
+autocmd ColorScheme * highlight Search cterm=underline ctermfg=None ctermbg=None
+autocmd ColorScheme * highlight Search gui=underline guifg=None guibg=None
 
 " Highlight cursor line and collumn
 set cursorline
