@@ -17,6 +17,7 @@ done
 # Convenience
 alias c='cd'
 alias gs='g s'
+alias k='kubectl'
 alias l='ls -lhtr'
 alias la='ls -lhatr'
 alias ll='ls -lhtr'
