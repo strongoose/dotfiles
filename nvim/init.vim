@@ -27,6 +27,9 @@ Plugin 'tpope/vim-repeat'                " Repeat (. operator) support for plugi
 Plugin 'tpope/vim-surround'              " Enclose text with brackets/quotes/tags/etc.
 Plugin 'mhinz/vim-signify'
 
+"" Language-specific
+Plugin 'hashivim/vim-terraform'
+
 "" Completion
 Plugin 'zchee/deoplete-jedi'             " Python
 
