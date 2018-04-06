@@ -11,44 +11,27 @@ Plugin 'VundleVim/Vundle.vim'            " Plugin manager
 
 "" Look & feel
 Plugin 'morhetz/gruvbox'                 " Colour scheme
-Plugin 'myusuf3/numbers.vim'             " Line numbers
 
 " Tools
 Plugin 'christoomey/vim-tmux-navigator'  " Tmux pane navigation integration
 Plugin 'tpope/vim-fugitive'              " Git integration
 
 "" Navigation
-Plugin 'junegunn/fzf'                    " Fuzzy file finder
-Plugin 'junegunn/fzf.vim'
-Plugin 'scrooloose/nerdtree'             " File browser
+Plugin 'wincent/command-t'
 
 "" Enhancements
 Plugin 'Shougo/deoplete.nvim'            " Completion
-Plugin 'scrooloose/nerdcommenter'        " Code comments
-Plugin 'sjl/gundo.vim'                   " Undo tree navigation
+Plugin 'tpope/vim-commentary'            " Code comments
 Plugin 'svermeulen/vim-easyclip'         " Clipboard enhancements
 Plugin 'tpope/vim-repeat'                " Repeat (. operator) support for plugins
 Plugin 'tpope/vim-surround'              " Enclose text with brackets/quotes/tags/etc.
 Plugin 'mhinz/vim-signify'
 
-"" Syntax highlighting and coding
-Plugin 'fatih/vim-go'                    " Golang
-Plugin 'hashivim/vim-terraform'          " Terraform
-Plugin 'leshill/vim-json'                " JSON syntax highlighting
-Plugin 'martinda/Jenkinsfile-vim-syntax' " Jenkinsfiles
-Plugin 'pearofducks/ansible-vim'         " Ansible
-Plugin 'rodjek/vim-puppet'               " Puppet
+"" Completion
 Plugin 'zchee/deoplete-jedi'             " Python
-Plugin 'rust-lang/rust.vim'              " Rust
-
-" Clojure
-Plugin 'tpope/vim-fireplace'
-Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'vim-scripts/paredit.vim'
 
 "" Linting
 Plugin 'scrooloose/syntastic'            " General-purpose linter integration
-Plugin 'venantius/vim-eastwood'          " Clojure linting
 
 call vundle#end()
 filetype plugin indent on
