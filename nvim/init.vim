@@ -49,12 +49,6 @@ inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 "" signify
 let g:signify_vcs_list = [ 'git', 'hg' ]
 
-"" Nerdtree
-nnoremap <F3> :NERDTreeToggle<CR>
-
-"" Gundo
-nnoremap <F4> :GundoToggle<CR>
-
 "" Syntastic
 " Load pylint
 let g:syntastic_python_checkers = ['pylint']
@@ -81,17 +75,8 @@ nnoremap <silent> <M-w> :TmuxNavigatePrevious<cr>
 "" Vim Terraform
 let g:terraform_fmt_on_save = 1
 
-"" Vim-LaTeX
-" Use XeLaTeX
-let g:Tex_CompileRule_pdf = 'xelatex $*'
-" Output PDF by default
-let g:Tex_DefaultTargetFormat = 'pdf'
-
 " Use true colour
 set termguicolors
-
-"" FZF
-nnoremap <C-E> :Files<CR>
 
 "" easyclip
 let g:EasyClipUseSubstituteDefaults = 1
@@ -182,9 +167,6 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "norm
 " encrypted fields) Note that the system call returns '<numlines> <path>', but
 " the `>` seems to just ignore the non-numeric part.
 autocmd BufReadPost * if system('wc -L ' . expand('%')) > 200 | setlocal nowrap | endif
-
-" Local chdir to file directory on read
-"autocmd BufRead,BufNewFile * silent! lcd %:p:h
 
 " Use ww!! as a shortcut to save using sudo
 cmap w!! w !sudo tee > /dev/null %
