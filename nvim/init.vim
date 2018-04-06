@@ -43,6 +43,9 @@ filetype plugin indent on
 let g:python3_host_prog = $HOME . '/.virtualenvs/neovim-python3/bin/python'
 let g:python_host_prog = $HOME . '/.virtualenvs/neovim-python2/bin/python'
 
+""" Ruby (required for Command-T)
+let g:ruby_host_prog = 'rvm 2.5.1 do neovim-ruby-host'
+
 "" deoplete
 let g:deoplete#enable_at_startup = 1
 " When pop-up menu is visible remap <TAB> to <C-n> for cycling through
