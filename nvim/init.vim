@@ -131,8 +131,8 @@ set list
 " Show line numbers
 set number
 
-" hlsearch is just annoying
-set nohlsearch
+" Underline search matches
+highlight Search gui=underline guifg=#fbf1c7 guibg=None
 
 " Highlight cursor line and collumn
 set cursorline
