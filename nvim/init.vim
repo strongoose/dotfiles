@@ -16,16 +16,14 @@ Plugin 'morhetz/gruvbox'                 " Colour scheme
 Plugin 'christoomey/vim-tmux-navigator'  " Tmux pane navigation integration
 Plugin 'tpope/vim-fugitive'              " Git integration
 
-"" Navigation
-Plugin 'wincent/command-t'
-
 "" Enhancements
 Plugin 'Shougo/deoplete.nvim'            " Completion
 Plugin 'tpope/vim-commentary'            " Code comments
 Plugin 'svermeulen/vim-easyclip'         " Clipboard enhancements
 Plugin 'tpope/vim-repeat'                " Repeat (. operator) support for plugins
 Plugin 'tpope/vim-surround'              " Enclose text with brackets/quotes/tags/etc.
-Plugin 'mhinz/vim-signify'
+Plugin 'mhinz/vim-signify'               " Show VCS add/change/deletes
+Plugin 'junegunn/fzf'                    " Fuzzy finder
 
 "" Language-specific
 Plugin 'hashivim/vim-terraform'
@@ -42,9 +40,6 @@ filetype plugin indent on
 "" Python 3
 let g:python3_host_prog = $HOME . '/.virtualenvs/neovim-python3/bin/python'
 let g:python_host_prog = $HOME . '/.virtualenvs/neovim-python2/bin/python'
-
-""" Ruby (required for Command-T)
-let g:ruby_host_prog = 'rvm 2.5.1 do neovim-ruby-host'
 
 "" deoplete
 let g:deoplete#enable_at_startup = 1
@@ -148,9 +143,6 @@ autocmd FileType html,css,ruby,yaml,lua,sh,terraform,Jenkinsfile setlocal tabsto
 
 """" Keybindings
 
-" Toggle number with F2
-nnoremap <F2> :set nonumber!
-
 " Clipboard integration
 set clipboard+=unnamedplus
 
@@ -160,6 +152,13 @@ set mouse=a
 " Inc/Dec numbers (default C-a to increment conflicts with tmux leader)
 nnoremap <C-k> <C-a>
 nnoremap <C-j> <C-x>
+
+" FZF
+map <leader>t :FZF %%<cr>
+nnoremap <leader>T :FZF ~<cr>
+
+" Switch to last buffer (Basically alt-tab)
+nnoremap <leader><leader> <C-^>
 
 
 """" Miscellanious
@@ -180,3 +179,15 @@ autocmd BufReadPost * if system('wc -L ' . expand('%')) > 200 | setlocal nowrap 
 
 " Use ww!! as a shortcut to save using sudo
 cmap w!! w !sudo tee > /dev/null %
+
+" Have %% expand to the directory of the current buffer
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+
+" Focused window expansion
+set winwidth=84
+" We have to have a winheight bigger than we want to set winminheight. But if
+" we set winheight to be huge before winminheight, the winminheight set will
+" fail.
+set winheight=5
+set winminheight=5
+set winheight=999
