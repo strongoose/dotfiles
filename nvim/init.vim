@@ -41,9 +41,6 @@ filetype plugin indent on
 let g:python3_host_prog = $HOME . '/.virtualenvs/neovim-python3/bin/python'
 let g:python_host_prog = $HOME . '/.virtualenvs/neovim-python2/bin/python'
 
-""" Ruby (required for Command-T)
-let g:ruby_host_prog = 'rvm 2.5.1 do neovim-ruby-host'
-
 "" deoplete
 let g:deoplete#enable_at_startup = 1
 " When pop-up menu is visible remap <TAB> to <C-n> for cycling through
@@ -156,8 +153,11 @@ set mouse=a
 nnoremap <C-k> <C-a>
 nnoremap <C-j> <C-x>
 
-" FZF from $HOME
-nnoremap <leader>t :FZF ~<cr>
+" FZF
+map <leader>t :FZF %%<cr>
+nnoremap <leader>T :FZF ~<cr>
+
+" Switch to last buffer (Basically alt-tab)
 nnoremap <leader><leader> <C-^>
 
 
@@ -179,3 +179,7 @@ autocmd BufReadPost * if system('wc -L ' . expand('%')) > 200 | setlocal nowrap 
 
 " Use ww!! as a shortcut to save using sudo
 cmap w!! w !sudo tee > /dev/null %
+
+" Have %% expand to the directory of the current buffer
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+
