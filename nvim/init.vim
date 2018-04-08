@@ -16,16 +16,14 @@ Plugin 'morhetz/gruvbox'                 " Colour scheme
 Plugin 'christoomey/vim-tmux-navigator'  " Tmux pane navigation integration
 Plugin 'tpope/vim-fugitive'              " Git integration
 
-"" Navigation
-Plugin 'wincent/command-t'
-
 "" Enhancements
 Plugin 'Shougo/deoplete.nvim'            " Completion
 Plugin 'tpope/vim-commentary'            " Code comments
 Plugin 'svermeulen/vim-easyclip'         " Clipboard enhancements
 Plugin 'tpope/vim-repeat'                " Repeat (. operator) support for plugins
 Plugin 'tpope/vim-surround'              " Enclose text with brackets/quotes/tags/etc.
-Plugin 'mhinz/vim-signify'
+Plugin 'mhinz/vim-signify'               " Show VCS add/change/deletes
+Plugin 'junegunn/fzf'                    " Fuzzy finder
 
 "" Language-specific
 Plugin 'hashivim/vim-terraform'
@@ -160,6 +158,10 @@ set mouse=a
 " Inc/Dec numbers (default C-a to increment conflicts with tmux leader)
 nnoremap <C-k> <C-a>
 nnoremap <C-j> <C-x>
+
+" FZF from $HOME
+nnoremap <leader>t :FZF ~<cr>
+nnoremap <leader><leader> <C-^>
 
 
 """" Miscellanious
