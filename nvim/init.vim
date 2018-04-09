@@ -181,6 +181,8 @@ autocmd BufReadPost * if system('wc -L ' . expand('%')) > 200 | setlocal nowrap 
 cmap w!! w !sudo tee > /dev/null %
 
 " Have %% expand to the directory of the current buffer
+" TODO: if the current buffer is not a file this expands to '/'! Should
+" default to $HOME
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
 " Focused window expansion
