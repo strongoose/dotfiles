@@ -98,7 +98,9 @@ set shiftwidth=0 " use value of tabstop
 set list
 
 " Show line numbers
-set relativenumber
+" enabling number and relativenumber puts vim in hybrid mode, whereby the
+" current line number is absolute and other lines are relative
+set number relativenumber
 
 " Underline search matches
 autocmd ColorScheme * highlight Search cterm=underline ctermfg=None ctermbg=None
@@ -154,8 +156,9 @@ nnoremap <C-k> <C-a>
 nnoremap <C-j> <C-x>
 
 " FZF
-map <leader>t :FZF %%<cr>
-nnoremap <leader>T :FZF ~<cr>
+nnoremap <leader>T :FZF <cr>
+nmap <leader>t :FZF %%<cr>
+nnoremap <leader>g :FZF ~<cr>
 
 " Switch to last buffer (Basically alt-tab)
 nnoremap <leader><leader> <C-^>
