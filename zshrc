@@ -91,6 +91,10 @@ if [[ -n "$virtualenvwrapper_path" ]]; then
     export WORKON_HOME=~/.virtualenvs
     source "$virtualenvwrapper_path"
 fi
+# ... and pipenv completion
+if which pipenv >/dev/null 2>&1; then
+    eval $(pipenv --completion)
+fi
 
 ## Go
 if go version 2>&1 >/dev/null; then
