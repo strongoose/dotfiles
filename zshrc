@@ -84,6 +84,12 @@ export FZF_DEFAULT_OPTS="--height 25% --border"
 
 ### Development
 
+## Use GNU tools
+# This is at the top because pipenv --completion requires GNU basename
+if [[ "$(uname -s)" =~ Darwin ]]; then
+    path=( "/usr/local/opt/coreutils/libexec/gnubin" $path )
+fi
+
 ## Python (virtualenvwrapper)
 virtualenvwrapper_path="$(which virtualenvwrapper.sh)"
 if [[ -n "$virtualenvwrapper_path" ]]; then
