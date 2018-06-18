@@ -40,9 +40,9 @@ source ~/.dotfiles/aliases.zsh
 
 ### hub (https://github.com/github/hub) and lab (https://github.com/zaquestion/lab)
 # Prefer lab because it's hub-aware
-if which lab 2>&1 >/dev/null; then
+if which lab >/dev/null 2>&1; then
     alias git=lab
-elif which hub 2>&1 >/dev/null; then
+elif which hub >/dev/null 2>&1; then
     alias git=hub
 fi
 
@@ -90,6 +90,10 @@ if [[ -n "$virtualenvwrapper_path" ]]; then
     export VIRTUALENVWRAPPER_PYTHON=$(which python3 || which python)
     export WORKON_HOME=~/.virtualenvs
     source "$virtualenvwrapper_path"
+fi
+# ... and pipenv completion
+if which pipenv >/dev/null 2>&1; then
+    eval $(pipenv --completion)
 fi
 
 ## Go
