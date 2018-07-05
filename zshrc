@@ -90,9 +90,17 @@ if [[ "$(uname -s)" =~ Darwin ]]; then
     path=( "/usr/local/opt/coreutils/libexec/gnubin" $path )
 fi
 
-## Python (virtualenvwrapper)
+## Python
+# PATH for binaries installed with pip install --user <package>
+if [[ "$(uname -s)" =~ Darwin ]]; then
+    path=(
+      "/Users/StroDa/Library/Python/3.6/bin"
+      $path
+    )
+fi
+# virtualenvwrapper
 virtualenvwrapper_path="$(which virtualenvwrapper.sh)"
-if [[ -n "$virtualenvwrapper_path" ]]; then
+if [[ -f "$virtualenvwrapper_path" ]]; then
     export VIRTUALENVWRAPPER_PYTHON=$(which python3 || which python)
     export WORKON_HOME=~/.virtualenvs
     source "$virtualenvwrapper_path"
