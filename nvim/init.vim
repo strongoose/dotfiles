@@ -27,6 +27,7 @@ Plugin 'junegunn/fzf'                    " Fuzzy finder
 
 "" Language-specific
 Plugin 'hashivim/vim-terraform'
+Plugin 'rodjek/vim-puppet'
 
 "" Completion
 Plugin 'zchee/deoplete-jedi'             " Python
@@ -51,9 +52,9 @@ inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 let g:signify_vcs_list = [ 'git', 'hg' ]
 
 "" Syntastic
-" Load pylint
 let g:syntastic_python_checkers = ['pylint']
 let g:syntastic_sh_checkers = ['shellcheck']
+let g:syntastic_puppet_checkers = ['puppetlint']
 let g:syntastic_js_checkers = ['jshint']
 let g:syntastic_html_checkers = ['tidy']
 let g:syntastic_css_checkers = ['csslint']
