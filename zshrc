@@ -160,3 +160,24 @@ fi
 if grep 'Arch Linux' /etc/os-release >/dev/null 2>&1; then
     sudo pacman -Syup --print-format "%n"
 fi
+
+alert () {
+    echo "\e[1;31m$@\e[0m"
+}
+
+check_dotfiles_branch() {
+    dotfiles_dir="$HOME/.dotfiles"
+    if [[ "$(uname -s)" =~ Darwin ]]; then
+        if [[ "$(cd $dotfiles_dir && git branch | grep '^\*' | cut -d' ' -f2)" != "osx" ]]; then
+            alert "WARNING: not on osx-specific branch"
+            alert "Switch to osx branch and restart the shell"
+        fi
+    elif [[ "$(uname -s)" =~ Linux ]]; then
+        if [[ "$(cd $dotfiles_dir && git branch | grep '^\*' | cut -d' ' -f2)" == "osx" ]]; then
+            alert "WARNING: on osx-specific branch, but this appears to be linux"
+            alert "Switch to master branch and restart the shell"
+        fi
+    fi
+}
+
+check_dotfiles_branch
