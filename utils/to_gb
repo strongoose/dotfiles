@@ -1,0 +1,25 @@
+#! /usr/bin/env python3
+
+import re
+import fileinput
+
+# TODO: argparse; choose unit to convert to
+
+suffixes = {
+    'b':  10**0,
+    'kb': 10**3,
+    'mb': 10**6,
+    'gb': 10**9,
+}
+
+def main():
+    splitter = re.compile(r'([0-9\.]+)([a-z]+)', re.IGNORECASE)
+
+    for line in fileinput.input():
+        number, suffix = splitter.match(line).groups()
+        number = float(number)
+        mbs = number * suffixes[suffix] / suffixes['gb']
+        print(mbs)
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,21 @@
+#! /usr/bin/env python3
+
+import sys
+import fileinput
+from statistics import mean, median
+
+if __name__ == '__main__':
+    nums = list(fileinput.input())
+
+    try:
+        nums = [float(num) for num in nums]
+    except ValueError as e:
+        print('Error: some of the input lines could not be parsed as numbers.')
+        raise(e)
+
+    print("Min: {min}, Max: {max}, Mean: {mean}, Median: {median}".format(
+        min=min(nums),
+        max=max(nums),
+        mean=mean(nums),
+        median=median(nums),
+        ))
