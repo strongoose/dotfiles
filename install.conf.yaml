@@ -42,3 +42,8 @@
 
     # virtualenvwrapper
     ~/.virtualenvs/postmkvirtualenv: virtualenvs/postmkvirtualenv
+
+    # utils
+    ~/.local/bin/:
+      glob: true
+      path: utils/*
