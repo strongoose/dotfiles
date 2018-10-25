@@ -130,6 +130,9 @@ set textwidth=0
 set ignorecase
 set smartcase
 
+" Never create swapfiles
+set noswapfile
+
 
 """" FileTypes
 
@@ -137,7 +140,7 @@ set smartcase
 autocmd FileType python setlocal colorcolumn=80
 
 " Text: don't number lines, wrap to 120
-autocmd FileType text setlocal nonumber colorcolumn=120
+autocmd FileType text setlocal nonumber colorcolumn=120 textwidth=120
 
 " Go: use tabs
 autocmd FileType go setlocal noexpandtab
