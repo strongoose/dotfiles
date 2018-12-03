@@ -168,8 +168,8 @@ nnoremap <C-k> <C-a>
 nnoremap <C-j> <C-x>
 
 " FZF
-nnoremap <leader>T :FZF <cr>
-nmap <leader>t :FZF %%<cr>
+nnoremap <leader>t :FZF <cr>
+nmap <leader>T :FZF %%<cr>
 nnoremap <leader>g :FZF ~<cr>
 
 " Switch to last buffer (Basically alt-tab)
