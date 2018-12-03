@@ -78,8 +78,8 @@ else
 fi
 
 ## fzf (https://github.com/junegunn/fzf)
-export FZF_DEFAULT_COMMAND='rg --files --hidden -F'
-export FZF_CTRL_T_COMMAND='rg --files --hidden -F'
+export FZF_DEFAULT_COMMAND='rg --hidden --files -F'
+export FZF_CTRL_T_COMMAND='rg --hidden --files -F'
 export FZF_DEFAULT_OPTS="--height 25% --border"
 
 ### Development
