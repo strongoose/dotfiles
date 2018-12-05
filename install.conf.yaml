@@ -10,6 +10,10 @@
       stdout: true
       stderr: true
 
+    - command: rustup completion > ~/.zfunc/_rustup
+      stdout: true
+      stderr: true
+
 - link:
     # vim/Vundle
     ~/.config/nvim/bundle/Vundle.vim: Vundle.vim
@@ -24,9 +28,6 @@
 
     # zsh
     ~/.zshrc: zshrc
-    ~/.zfunc:
-      glob: true
-      path: zfunc/*
 
     # GPG
     ~/.gnupg/gpg-agent.conf: gnupg/gpg-agent.conf

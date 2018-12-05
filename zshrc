@@ -1,9 +1,16 @@
 #### zsh/ohmyzsh
 
 # Profile zsh start speed
-#zmodload zsh/zprof
+# zmodload zsh/zprof
 
 source ~/.dotfiles/antigen/antigen.zsh
+
+# antigen reset can clear up weird issues which are apparently to do with
+# caches not being updated when a bundle updates or something?
+# Since it doesn't take perceptibly longer to just clear every time I start a
+# shell, that's what I'm doing. ANTIGEN_CACHE=false might also do the trick
+# but there are some bugs raised against it
+antigen reset
 
 antigen bundle git
 antigen bundle pip
@@ -121,6 +128,19 @@ fi
 ## Rust
 if [ -d "$HOME/.cargo/" ]; then
     path=( "$HOME/.cargo/bin" $path )
+
+    if which rustup >/dev/null 2>&1; then
+        default_toolchain=$(\
+            rustup show \
+            | grep '(default)' \
+            | head -n1 \
+            | cut -d' ' -f1 \
+        )
+        export fpath=(
+            "$HOME/.rustup/toolchains/$default_toolchain/share/zsh/site-functions"
+            $fpath
+        )
+    fi
 fi
 
 ## Perl6
