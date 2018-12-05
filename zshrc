@@ -5,6 +5,13 @@
 
 source ~/.dotfiles/antigen/antigen.zsh
 
+# antigen reset can clear up weird issues which are apparently to do with
+# caches not being updated when a bundle updates or something?
+# Since it doesn't take perceptibly longer to just clear every time I start a
+# shell, that's what I'm doing. ANTIGEN_CACHE=false might also do the trick
+# but there are some bugs raised against it
+antigen reset
+
 antigen bundle git
 antigen bundle pip
 antigen bundle lein
