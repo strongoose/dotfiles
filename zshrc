@@ -1,7 +1,7 @@
 #### zsh/ohmyzsh
 
 # Profile zsh start speed
-#zmodload zsh/zprof
+# zmodload zsh/zprof
 
 source ~/.dotfiles/antigen/antigen.zsh
 
@@ -121,6 +121,19 @@ fi
 ## Rust
 if [ -d "$HOME/.cargo/" ]; then
     path=( "$HOME/.cargo/bin" $path )
+
+    if which rustup >/dev/null 2>&1; then
+        default_toolchain=$(\
+            rustup show \
+            | grep '(default)' \
+            | head -n1 \
+            | cut -d' ' -f1 \
+        )
+        export fpath=(
+            "$HOME/.rustup/toolchains/$default_toolchain/share/zsh/site-functions"
+            $fpath
+        )
+    fi
 fi
 
 ## Perl6
