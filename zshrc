@@ -10,7 +10,7 @@ source ~/.dotfiles/antigen/antigen.zsh
 # Since it doesn't take perceptibly longer to just clear every time I start a
 # shell, that's what I'm doing. ANTIGEN_CACHE=false might also do the trick
 # but there are some bugs raised against it
-antigen reset
+antigen reset >/dev/null 2>&1
 
 antigen bundle git
 antigen bundle pip
