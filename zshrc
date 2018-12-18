@@ -24,6 +24,27 @@ antigen theme agnoster
 
 antigen apply
 
+# In which I wrestle with various dumb OSX things
+if [[ "$(uname -s)" =~ Darwin ]]; then
+
+    # /usr/libexec/path_helper is path unhelpful
+    path=(
+        "/usr/local/bin"
+        "/usr/bin"
+        "/bin"
+        "/usr/sbin"
+        "/sbin"
+    )
+
+    # Use GNU tools not crappy BSD ones
+    path=( "/usr/local/opt/coreutils/libexec/gnubin" $path )
+
+    # Add binaries installed with pip install --user <package> to PATH
+    path=(
+      "/Users/StroDa/Library/Python/3.7/bin"
+      $path
+    )
+fi
 
 #### z (https://github.com/rupa/z)
 export _Z_CMD=j
@@ -91,24 +112,16 @@ export FZF_DEFAULT_OPTS="--height 25% --border"
 
 ### Development
 
-## Use GNU tools
-# This is at the top because pipenv --completion requires GNU basename
-if [[ "$(uname -s)" =~ Darwin ]]; then
-    path=( "/usr/local/opt/coreutils/libexec/gnubin" $path )
-fi
-
-## Python
-# PATH for binaries installed with pip install --user <package>
-if [[ "$(uname -s)" =~ Darwin ]]; then
-    path=(
-      "/Users/StroDa/Library/Python/3.6/bin"
-      $path
-    )
-fi
 # virtualenvwrapper
+
+whichsoever() {
+    # which but don't output and unhelpful error message to stdout on failure
+    which $@ >/dev/null 2>&1 && which $@
+}
+
 virtualenvwrapper_path="$(which virtualenvwrapper.sh)"
 if [[ -f "$virtualenvwrapper_path" ]]; then
-    export VIRTUALENVWRAPPER_PYTHON=$(which python3 || which python)
+    export VIRTUALENVWRAPPER_PYTHON="$(whichsoever python3 || whichsoever python)"
     export WORKON_HOME=~/.virtualenvs
     source "$virtualenvwrapper_path"
 fi
@@ -192,9 +205,9 @@ check_dotfiles_branch() {
             alert "WARNING: not on osx-specific branch"
             alert "Switch to osx branch and restart the shell"
         fi
-    elif [[ "$(uname -s)" =~ Linux ]]; then
+    else
         if [[ "$(cd $dotfiles_dir && git branch | grep '^\*' | cut -d' ' -f2)" == "osx" ]]; then
-            alert "WARNING: on osx-specific branch, but this appears to be linux"
+            alert "WARNING: on osx-specific branch, but this doesn't appears to be osx"
             alert "Switch to master branch and restart the shell"
         fi
     fi
