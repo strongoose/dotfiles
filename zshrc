@@ -205,9 +205,9 @@ check_dotfiles_branch() {
             alert "WARNING: not on osx-specific branch"
             alert "Switch to osx branch and restart the shell"
         fi
-    elif [[ "$(uname -s)" =~ Linux ]]; then
+    else
         if [[ "$(cd $dotfiles_dir && git branch | grep '^\*' | cut -d' ' -f2)" == "osx" ]]; then
-            alert "WARNING: on osx-specific branch, but this appears to be linux"
+            alert "WARNING: on osx-specific branch, but this doesn't appears to be osx"
             alert "Switch to master branch and restart the shell"
         fi
     fi
