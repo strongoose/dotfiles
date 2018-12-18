@@ -36,8 +36,8 @@ call vundle#end()
 filetype plugin indent on
 
 "" Python 3
-let g:python3_host_prog = $HOME . '/.virtualenvs/neovim-python3/bin/python'
-let g:python_host_prog = $HOME . '/.virtualenvs/neovim-python2/bin/python'
+let g:python3_host_prog = $HOME . '/.virtualenvs/pynvim-python3/bin/python'
+let g:python_host_prog =  $HOME . '/.virtualenvs/pynvim-python2/bin/python'
 
 "" deoplete
 let g:deoplete#enable_at_startup = 1
