@@ -106,9 +106,15 @@ if [[ "$(uname -s)" =~ Darwin ]]; then
     )
 fi
 # virtualenvwrapper
+
+whichsoever() {
+    # which but don't output and unhelpful error message to stdout on failure
+    which $@ >/dev/null 2>&1 && which $@
+}
+
 virtualenvwrapper_path="$(which virtualenvwrapper.sh)"
 if [[ -f "$virtualenvwrapper_path" ]]; then
-    export VIRTUALENVWRAPPER_PYTHON=$(which python3 || which python)
+    export VIRTUALENVWRAPPER_PYTHON="$(whichsoever python3 || whichsoever python)"
     export WORKON_HOME=~/.virtualenvs
     source "$virtualenvwrapper_path"
 fi
