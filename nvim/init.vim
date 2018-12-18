@@ -29,9 +29,6 @@ Plugin 'junegunn/fzf'                    " Fuzzy finder
 Plugin 'hashivim/vim-terraform'
 Plugin 'rodjek/vim-puppet'
 
-"" Completion
-Plugin 'zchee/deoplete-jedi'             " Python
-
 "" Linting
 Plugin 'scrooloose/syntastic'            " General-purpose linter integration
 
