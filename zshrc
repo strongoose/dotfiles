@@ -24,6 +24,27 @@ antigen theme agnoster
 
 antigen apply
 
+# In which I wrestle with various dumb OSX things
+if [[ "$(uname -s)" =~ Darwin ]]; then
+
+    # /usr/libexec/path_helper is path unhelpful
+    path=(
+        "/usr/local/bin"
+        "/usr/bin"
+        "/bin"
+        "/usr/sbin"
+        "/sbin"
+    )
+
+    # Use GNU tools not crappy BSD ones
+    path=( "/usr/local/opt/coreutils/libexec/gnubin" $path )
+
+    # Add binaries installed with pip install --user <package> to PATH
+    path=(
+      "/Users/StroDa/Library/Python/3.7/bin"
+      $path
+    )
+fi
 
 #### z (https://github.com/rupa/z)
 export _Z_CMD=j
@@ -91,20 +112,6 @@ export FZF_DEFAULT_OPTS="--height 25% --border"
 
 ### Development
 
-## Use GNU tools
-# This is at the top because pipenv --completion requires GNU basename
-if [[ "$(uname -s)" =~ Darwin ]]; then
-    path=( "/usr/local/opt/coreutils/libexec/gnubin" $path )
-fi
-
-## Python
-# PATH for binaries installed with pip install --user <package>
-if [[ "$(uname -s)" =~ Darwin ]]; then
-    path=(
-      "/Users/StroDa/Library/Python/3.6/bin"
-      $path
-    )
-fi
 # virtualenvwrapper
 
 whichsoever() {
