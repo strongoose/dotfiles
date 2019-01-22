@@ -7,6 +7,43 @@ dn () {
     python -c "import random; print(random.randrange(1, $1 + 1))"
 }
 
+proceed() {
+    if [[ -n "$1" ]]; then
+        prompt=$1
+    else
+        prompt="Proceed?"
+    fi
+    local confirm
+    while [[ -z "$confirm" ]]; do
+        1>&2 read -r "confirm?$prompt (yes/no) "
+        if [[ "$confirm" != "yes" ]] && [[ "$confirm" != "no" ]]; then
+            1>&2 echo "Please answer exactly yes or no (case-sensitive)"
+            unset confirm
+        fi
+    done
+    if [[ "$confirm" == "yes" ]]; then
+        echo "yes"
+    else
+        echo "no"
+    fi
+}
+
+git-purge () {
+    non_master_branches=$(git branch | grep -v master)
+    echo "This will force delete (git branch -D) all non-master branches"
+    if [[ -z "$non_master_branches" ]]; then
+        echo "No non-master branches to delete"
+        return
+    fi
+    echo "Branches up for deletion:"
+    echo "$non_master_branches"
+    if [[ "$(proceed 'Are you sure?')" != "yes" ]]; then
+        echo "Aborting due to user input"
+    else
+        echo $non_master_branches | xargs git branch -D
+    fi
+}
+
 # Die aliases
 for n in $(seq 2 20); do
   alias d$n="dn $n"
