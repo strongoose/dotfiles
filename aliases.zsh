@@ -16,13 +16,11 @@ done
 
 # Convenience
 alias c='cd'
-alias gs='g s'
 alias k='kubectl'
 alias l='ls -lh'
 alias la='ls -lha'
 alias ll='ls -lh'
 alias myip='curl -s icanhazip.com'
-alias sl='ls'
 alias t='true'
 
 # Common opts
@@ -36,6 +34,11 @@ alias loc='tokei'
 alias nc='ncat'
 alias pass='gopass'
 alias vim='nvim'
+
+# Typos
+alias sl='ls'
+alias ivm='vim'
+alias gs='g s'
 
 # Docker
 alias centos='docker run -it --rm centos /bin/bash'
