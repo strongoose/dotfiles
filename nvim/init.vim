@@ -165,8 +165,11 @@ nnoremap <C-k> <C-a>
 nnoremap <C-j> <C-x>
 
 " FZF
-nnoremap <leader>t :FZF <cr>
-nmap <leader>T :FZF %%<cr>
+" Find in current buffer's directory
+nmap <leader>t :FZF %%<cr>
+" Find in vim process' current directory
+nnoremap <leader>T :FZF <cr>
+" Find in $HOME
 nnoremap <leader>g :FZF ~<cr>
 
 " Switch to last buffer (Basically alt-tab)
