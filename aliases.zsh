@@ -7,6 +7,31 @@ dn () {
     python -c "import random; print(random.randrange(1, $1 + 1))"
 }
 
+yaml2json () {
+    ruby -e "require 'yaml'; require 'json'; puts YAML.load(STDIN.read).to_json"
+}
+
+json2yaml () {
+    ruby -e "require 'yaml'; require 'json'; puts JSON.load(STDIN.read).to_yaml"
+}
+
+useaws () {
+  # Usage: useaws <profile-name>
+  # Exports AWS environment into the current shell
+  profile=$1
+  for assignment in $(aws-profile "$profile" env | grep '^AWS'); do
+    export "${assignment?}"
+  done
+}
+
+clearaws () {
+  # Usage: clearaws
+  # Clears all set AWS environment variables
+  for var in $(env | grep '^AWS' | cut -d= -f1); do
+    unset "$var"
+  done
+}
+
 proceed() {
     if [[ -n "$1" ]]; then
         prompt=$1
