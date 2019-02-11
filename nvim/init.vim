@@ -4,37 +4,41 @@ let mapleader = ','
 
 """" Plugins
 
-set rtp+=~/.config/nvim/bundle/Vundle.vim
-call vundle#begin()
+if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+  silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-Plugin 'VundleVim/Vundle.vim'            " Plugin manager
+call plug#begin('~/.vim/plugged')
 
 "" Look & feel
-Plugin 'morhetz/gruvbox'                 " Colour scheme
+Plug 'morhetz/gruvbox'                                                   " Colour scheme
 
 " Tools
-Plugin 'christoomey/vim-tmux-navigator'  " Tmux pane navigation integration
-Plugin 'tpope/vim-fugitive'              " Git integration
+Plug 'christoomey/vim-tmux-navigator'                                    " Tmux pane navigation
+Plug 'tpope/vim-fugitive'                                                " Git integration
+
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }} " Markdown previews
 
 "" Enhancements
-Plugin 'Shougo/deoplete.nvim'            " Completion
-Plugin 'tpope/vim-commentary'            " Code comments
-Plugin 'svermeulen/vim-easyclip'         " Clipboard enhancements
-Plugin 'tpope/vim-repeat'                " Repeat (. operator) support for plugins
-Plugin 'tpope/vim-surround'              " Enclose text with brackets/quotes/tags/etc.
-Plugin 'mhinz/vim-signify'               " Show VCS add/change/deletes
-Plugin 'junegunn/fzf'                    " Fuzzy finder
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }            " Completion
+Plug 'tpope/vim-commentary'                                              " Code comments
+Plug 'svermeulen/vim-easyclip'                                           " Clipboard enhancements
+Plug 'tpope/vim-repeat'                                                  " Repeat (. operator) support for plugins
+Plug 'tpope/vim-surround'                                                " Enclose text with brackets/quotes/tags/etc.
+Plug 'mhinz/vim-signify'                                                 " Show VCS add/change/deletes
+Plug 'junegunn/fzf'                                                      " Fuzzy finder
 
 "" Language-specific
-Plugin 'hashivim/vim-terraform'
-Plugin 'rodjek/vim-puppet'
-Plugin 'google/vim-jsonnet'
+Plug 'hashivim/vim-terraform'
+Plug 'rodjek/vim-puppet'
+Plug 'google/vim-jsonnet'
 
 "" Linting
-Plugin 'scrooloose/syntastic'            " General-purpose linter integration
+Plug 'scrooloose/syntastic'                                              " General-purpose linter integration
 
-call vundle#end()
-filetype plugin indent on
+call plug#end()
 
 "" Python 3
 let g:python3_host_prog = $HOME . '/.virtualenvs/pynvim-python3/bin/python'
