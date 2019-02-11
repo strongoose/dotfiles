@@ -28,6 +28,7 @@ Plugin 'junegunn/fzf'                    " Fuzzy finder
 "" Language-specific
 Plugin 'hashivim/vim-terraform'
 Plugin 'rodjek/vim-puppet'
+Plugin 'google/vim-jsonnet'
 
 "" Linting
 Plugin 'scrooloose/syntastic'            " General-purpose linter integration
