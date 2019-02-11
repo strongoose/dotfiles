@@ -19,7 +19,7 @@ useaws () {
   # Usage: useaws <profile-name>
   # Exports AWS environment into the current shell
   profile=$1
-  for assignment in $(aws-profile "$profile" env | grep '^AWS'); do
+  for assignment in $(aws-profile -p "$profile" env | grep '^AWS'); do
     export "${assignment?}"
   done
 }
