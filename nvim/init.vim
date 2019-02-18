@@ -34,6 +34,11 @@ Plug 'junegunn/fzf'                                                      " Fuzzy
 Plug 'hashivim/vim-terraform'
 Plug 'rodjek/vim-puppet'
 Plug 'google/vim-jsonnet'
+Plug 'tpope/vim-fireplace'
+Plug 'venantius/vim-eastwood'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'guns/vim-sexp'
+Plug 'tpope/vim-sexp-mappings-for-regular-people'
 
 "" Linting
 Plug 'scrooloose/syntastic'                                              " General-purpose linter integration
@@ -68,6 +73,7 @@ let g:syntastic_puppet_checkers = ['puppetlint']
 let g:syntastic_js_checkers = ['jshint']
 let g:syntastic_html_checkers = ['tidy']
 let g:syntastic_css_checkers = ['csslint']
+let g:syntastic_clojure_checkers = ['eastwood']
 
 "" Gruvbox
 let g:gruvbox_italic=1

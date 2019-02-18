@@ -6,3 +6,4 @@
 tf.plan*
 _build
 .vscode
+.eastwood
