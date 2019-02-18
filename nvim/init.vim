@@ -99,6 +99,15 @@ set termguicolors
 "" easyclip
 let g:EasyClipUseSubstituteDefaults = 1
 
+"" sexp
+" Unset sexp mappings that conflict with tmux navigation. These are replaced
+" by tpope's sane mappings anyway
+let g:sexp_mappings = {
+  \ 'sexp_swap_list_backward':    '',
+  \ 'sexp_swap_list_forward':     '',
+  \ 'sexp_swap_element_backward': '',
+  \ 'sexp_swap_element_forward':  '',
+  \ }
 
 """" Options
 
