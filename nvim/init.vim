@@ -34,6 +34,11 @@ Plug 'junegunn/fzf'                                                      " Fuzzy
 Plug 'hashivim/vim-terraform'
 Plug 'rodjek/vim-puppet'
 Plug 'google/vim-jsonnet'
+Plug 'tpope/vim-fireplace'
+Plug 'venantius/vim-eastwood'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'guns/vim-sexp'
+Plug 'tpope/vim-sexp-mappings-for-regular-people'
 
 "" Linting
 Plug 'scrooloose/syntastic'                                              " General-purpose linter integration
@@ -68,6 +73,7 @@ let g:syntastic_puppet_checkers = ['puppetlint']
 let g:syntastic_js_checkers = ['jshint']
 let g:syntastic_html_checkers = ['tidy']
 let g:syntastic_css_checkers = ['csslint']
+let g:syntastic_clojure_checkers = ['eastwood']
 
 "" Gruvbox
 let g:gruvbox_italic=1
@@ -93,6 +99,15 @@ set termguicolors
 "" easyclip
 let g:EasyClipUseSubstituteDefaults = 1
 
+"" sexp
+" Unset sexp mappings that conflict with tmux navigation. These are replaced
+" by tpope's sane mappings anyway
+let g:sexp_mappings = {
+  \ 'sexp_swap_list_backward':    '',
+  \ 'sexp_swap_list_forward':     '',
+  \ 'sexp_swap_element_backward': '',
+  \ 'sexp_swap_element_forward':  '',
+  \ }
 
 """" Options
 
