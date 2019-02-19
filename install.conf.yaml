@@ -10,7 +10,7 @@
       stdout: true
       stderr: true
 
-    - command: rustup completions zsh > ~/.zfunc/_rustup
+    - command: mkdir -p ~/.zfunc && rustup completions zsh > ~/.zfunc/_rustup
       stdout: true
       stderr: true
 
