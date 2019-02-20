@@ -18,6 +18,7 @@ antigen bundle lein
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
 antigen bundle Tarrasch/zsh-autoenv
+antigen bundle lukechilds/zsh-nvm
 
 antigen use oh-my-zsh
 antigen theme agnoster
@@ -165,6 +166,14 @@ fi
 ## RVM
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+# Serverless Framework
+serverless_home="/home/dan/.nvm/versions/node/v11.10.0/lib/node_modules/serverless"
+if [[ -f "$serverless_home" ]]; then
+    source "$serverless_home/node_modules/tabtab/.completions/serverless.zsh"
+    source "$serverless_home/node_modules/tabtab/.completions/sls.zsh"
+    source "$serverless_home/node_modules/tabtab/.completions/slss.zsh"
+fi
 
 ## Fix VTE issue (for Tilix): https://gnunn1.github.io/tilix-web/manual/vteconfig/
 VTE_PROFILE=/etc/profile.d/vte.sh
