@@ -24,6 +24,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }} " Markd
 "" Enhancements
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }            " Completion
 Plug 'tpope/vim-commentary'                                              " Code comments
+Plug 'tpope/vim-unimpaired'                                              " Various mappings
 Plug 'svermeulen/vim-easyclip'                                           " Clipboard enhancements
 Plug 'tpope/vim-repeat'                                                  " Repeat (. operator) support for plugins
 Plug 'tpope/vim-surround'                                                " Enclose text with brackets/quotes/tags/etc.
@@ -35,7 +36,6 @@ Plug 'hashivim/vim-terraform'
 Plug 'rodjek/vim-puppet'
 Plug 'google/vim-jsonnet'
 Plug 'tpope/vim-fireplace'
-Plug 'venantius/vim-eastwood'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
@@ -73,7 +73,6 @@ let g:syntastic_puppet_checkers = ['puppetlint']
 let g:syntastic_js_checkers = ['jshint']
 let g:syntastic_html_checkers = ['tidy']
 let g:syntastic_css_checkers = ['csslint']
-let g:syntastic_clojure_checkers = ['eastwood']
 
 "" Gruvbox
 let g:gruvbox_italic=1
