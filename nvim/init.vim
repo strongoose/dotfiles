@@ -198,6 +198,9 @@ nnoremap <leader>f :Find<cr>
 " Switch to last buffer (Basically alt-tab)
 nnoremap <leader><leader> <C-^>
 
+" Clojure
+" Reload the current namespace
+au Filetype clojure nmap <c-c><c-k> :Require<cr>
 
 """" Miscellanious
 
