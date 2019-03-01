@@ -30,6 +30,7 @@ Plug 'tpope/vim-repeat'                                                  " Repea
 Plug 'tpope/vim-surround'                                                " Enclose text with brackets/quotes/tags/etc.
 Plug 'mhinz/vim-signify'                                                 " Show VCS add/change/deletes
 Plug 'junegunn/fzf'                                                      " Fuzzy finder
+Plug 'junegunn/fzf.vim'                                                  " Vim functions for FZF
 
 "" Language-specific
 Plug 'hashivim/vim-terraform'
@@ -190,10 +191,16 @@ nmap <leader>t :FZF %%<cr>
 nnoremap <leader>T :FZF <cr>
 " Find in $HOME
 nnoremap <leader>g :FZF ~<cr>
+" Find text in files
+command -nargs=* Find call fzf#vim#grep('rg --fixed-strings --line-number --color always '.shellescape(<q-args>), 1)
+nnoremap <leader>f :Find<cr>
 
 " Switch to last buffer (Basically alt-tab)
 nnoremap <leader><leader> <C-^>
 
+" Clojure
+" Reload the current namespace
+au Filetype clojure nmap <c-c><c-k> :Require<cr>
 
 """" Miscellanious
 
