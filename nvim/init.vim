@@ -25,7 +25,8 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }} " Markd
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }            " Completion
 Plug 'tpope/vim-commentary'                                              " Code comments
 Plug 'tpope/vim-unimpaired'                                              " Various mappings
-Plug 'svermeulen/vim-easyclip'                                           " Clipboard enhancements
+Plug 'svermeulen/vim-cutlass'                                            " Blackhole deletion
+Plug 'svermeulen/vim-subversive'                                         " Substitute motions
 Plug 'tpope/vim-repeat'                                                  " Repeat (. operator) support for plugins
 Plug 'tpope/vim-surround'                                                " Enclose text with brackets/quotes/tags/etc.
 Plug 'mhinz/vim-signify'                                                 " Show VCS add/change/deletes
@@ -96,8 +97,16 @@ let g:terraform_fmt_on_save = 1
 " Use true colour
 set termguicolors
 
-"" easyclip
-let g:EasyClipUseSubstituteDefaults = 1
+" Clipboard plugins
+" vim-cutlass makes d destructive, so we add a 'move' operator
+nnoremap m d
+xnoremap m d
+nnoremap mm dd
+nnoremap M D
+" vim-subversive has no default mappings
+nmap s <plug>(SubversiveSubstitute)
+nmap ss <plug>(SubversiveSubstituteLine)
+nmap S <plug>(SubversiveSubstituteToEndOfLine)
 
 "" sexp
 " Unset sexp mappings that conflict with tmux navigation. These are replaced
@@ -192,7 +201,9 @@ nnoremap <leader>T :FZF <cr>
 " Find in $HOME
 nnoremap <leader>g :FZF ~<cr>
 " Find text in files
-command -nargs=* Find call fzf#vim#grep('rg --fixed-strings --line-number --color always '.shellescape(<q-args>), 1)
+" Note that column is required for FZF to navigate correctly: removing it
+" results in file mangling.
+command -nargs=* Find call fzf#vim#grep('rg --fixed-strings --column --line-number --color always '.shellescape(<q-args>), 1)
 nnoremap <leader>f :Find<cr>
 
 " Switch to last buffer (Basically alt-tab)
