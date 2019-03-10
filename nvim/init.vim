@@ -61,9 +61,6 @@ inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 let g:signify_vcs_list = [ 'git', 'hg' ]
 
 "" Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
@@ -145,10 +142,6 @@ autocmd ColorScheme * highlight Search gui=underline guifg=None guibg=None
 set cursorline
 set cursorcolumn
 
-" Display line, collumn number and percentage progress through file in
-" statusbar
-set ruler
-
 " Don't autowrap in most files
 set textwidth=0
 
@@ -214,6 +207,16 @@ nnoremap <leader><leader> <C-^>
 au Filetype clojure nmap <c-c><c-k> :Require<cr>
 
 """" Miscellanious
+
+" Fancy status line
+set statusline=%f                                           " relative path to file
+set statusline+=\ %y                                        " filetype
+set statusline+=%(\ [%M%R%H]%)                              " flags: Modified, Read-only, Help
+set statusline+=%=                                          " left/right separator
+set statusline+=%#warningmsg#%{SyntasticStatuslineFlag()}%* " highlighted syntastic status
+set statusline+=\ %l,%c                                     " line,col
+set statusline+=\ of\ %L                                    " total line number
+set statusline+=\ (%p%%)                                    " percent through file
 
 " Remove trailing whitespace before write
 autocmd BufWritePre * :%s/\s\+$//e
