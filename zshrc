@@ -21,7 +21,7 @@ antigen bundle Tarrasch/zsh-autoenv
 antigen bundle lukechilds/zsh-nvm
 
 antigen use oh-my-zsh
-antigen theme agnoster
+antigen theme avit
 
 antigen apply
 

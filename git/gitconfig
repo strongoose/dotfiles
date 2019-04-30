@@ -39,4 +39,5 @@
     r   = rebase
     s   = status
     sh  = stash
+    sk  = stash --keep-index
     smash = commit -a --amend
