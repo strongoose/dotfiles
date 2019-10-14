@@ -43,6 +43,7 @@ Plug 'kien/rainbow_parentheses.vim'
 Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
 Plug 'lervag/vimtex'
+Plug 'kchmck/vim-coffee-script'
 
 "" Linting
 Plug 'scrooloose/syntastic'                                              " General-purpose linter integration
@@ -179,7 +180,7 @@ autocmd BufRead,BufNewFile *.zsh-theme setfiletype zsh
 autocmd FileType markdown setlocal colorcolumn=120
 
 " Various: 2 space tabstop
-autocmd FileType html,css,ruby,yaml,lua,sh,terraform,Jenkinsfile setlocal tabstop=2
+autocmd FileType html,css,ruby,yaml,lua,sh,terraform,Jenkinsfile,coffee setlocal tabstop=2
 
 
 """" Keybindings
