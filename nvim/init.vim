@@ -1,6 +1,7 @@
 """" Leader
 
 let mapleader = ','
+let maplocalleader = ','
 
 """" Plugins
 
@@ -25,7 +26,8 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }} " Markd
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }            " Completion
 Plug 'tpope/vim-commentary'                                              " Code comments
 Plug 'tpope/vim-unimpaired'                                              " Various mappings
-Plug 'svermeulen/vim-easyclip'                                           " Clipboard enhancements
+Plug 'svermeulen/vim-cutlass'                                            " Blackhole deletion
+Plug 'svermeulen/vim-subversive'                                         " Substitute motions
 Plug 'tpope/vim-repeat'                                                  " Repeat (. operator) support for plugins
 Plug 'tpope/vim-surround'                                                " Enclose text with brackets/quotes/tags/etc.
 Plug 'mhinz/vim-signify'                                                 " Show VCS add/change/deletes
@@ -40,6 +42,8 @@ Plug 'tpope/vim-fireplace'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
+Plug 'lervag/vimtex'
+Plug 'kchmck/vim-coffee-script'
 
 "" Linting
 Plug 'scrooloose/syntastic'                                              " General-purpose linter integration
@@ -60,9 +64,6 @@ inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 let g:signify_vcs_list = [ 'git', 'hg' ]
 
 "" Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
@@ -96,8 +97,16 @@ let g:terraform_fmt_on_save = 1
 " Use true colour
 set termguicolors
 
-"" easyclip
-let g:EasyClipUseSubstituteDefaults = 1
+" Clipboard plugins
+" vim-cutlass makes d destructive, so we add a 'move' operator
+nnoremap m d
+xnoremap m d
+nnoremap mm dd
+nnoremap M D
+" vim-subversive has no default mappings
+nmap s <plug>(SubversiveSubstitute)
+nmap ss <plug>(SubversiveSubstituteLine)
+nmap S <plug>(SubversiveSubstituteToEndOfLine)
 
 "" sexp
 " Unset sexp mappings that conflict with tmux navigation. These are replaced
@@ -108,6 +117,12 @@ let g:sexp_mappings = {
   \ 'sexp_swap_element_backward': '',
   \ 'sexp_swap_element_forward':  '',
   \ }
+
+"" LaTeX
+let g:vimtex_compiler_method='tectonic'
+let g:vimtex_view_method='mupdf'
+" nmap <Leader>lc :VimtexCompile
+" nmap <Leader>lv :VimtexView
 
 """" Options
 
@@ -135,10 +150,6 @@ autocmd ColorScheme * highlight Search gui=underline guifg=None guibg=None
 " Highlight cursor line and collumn
 set cursorline
 set cursorcolumn
-
-" Display line, collumn number and percentage progress through file in
-" statusbar
-set ruler
 
 " Don't autowrap in most files
 set textwidth=0
@@ -169,7 +180,7 @@ autocmd BufRead,BufNewFile *.zsh-theme setfiletype zsh
 autocmd FileType markdown setlocal colorcolumn=120
 
 " Various: 2 space tabstop
-autocmd FileType html,css,ruby,yaml,lua,sh,terraform,Jenkinsfile setlocal tabstop=2
+autocmd FileType html,css,ruby,yaml,lua,sh,terraform,Jenkinsfile,coffee setlocal tabstop=2
 
 
 """" Keybindings
@@ -192,7 +203,9 @@ nnoremap <leader>T :FZF <cr>
 " Find in $HOME
 nnoremap <leader>g :FZF ~<cr>
 " Find text in files
-command -nargs=* Find call fzf#vim#grep('rg --fixed-strings --line-number --color always '.shellescape(<q-args>), 1)
+" Note that column is required for FZF to navigate correctly: removing it
+" results in file mangling.
+command -nargs=* Find call fzf#vim#grep('rg --fixed-strings --column --line-number --color always '.shellescape(<q-args>), 1)
 nnoremap <leader>f :Find<cr>
 
 " Switch to last buffer (Basically alt-tab)
@@ -203,6 +216,16 @@ nnoremap <leader><leader> <C-^>
 au Filetype clojure nmap <c-c><c-k> :Require<cr>
 
 """" Miscellanious
+
+" Fancy status line
+set statusline=%f                                           " relative path to file
+set statusline+=\ %y                                        " filetype
+set statusline+=%(\ [%M%R%H]%)                              " flags: Modified, Read-only, Help
+set statusline+=%=                                          " left/right separator
+set statusline+=%#warningmsg#%{SyntasticStatuslineFlag()}%* " highlighted syntastic status
+set statusline+=\ %l,%c                                     " line,col
+set statusline+=\ of\ %L                                    " total line number
+set statusline+=\ (%p%%)                                    " percent through file
 
 " Remove trailing whitespace before write
 autocmd BufWritePre * :%s/\s\+$//e

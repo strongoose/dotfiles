@@ -21,7 +21,7 @@ antigen bundle Tarrasch/zsh-autoenv
 antigen bundle lukechilds/zsh-nvm
 
 antigen use oh-my-zsh
-antigen theme agnoster
+antigen theme avit
 
 antigen apply
 
@@ -108,6 +108,8 @@ else
 fi
 
 ## fzf (https://github.com/junegunn/fzf)
+which fzf >/dev/null || 2>&1 echo FZF not found
+which rg >/dev/null || 2>&1 echo RipGrep not found
 export FZF_DEFAULT_COMMAND='rg --hidden --files -F'
 export FZF_CTRL_T_COMMAND='rg --hidden --files -F'
 export FZF_DEFAULT_OPTS="--height 25% --border"
@@ -182,7 +184,8 @@ if [[ -e "$VTE_PROFILE" ]]; then
 fi
 
 # FZF
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
 
 # Scripts in $HOME/.local/bin take precedence:
 path=( "$HOME/.local/bin" $path )
@@ -224,3 +227,6 @@ check_dotfiles_branch() {
 }
 
 check_dotfiles_branch
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"

@@ -35,8 +35,8 @@
     p   = push
     ph  = push -u origin HEAD
     pl  = pull
-    pr  = pull-request
     r   = rebase
     s   = status
     sh  = stash
+    sk  = stash --keep-index
     smash = commit -a --amend
