@@ -169,6 +169,12 @@ fi
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
+## Jenv
+if [ -d "$HOME/.jenv/" ]; then
+    export path=( "$HOME/.jenv/bin" $path )
+    eval "$(jenv init -)"
+fi
+
 # Serverless Framework
 serverless_home="/home/dan/.nvm/versions/node/v11.10.0/lib/node_modules/serverless"
 if [[ -f "$serverless_home" ]]; then
