@@ -1,6 +1,7 @@
 """" Leader
 
 let mapleader = ','
+let maplocalleader = ','
 
 """" Plugins
 
@@ -41,6 +42,7 @@ Plug 'tpope/vim-fireplace'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
+Plug 'lervag/vimtex'
 
 "" Linting
 Plug 'scrooloose/syntastic'                                              " General-purpose linter integration
@@ -114,6 +116,12 @@ let g:sexp_mappings = {
   \ 'sexp_swap_element_backward': '',
   \ 'sexp_swap_element_forward':  '',
   \ }
+
+"" LaTeX
+let g:vimtex_compiler_method='tectonic'
+let g:vimtex_view_method='mupdf'
+" nmap <Leader>lc :VimtexCompile
+" nmap <Leader>lv :VimtexView
 
 """" Options
 
