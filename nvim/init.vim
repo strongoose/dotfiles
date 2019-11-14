@@ -180,7 +180,7 @@ autocmd BufRead,BufNewFile *.zsh-theme setfiletype zsh
 autocmd FileType markdown setlocal colorcolumn=120
 
 " Various: 2 space tabstop
-autocmd FileType html,css,ruby,yaml,lua,sh,terraform,Jenkinsfile,coffee setlocal tabstop=2
+autocmd FileType javascript,html,css,ruby,yaml,lua,sh,terraform,Jenkinsfile,coffee setlocal tabstop=2
 
 
 """" Keybindings
