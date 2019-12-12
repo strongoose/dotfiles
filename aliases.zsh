@@ -84,6 +84,7 @@ alias la='ls -lha'
 alias ll='ls -lh'
 alias myip='curl -s icanhazip.com'
 alias t='true'
+alias ipgrep="rg '([0-9]{1,3}\.){3}[0-9]{1,3}(/[0-9]{1,2})?'"
 
 # Common opts
 alias grep='grep --color=auto'
