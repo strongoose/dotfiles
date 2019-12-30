@@ -154,7 +154,7 @@ set noswapfile
 """" FileTypes
 
 " Python: show PEP8 code/comment widths, set textwidth to code width
-autocmd FileType python setlocal colorcolumn=80
+autocmd FileType python setlocal colorcolumn=79
 
 " Text: don't number lines, wrap to 120
 autocmd FileType text setlocal nonumber colorcolumn=120 textwidth=120
