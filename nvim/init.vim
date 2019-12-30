@@ -54,8 +54,7 @@ let g:python_host_prog =  $HOME . '/.virtualenvs/pynvim-python2/bin/python'
 
 "" deoplete
 let g:deoplete#enable_at_startup = 1
-" When pop-up menu is visible remap <TAB> to <C-n> for cycling through
-" autocomplete options.
+" While pop-up menu is visible, TAB should cycle through autocomplete options.
 inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 "" signify
