@@ -14,6 +14,7 @@ endif
 call plug#begin('~/.local/share/nvim/plugged')
 
 "" Look & feel
+Plug 'vim-airline/vim-airline'
 Plug 'morhetz/gruvbox'                                                   " Colour scheme
 
 " Tools
@@ -204,16 +205,6 @@ nnoremap <leader><leader> <C-^>
 au Filetype clojure nmap <c-c><c-k> :Require<cr>
 
 """" Miscellanious
-
-" Fancy status line
-set statusline=%f                                           " relative path to file
-set statusline+=\ %y                                        " filetype
-set statusline+=%(\ [%M%R%H]%)                              " flags: Modified, Read-only, Help
-set statusline+=%=                                          " left/right separator
-set statusline+=%#warningmsg#%{SyntasticStatuslineFlag()}%* " highlighted syntastic status
-set statusline+=\ %l,%c                                     " line,col
-set statusline+=\ of\ %L                                    " total line number
-set statusline+=\ (%p%%)                                    " percent through file
 
 " Remove trailing whitespace before write
 autocmd BufWritePre * :%s/\s\+$//e
