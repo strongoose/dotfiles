@@ -37,6 +37,9 @@
     # pylint
     ~/.pylintrc: pylintrc
 
+    # flake8
+    ~/.config/flake8: flake8
+
     # gopass
     ~/.config/gopass/config.yml: gopass/config.yml
 
