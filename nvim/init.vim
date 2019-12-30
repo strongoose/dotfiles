@@ -44,7 +44,7 @@ Plug 'lervag/vimtex'
 Plug 'kchmck/vim-coffee-script'
 
 "" Linting
-Plug 'scrooloose/syntastic'                                              " General-purpose linter integration
+Plug 'dense-analysis/ale'                                                " Async linter for nvim/vim8
 
 call plug#end()
 
@@ -61,18 +61,9 @@ inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 "" signify
 let g:signify_vcs_list = [ 'git', 'hg' ]
 
-"" Syntastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_python_checkers = ['pylint']
-let g:syntastic_sh_checkers = ['shellcheck']
-let g:syntastic_puppet_checkers = ['puppetlint']
-let g:syntastic_js_checkers = ['jshint']
-let g:syntastic_html_checkers = ['tidy']
-let g:syntastic_css_checkers = ['csslint']
+"" ALE
+nmap <silent> <C-n> <Plug>(ale_next_wrap)
+nmap <silent> <C-p> <Plug>(ale_previous_wrap)
 
 "" Gruvbox
 let g:gruvbox_italic=1
