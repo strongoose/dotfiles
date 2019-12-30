@@ -20,8 +20,6 @@ Plug 'morhetz/gruvbox'                                                   " Colou
 Plug 'christoomey/vim-tmux-navigator'                                    " Tmux pane navigation
 Plug 'tpope/vim-fugitive'                                                " Git integration
 
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }} " Markdown previews
-
 "" Enhancements
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }            " Completion
 Plug 'tpope/vim-commentary'                                              " Code comments
