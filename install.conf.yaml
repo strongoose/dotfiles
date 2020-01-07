@@ -15,6 +15,9 @@
       stderr: true
 
 - link:
+    # vim
+    ~/.config/nvim/init.vim: nvim/init.vim
+
     # tmux
     ~/.tmux.conf: tmux.conf
 
