@@ -14,13 +14,12 @@ endif
 call plug#begin('~/.local/share/nvim/plugged')
 
 "" Look & feel
+Plug 'vim-airline/vim-airline'
 Plug 'morhetz/gruvbox'                                                   " Colour scheme
 
 " Tools
 Plug 'christoomey/vim-tmux-navigator'                                    " Tmux pane navigation
 Plug 'tpope/vim-fugitive'                                                " Git integration
-
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }} " Markdown previews
 
 "" Enhancements
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }            " Completion
@@ -46,7 +45,7 @@ Plug 'lervag/vimtex'
 Plug 'kchmck/vim-coffee-script'
 
 "" Linting
-Plug 'scrooloose/syntastic'                                              " General-purpose linter integration
+Plug 'dense-analysis/ale'                                                " Async linter for nvim/vim8
 
 call plug#end()
 
@@ -56,25 +55,15 @@ let g:python_host_prog =  $HOME . '/.virtualenvs/pynvim-python2/bin/python'
 
 "" deoplete
 let g:deoplete#enable_at_startup = 1
-" When pop-up menu is visible remap <TAB> to <C-n> for cycling through
-" autocomplete options.
+" While pop-up menu is visible, TAB should cycle through autocomplete options.
 inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 "" signify
 let g:signify_vcs_list = [ 'git', 'hg' ]
 
-"" Syntastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_python_checkers = ['pylint']
-let g:syntastic_sh_checkers = ['shellcheck']
-let g:syntastic_puppet_checkers = ['puppetlint']
-let g:syntastic_js_checkers = ['jshint']
-let g:syntastic_html_checkers = ['tidy']
-let g:syntastic_css_checkers = ['csslint']
+"" ALE
+nmap <silent> <C-n> <Plug>(ale_next_wrap)
+nmap <silent> <C-p> <Plug>(ale_previous_wrap)
 
 "" Gruvbox
 let g:gruvbox_italic=1
@@ -165,7 +154,7 @@ set noswapfile
 """" FileTypes
 
 " Python: show PEP8 code/comment widths, set textwidth to code width
-autocmd FileType python setlocal colorcolumn=80
+autocmd FileType python setlocal colorcolumn=79
 
 " Text: don't number lines, wrap to 120
 autocmd FileType text setlocal nonumber colorcolumn=120 textwidth=120
@@ -216,16 +205,6 @@ nnoremap <leader><leader> <C-^>
 au Filetype clojure nmap <c-c><c-k> :Require<cr>
 
 """" Miscellanious
-
-" Fancy status line
-set statusline=%f                                           " relative path to file
-set statusline+=\ %y                                        " filetype
-set statusline+=%(\ [%M%R%H]%)                              " flags: Modified, Read-only, Help
-set statusline+=%=                                          " left/right separator
-set statusline+=%#warningmsg#%{SyntasticStatuslineFlag()}%* " highlighted syntastic status
-set statusline+=\ %l,%c                                     " line,col
-set statusline+=\ of\ %L                                    " total line number
-set statusline+=\ (%p%%)                                    " percent through file
 
 " Remove trailing whitespace before write
 autocmd BufWritePre * :%s/\s\+$//e

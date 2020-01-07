@@ -135,7 +135,7 @@ if which pipenv >/dev/null 2>&1; then
 fi
 
 ## Go
-if go version 2>&1 >/dev/null; then
+if whichsoever go >/dev/null; then
     GOPATH="$HOME/.local/go"
     mkdir -p $GOPATH
     export GOPATH

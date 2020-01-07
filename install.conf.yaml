@@ -15,6 +15,9 @@
       stderr: true
 
 - link:
+    # vim
+    ~/.config/nvim/init.vim: nvim/init.vim
+
     # tmux
     ~/.tmux.conf: tmux.conf
 
@@ -36,6 +39,9 @@
 
     # pylint
     ~/.pylintrc: pylintrc
+
+    # flake8
+    ~/.config/flake8: flake8
 
     # gopass
     ~/.config/gopass/config.yml: gopass/config.yml

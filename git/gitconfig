@@ -35,6 +35,7 @@
     p   = push
     ph  = push -u origin HEAD
     pl  = pull
+    pls = pull --autostash
     r   = rebase
     s   = status
     sh  = stash
