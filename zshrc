@@ -190,8 +190,8 @@ if [[ -e "$VTE_PROFILE" ]]; then
 fi
 
 # FZF
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
+source /usr/local/Cellar/fzf/0.20.0/shell/key-bindings.zsh
+source /usr/local/Cellar/fzf/0.20.0/shell/completion.zsh
 
 # Scripts in $HOME/.local/bin take precedence:
 path=( "$HOME/.local/bin" $path )
