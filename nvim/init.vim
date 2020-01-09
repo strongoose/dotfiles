@@ -168,6 +168,12 @@ autocmd BufRead,BufNewFile *.zsh-theme setfiletype zsh
 " Markdown: wrap at 80
 autocmd FileType markdown setlocal colorcolumn=120
 
+" Vagrantfiles: treat as ruby
+augroup vagrant
+  au!
+  au BufRead,BufNewFile Vagrantfile set filetype=ruby
+augroup END
+
 " Various: 2 space tabstop
 autocmd FileType javascript,html,css,ruby,yaml,lua,sh,terraform,Jenkinsfile,coffee setlocal tabstop=2
 
