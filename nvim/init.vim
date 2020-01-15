@@ -177,6 +177,8 @@ augroup END
 " Various: 2 space tabstop
 autocmd FileType javascript,html,css,ruby,yaml,lua,sh,terraform,Jenkinsfile,coffee setlocal tabstop=2
 
+" Set spell checking on appropriate filetypes:
+autocmd FileType markdown,text setlocal spell
 
 """" Keybindings
 
