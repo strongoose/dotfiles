@@ -188,9 +188,9 @@ set clipboard+=unnamedplus
 " Mouse
 set mouse=a
 
-" Inc/Dec numbers (default C-a to increment conflicts with tmux leader)
-nnoremap <C-k> <C-a>
-nnoremap <C-j> <C-x>
+" ALE
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 " FZF
 " Find in current buffer's directory
