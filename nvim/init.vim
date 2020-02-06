@@ -168,10 +168,16 @@ autocmd BufRead,BufNewFile *.zsh-theme setfiletype zsh
 " Markdown: wrap at 80
 autocmd FileType markdown setlocal colorcolumn=120
 
-" Vagrantfiles: treat as ruby
+" Vagrantfile: treat as ruby
 augroup vagrant
   au!
   au BufRead,BufNewFile Vagrantfile set filetype=ruby
+augroup END
+
+" Jenkinsfile: treat as groovy
+augroup Jenkinsfile
+  au!
+  au BufRead,BufNewFile Jenkinsfile set filetype=groovy
 augroup END
 
 " Various: 2 space tabstop
