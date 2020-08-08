@@ -213,10 +213,10 @@ EXPECTED_TOOLS=(
     htop
     hub
     nc
+    rbenv
     rg
     rsync
     rustup
-    rvm
     shellcheck
     tree
     virtualenv
