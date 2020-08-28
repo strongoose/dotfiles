@@ -126,6 +126,11 @@ if [ -d "$HOME/.jenv/" ]; then
     eval "$(jenv init -)"
 fi
 
+## Ruby
+if [ -d ~/.rbenv/bin ]; then
+    path=( "$HOME/.rbenv/bin" $path)
+fi
+
 ## fzf (https://github.com/junegunn/fzf)
 whence fzf >/dev/null || 2>&1 echo FZF not found
 whence rg >/dev/null || 2>&1 echo RipGrep not found
