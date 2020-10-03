@@ -257,3 +257,7 @@ else
         alert "Switch to master branch and restart the shell"
     fi
 fi
+
+if [[ "$(tmux display-message -p '#S' 2>/dev/null)" == "stream" ]]; then
+    HISTFILE=~/.stream_zsh_history
+fi
