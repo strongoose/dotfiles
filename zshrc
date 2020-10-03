@@ -134,6 +134,7 @@ fi
 ## Ruby
 if [ -d ~/.rbenv/bin ]; then
     path=( "$HOME/.rbenv/bin" $path)
+    eval "$(rbenv init -)"
 fi
 
 
