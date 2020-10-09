@@ -43,6 +43,7 @@ Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
 Plug 'lervag/vimtex'
 Plug 'kchmck/vim-coffee-script'
+Plug 'tmux-plugins/vim-tmux'
 
 "" Linting
 Plug 'dense-analysis/ale'                                                " Async linter for nvim/vim8
