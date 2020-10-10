@@ -35,9 +35,6 @@ Plug 'junegunn/fzf.vim'                                                  " Vim f
 
 "" Language-specific
 Plug 'hashivim/vim-terraform'
-Plug 'rodjek/vim-puppet'
-Plug 'google/vim-jsonnet'
-Plug 'tpope/vim-fireplace'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
@@ -93,6 +90,7 @@ nnoremap m d
 xnoremap m d
 nnoremap mm dd
 nnoremap M D
+
 " vim-subversive has no default mappings
 nmap s <plug>(SubversiveSubstitute)
 nmap ss <plug>(SubversiveSubstituteLine)
@@ -100,7 +98,7 @@ nmap S <plug>(SubversiveSubstituteToEndOfLine)
 
 "" sexp
 " Unset sexp mappings that conflict with tmux navigation. These are replaced
-" by tpope's sane mappings anyway
+" by tpope's sensible mappings anyway
 let g:sexp_mappings = {
   \ 'sexp_swap_list_backward':    '',
   \ 'sexp_swap_list_forward':     '',
@@ -111,8 +109,8 @@ let g:sexp_mappings = {
 "" LaTeX
 let g:vimtex_compiler_method='tectonic'
 let g:vimtex_view_method='mupdf'
-" nmap <Leader>lc :VimtexCompile
-" nmap <Leader>lv :VimtexView
+nmap <Leader>lc :VimtexCompile
+nmap <Leader>lv :VimtexView
 
 """" Options
 
@@ -160,8 +158,8 @@ autocmd FileType python setlocal colorcolumn=79
 " Text: don't number lines, wrap to 120
 autocmd FileType text setlocal nonumber colorcolumn=120 textwidth=120
 
-" Go: use tabs
-autocmd FileType go setlocal noexpandtab
+" Various: use tabs
+autocmd FileType go,c setlocal noexpandtab
 
 " Themes: set the filetype on oh-my-zsh themes to zsh
 autocmd BufRead,BufNewFile *.zsh-theme setfiletype zsh
