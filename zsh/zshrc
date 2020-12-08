@@ -192,12 +192,8 @@ else
 fi
 
 ## gpg-agent (with SSH support)
-(
-    (
-    gpg-connect-agent /bye 2>&1 >/dev/null
-    export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-    ) &
-)
+gpg-connect-agent /bye 2>&1 >/dev/null
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 
 ## gopass completion
 export fpath=( "$HOME/.local/go/share/zsh/site-functions" $fpath )
