@@ -1,3 +1,6 @@
+# These lazy-loads rely on the initialisation step defining new shell functions
+# which override these lazy load shims
+
 nvm () {
     export NVM_DIR="$HOME/.nvm"
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -28,11 +31,13 @@ jenv () {
         path=( "$HOME/.jenv/bin" $path )
         eval "$(jenv init -)"
     fi
+    jenv "$@"
 }
 
 rbenv () {
     if [ -d ~/.rbenv/bin ]; then
         path=( "$HOME/.rbenv/bin" $path)
-        eval "$(rbenv init -)"
+        eval "$(command rbenv init -)"
     fi
+    rbenv "$@"
 }
