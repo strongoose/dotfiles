@@ -118,5 +118,5 @@ if [[ "$OSTYPE" =~ darwin ]]; then
     alias find='gfind'
     alias sed='gsed'
     alias tar='gtar'
-    alias ls='gls --color=auto'
+    alias ls='exa --color=auto'
 fi

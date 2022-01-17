@@ -1,3 +1,4 @@
+source ~/zsh-snap/znap.zsh
 # =================================
 # == ZSH/ohmyzsh initianlisation ==
 # =================================
@@ -21,24 +22,13 @@ if [[ -n "$profile_startup" ]]; then
 fi
 
 # Load antigen
-source ~/.dotfiles/antigen/antigen.zsh
+source ~/zsh-snap/znap.zsh
 
-# antigen reset can clear up weird issues which are apparently to do with
-# caches not being updated when a bundle updates or something?
-# Since it doesn't take perceptibly longer to just clear every time I start a
-# shell, that's what I'm doing. ANTIGEN_CACHE=false might also do the trick
-# but there are some bugs raised against it
-antigen reset >/dev/null 2>&1
+znap source zsh-users/zsh-completions
+znap source Tarrasch/zsh-autoenv
 
-# antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle zsh-users/zsh-completions
-antigen bundle Tarrasch/zsh-autoenv
-
-antigen use oh-my-zsh
-antigen theme avit
-
-antigen apply
-
+# Starship prompt
+eval "$(starship init zsh)"
 
 # =======================
 # == Utility functions ==
@@ -65,16 +55,15 @@ if [[ "$(uname -s)" =~ Darwin ]]; then
 
     # Use GNU tools not crappy BSD ones
     path=( "/usr/local/opt/coreutils/libexec/gnubin" $path )
-
-    # Add python user packages (installed with pip install --user <package>) to PATH
-    latest_python3=$(ls -d ~/Library/Python/3.* | sort -t. -k2,2 -n | tail -n1)
-    path=( "$latest_python3/bin" $path )
 fi
 
 
 # ========================
 # == ZSH settings ==
 # ========================
+
+# Something something fix ctrl-e/ctrl-a in tmux??
+bindkey -e
 
 # Zsh completion help
 bindkey '^Xh' _complete_help
@@ -137,8 +126,9 @@ fi
 # Inventory the toolbox
 expected_tools=(
     # Essentials
+    exa
     git
-    docker
+    delta
     shellcheck
     htop
     tree
@@ -157,7 +147,7 @@ expected_tools=(
 )
 
 missing=()
-for tool in $@; do
+for tool in ${expected_tools[@]}; do
     if ! whence "$tool" >/dev/null; then
         missing+=("$tool")
     fi
@@ -195,10 +185,6 @@ if whence nvim >/dev/null; then
 else
     export EDITOR='vim'
 fi
-
-## gpg-agent (with SSH support)
-gpg-connect-agent /bye 2>&1 >/dev/null
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 
 ## gopass completion
 export fpath=( "$HOME/.local/go/share/zsh/site-functions" $fpath )

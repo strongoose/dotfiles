@@ -50,3 +50,6 @@
 
     # leiningen profiles
     ~/.lein/profiles.clj: lein/profiles.clj
+
+    # starship prompt
+    ~/.config/starship.toml: starship.toml
