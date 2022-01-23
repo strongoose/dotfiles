@@ -36,7 +36,7 @@ alert () {
 # == OSX hacks ==
 # ===============
 
-if [[ "$(uname -s)" =~ Darwin ]]; then
+if [[ "$(uname -s)" =~ Darwin ]] && [[ "$(uname -m)" != "arm64" ]]; then
     # /usr/libexec/path_helper is path unhelpful
     path=(
         "/usr/local/bin"
