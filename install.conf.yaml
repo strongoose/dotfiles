@@ -53,3 +53,6 @@
 
     # starship prompt
     ~/.config/starship.toml: starship.toml
+
+    # kitty terminal
+    ~/.config/kitty/kitty.conf: kitty.conf
