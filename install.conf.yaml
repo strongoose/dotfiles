@@ -37,9 +37,6 @@
     # flake8
     ~/.config/flake8: python/flake8
 
-    # gopass
-    ~/.config/gopass/config.yml: gopass/config.yml
-
     # utils
     ~/.local/bin/:
       glob: true
