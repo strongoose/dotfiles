@@ -21,9 +21,6 @@
       glob: true
       path: nvim/ftplugin/*
 
-    # tmux
-    ~/.tmux.conf: tmux.conf
-
     # git
     ~/.gitconfig: git/gitconfig
     ~/.gitignore: git/gitignore

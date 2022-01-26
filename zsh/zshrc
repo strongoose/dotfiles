@@ -55,9 +55,6 @@ fi
 # == ZSH settings ==
 # ========================
 
-# Something something fix ctrl-e/ctrl-a in tmux??
-bindkey -e
-
 # Zsh completion help
 bindkey '^Xh' _complete_help
 

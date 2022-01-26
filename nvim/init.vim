@@ -18,7 +18,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'morhetz/gruvbox'                                                   " Colour scheme
 
 " Tools
-Plug 'christoomey/vim-tmux-navigator'                                    " Tmux pane navigation
 Plug 'tpope/vim-fugitive'                                                " Git integration
 
 "" Enhancements
@@ -28,7 +27,6 @@ Plug 'junegunn/fzf.vim'                                                  " Vim f
 Plug 'mhinz/vim-signify'                                                 " Show VCS add/change/deletes
 Plug 'svermeulen/vim-cutlass'                                            " Blackhole deletion
 Plug 'svermeulen/vim-subversive'                                         " Substitute motions
-Plug 'tmux-plugins/vim-tmux'
 Plug 'tpope/vim-commentary'                                              " Code comments
 Plug 'tpope/vim-repeat'                                                  " Repeat (. operator) support for plugins
 Plug 'tpope/vim-surround'                                                " Enclose text with brackets/quotes/tags/etc.
@@ -49,6 +47,8 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'maxmellon/vim-jsx-pretty'
 " coffeescript
 Plug 'kchmck/vim-coffee-script'
+" kitty terminal config
+Plug 'fladson/vim-kitty'
 
 "" Linting
 Plug 'dense-analysis/ale'                                                " Async linter for nvim/vim8
@@ -76,16 +76,6 @@ let g:gruvbox_italic=1
 colorscheme gruvbox
 set background=dark
 
-"" Vim Tmux Navigator
-" Disable default mappings
-let g:tmux_navigator_no_mappings = 1
-
-nnoremap <silent> <M-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <M-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <M-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <M-l> :TmuxNavigateRight<cr>
-nnoremap <silent> <M-w> :TmuxNavigatePrevious<cr>
-
 "" Vim Terraform
 let g:terraform_fmt_on_save = 1
 
@@ -103,16 +93,6 @@ nnoremap M D
 nmap s <plug>(SubversiveSubstitute)
 nmap ss <plug>(SubversiveSubstituteLine)
 nmap S <plug>(SubversiveSubstituteToEndOfLine)
-
-"" sexp
-" Unset sexp mappings that conflict with tmux navigation. These are replaced
-" by tpope's sensible mappings anyway
-let g:sexp_mappings = {
-  \ 'sexp_swap_list_backward':    '',
-  \ 'sexp_swap_list_forward':     '',
-  \ 'sexp_swap_element_backward': '',
-  \ 'sexp_swap_element_forward':  '',
-  \ }
 
 "" LaTeX
 let g:vimtex_compiler_method='tectonic'
