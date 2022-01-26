@@ -1,5 +1,5 @@
 # =================================
-# == ZSH/ohmyzsh initianlisation ==
+# == Initianlisation ==
 # =================================
 
 ## Toggle the comment below to profile zsh start speed
@@ -22,6 +22,9 @@ fi
 
 # Starship prompt
 eval "$(starship init zsh)"
+
+# Allow interactive comments
+setopt interactive_comments
 
 # =======================
 # == Utility functions ==
