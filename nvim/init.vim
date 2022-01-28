@@ -74,7 +74,7 @@ nmap <silent> <C-p> <Plug>(ale_previous_wrap)
 "" Gruvbox
 let g:gruvbox_italic=1
 colorscheme gruvbox
-set background=dark
+set background=light
 
 "" Vim Terraform
 let g:terraform_fmt_on_save = 1

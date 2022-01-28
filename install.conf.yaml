@@ -14,6 +14,14 @@
       stdout: true
       stderr: true
 
+    - command: mkdir -p ~/.config/kitty && cd ~/.config/kitty && curl -s -O https://raw.githubusercontent.com/ouroboros8/kitty-gruvbox-theme/master/gruvbox_dark.conf
+      stdout: true
+      stderr: true
+
+    - command: mkdir -p ~/.config/kitty && cd ~/.config/kitty && curl -s -O https://raw.githubusercontent.com/ouroboros8/kitty-gruvbox-theme/master/gruvbox_light.conf
+      stdout: true
+      stderr: true
+
 - link:
     # vim
     ~/.config/nvim/init.vim: nvim/init.vim
