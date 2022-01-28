@@ -65,10 +65,15 @@ bindkey '^Xh' _complete_help
 bindkey '^R' history-incremental-pattern-search-backward
 bindkey '^F' history-incremental-pattern-search-forward
 
-# Biggest history
+# Better history
+export HISTFILE=~/.zsh_history
 export HISTSIZE=9999999999999999 # LONG_MAX (64-bit)
 export SAVEHIST=9999999999999999
-
+setopt HIST_IGNORE_ALL_DUPS  # do not put duplicated command into history list
+setopt HIST_SAVE_NO_DUPS  # do not save duplicated command
+setopt HIST_REDUCE_BLANKS  # remove unnecessary blanks
+setopt INC_APPEND_HISTORY_TIME  # append command to history file immediately after execution
+setopt EXTENDED_HISTORY  # record command start time
 
 # ======================
 # == Dev environments ==
@@ -128,7 +133,7 @@ expected_tools=(
 
     # Networking
     curl
-    nc
+    ncat
     dig
     rsync
 
