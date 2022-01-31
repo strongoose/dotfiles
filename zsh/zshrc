@@ -65,6 +65,10 @@ bindkey '^Xh' _complete_help
 bindkey '^R' history-incremental-pattern-search-backward
 bindkey '^F' history-incremental-pattern-search-forward
 
+# ctrl+arrow jumps words
+bindkey "[1;5C" forward-word
+bindkey "[1;5D" backward-word
+
 # Better history
 export HISTFILE=~/.zsh_history
 export HISTSIZE=9999999999999999 # LONG_MAX (64-bit)
