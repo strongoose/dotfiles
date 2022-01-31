@@ -1,8 +1,8 @@
 [user]
     email = dstrong@glyx.co.uk
     name = Daniel Strong
-[includeIf "gitdir:~/bbc/**"]
-    path = ~/.work-dotfiles/gitconfig
+[includeIf "gitdir:~/work/**"]
+    path = ~/work/.gitconfig
 [push]
     default = simple
 [branch]
