@@ -49,6 +49,8 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'kchmck/vim-coffee-script'
 " kitty terminal config
 Plug 'fladson/vim-kitty'
+" rego
+Plug 'tsandall/vim-rego'
 
 "" Linting
 Plug 'dense-analysis/ale'                                                " Async linter for nvim/vim8
