@@ -12,7 +12,7 @@
 [core]
     editor = nvim
     excludesfile = ~/.gitignore
-    pager = delta
+    pager = delta --theme=gruvbox-light
 [interactive]
     diffFilter = delta --color-only
 [delta]
