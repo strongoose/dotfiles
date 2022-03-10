@@ -33,11 +33,3 @@ jenv () {
     fi
     jenv "$@"
 }
-
-rbenv () {
-    if [ -d ~/.rbenv/bin ]; then
-        path=( "$HOME/.rbenv/bin" $path)
-        eval "$(command rbenv init -)"
-    fi
-    rbenv "$@"
-}

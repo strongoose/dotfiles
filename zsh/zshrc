@@ -121,6 +121,13 @@ if [ -d "$HOME/.perl6/" ]; then
     path=( "$HOME/.perl6/bin" $path )
 fi
 
+## Ruby
+if [ -d ~/.rbenv/bin ]; then
+    path=( "$HOME/.rbenv/bin" $path)
+    eval "$(command rbenv init -)"
+fi
+rbenv "$@"
+
 
 #=================
 #== Power Tools ==
