@@ -126,8 +126,6 @@ if [ -d ~/.rbenv/bin ]; then
     path=( "$HOME/.rbenv/bin" $path)
     eval "$(command rbenv init -)"
 fi
-rbenv "$@"
-
 
 #=================
 #== Power Tools ==
