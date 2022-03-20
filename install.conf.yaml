@@ -22,6 +22,10 @@
       stdout: true
       stderr: true
 
+    - command: bash nvim/neovenv.sh
+      stdout: true
+      stderr: true
+
 - link:
     # vim
     ~/.config/nvim/init.vim: nvim/init.vim
