@@ -33,8 +33,6 @@ Plug 'tpope/vim-surround'                                                " Enclo
 Plug 'tpope/vim-unimpaired'                                              " Various mappings
 
 "" Language-specific
-" terraform
-Plug 'hashivim/vim-terraform'
 " clojure
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'guns/vim-sexp'
@@ -77,9 +75,6 @@ nmap <silent> <C-p> <Plug>(ale_previous_wrap)
 let g:gruvbox_italic=1
 colorscheme gruvbox
 set background=light
-
-"" Vim Terraform
-let g:terraform_fmt_on_save = 1
 
 " Use true colour
 set termguicolors
@@ -157,7 +152,7 @@ augroup Jenkinsfile
 augroup END
 
 " Various: 2 space tabstop
-autocmd FileType javascript,typescript,typescriptreact,html,css,ruby,yaml,lua,sh,terraform,Jenkinsfile,coffee setlocal tabstop=2
+autocmd FileType javascript,typescript,typescriptreact,html,css,ruby,yaml,lua,sh,tf,Jenkinsfile,coffee setlocal tabstop=2
 
 " Set spell checking on appropriate filetypes:
 autocmd FileType markdown,text setlocal spell
@@ -175,6 +170,9 @@ nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 " Disable languagetool in markdown, it's hella noisy:
 let g:ale_linters_ignore = {"markdown": ["languagetool"]}
+
+" Set the fixers for terraform and golang
+let g:ale_fixers = {"tf": ["terraform"]}
 " Set this variable to 1 to fix files when you save them.
 let g:ale_fix_on_save = 1
 
