@@ -15,21 +15,13 @@ json2yaml () {
     ruby -e "require 'yaml'; require 'json'; puts JSON.load(STDIN.read).to_yaml"
 }
 
-useaws () {
-  # Usage: useaws <profile-name>
-  # Exports AWS environment into the current shell
-  profile=$1
-  for assignment in $(aws-profile -p "$profile" env | grep '^AWS'); do
-    export "${assignment?}"
-  done
-}
-
-clearaws () {
-  # Usage: clearaws
-  # Clears all set AWS environment variables
-  for var in $(env | grep '^AWS' | cut -d= -f1); do
-    unset "$var"
-  done
+cached_aws_creds () {
+    unset AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN
+    aws s3 ls >/dev/null
+    latest_creds=$(command ls -1t ~/.aws/cli/cache/ | head -1)
+    export AWS_ACCESS_KEY_ID=$(cat "${HOME}/.aws/cli/cache/${latest_creds}" | jq -r '.Credentials.AccessKeyId')
+    export AWS_SECRET_ACCESS_KEY=$(cat "${HOME}/.aws/cli/cache/${latest_creds}" | jq -r '.Credentials.SecretAccessKey')
+    export AWS_SESSION_TOKEN=$(cat "${HOME}/.aws/cli/cache/${latest_creds}" | jq -r '.Credentials.SessionToken')
 }
 
 proceed() {
