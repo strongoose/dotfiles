@@ -185,6 +185,8 @@ if whence fzf >/dev/null; then
         # This glob is hacky but we should only have one fzf version intalled
         source /usr/local/Cellar/fzf/*/shell/key-bindings.zsh
         source /usr/local/Cellar/fzf/*/shell/completion.zsh
+    elif [[ -f ~/.fzf.zsh ]]; then
+        source ~/.fzf.zsh
     fi
 fi
 
