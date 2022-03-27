@@ -119,10 +119,6 @@ set number relativenumber
 " Underline search matches
 highlight Search gui=underline guifg=None guibg=None
 
-" Highlight cursor line and collumn
-set cursorline
-set cursorcolumn
-
 " Don't autowrap in most files
 set textwidth=0
 
