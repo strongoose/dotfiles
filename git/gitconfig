@@ -12,11 +12,8 @@
 [core]
     editor = nvim
     excludesfile = ~/.gitignore
-    pager = delta --syntax-theme=gruvbox-light
-[interactive]
-    diffFilter = delta --color-only
-[delta]
-    side-by-side = true
+[diff]
+    external = difft
 [alias]
     a   = add
     aa  = add .
