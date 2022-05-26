@@ -31,27 +31,8 @@ Plug 'tpope/vim-commentary'                                              " Code 
 Plug 'tpope/vim-repeat'                                                  " Repeat (. operator) support for plugins
 Plug 'tpope/vim-surround'                                                " Enclose text with brackets/quotes/tags/etc.
 Plug 'tpope/vim-unimpaired'                                              " Various mappings
-
-"" Language-specific
-" clojure
-Plug 'kien/rainbow_parentheses.vim'
-Plug 'guns/vim-sexp'
-Plug 'tpope/vim-sexp-mappings-for-regular-people'
-" tex
-Plug 'lervag/vimtex'
-" JavaScript, TypeScript and JSX
-Plug 'yuezk/vim-js'
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'maxmellon/vim-jsx-pretty'
-" coffeescript
-Plug 'kchmck/vim-coffee-script'
-" kitty terminal config
-Plug 'fladson/vim-kitty'
-" rego
-Plug 'tsandall/vim-rego'
-
-"" Linting
 Plug 'dense-analysis/ale'                                                " Async linter for nvim/vim8
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}              " Syntax based highlighting and operations using tree-sitter
 
 call plug#end()
 
