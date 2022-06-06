@@ -1,8 +1,4 @@
 # Things that are technically not aliases
-sprunge () {
-    cat - | curl -F 'sprunge=<-' http://sprunge.us
-}
-
 dn () {
     python -c "import random; print(random.randrange(1, $1 + 1))"
 }
@@ -13,6 +9,21 @@ yaml2json () {
 
 json2yaml () {
     ruby -e "require 'yaml'; require 'json'; puts JSON.load(STDIN.read).to_yaml"
+}
+
+fib () {
+    i=${1:-10}
+    prev=0
+    n=1
+    while [[ "$i" != 0 ]]; do
+        echo -n "$n "
+
+        n=$((n + prev))
+        prev=$((n - prev))
+
+        i=$((i - 1))
+    done
+    echo
 }
 
 cached_aws_creds () {
