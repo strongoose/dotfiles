@@ -99,6 +99,7 @@ alias grep='grep --color=auto'
 alias ls='ls --color=auto'
 alias pcp='gopass show -c'
 alias xclip='xclip -selection clipboard'
+alias qmv='qmv -o tabsize=4' # To match my nvim tabsize
 
 # Alternative names
 alias loc='tokei'
