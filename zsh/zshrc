@@ -125,7 +125,7 @@ if [ -d "$HOME/.perl6/" ]; then
 fi
 
 ## Ruby
-if [ -d ~/.rbenv/bin ]; then
+if [ -d ~/.rbenv ]; then
     path=( "$HOME/.rbenv/bin" $path)
     eval "$(command rbenv init -)"
 fi
