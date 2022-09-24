@@ -1,6 +1,6 @@
-# =================================
-# == Initianlisation ==
-# =================================
+# vim:foldmethod=marker
+
+# Initianlisation {{{
 
 ## Toggle the comment below to profile zsh start speed
 # profile_startup=1
@@ -26,9 +26,9 @@ eval "$(starship init zsh)"
 # Allow interactive comments
 setopt interactive_comments
 
-# =======================
-# == Utility functions ==
-# =======================
+# }}}
+
+# Utility functions {{{
 
 alert () {
     echo "\e[1;31m$@\e[0m"
@@ -53,10 +53,9 @@ if [[ "$(uname -s)" =~ Darwin ]] && [[ "$(uname -m)" != "arm64" ]]; then
     path=( "/usr/local/opt/coreutils/libexec/gnubin" $path )
 fi
 
+# }}}
 
-# ========================
-# == ZSH settings ==
-# ========================
+# ZSH settings {{{
 
 # Zsh completion help
 bindkey '^Xh' _complete_help
@@ -83,9 +82,9 @@ setopt EXTENDED_HISTORY  # record command start time
 autoload -U select-word-style
 select-word-style bash
 
-# ======================
-# == Dev environments ==
-# ======================
+# }}}
+
+# Dev environments {{{
 
 ## pyenv
 if whence pyenv >/dev/null ; then
@@ -133,10 +132,9 @@ fi
 ## bat
 export BAT_THEME=gruvbox-light
 
+# }}}
 
-#=================
-#== Power Tools ==
-#=================
+# Power Tools {{{
 
 # Inventory the toolbox
 expected_tools=(
@@ -192,9 +190,9 @@ fi
 
 eval "$(zoxide init --cmd j zsh)"
 
-#=================
-#== Environment ==
-#=================
+# }}}
+
+# Environment {{{
 
 ## Editor
 if whence nvim >/dev/null; then
@@ -206,10 +204,9 @@ fi
 ## gopass completion
 export fpath=( "$HOME/.local/go/share/zsh/site-functions" $fpath )
 
+# }}}
 
-# ==============
-# == Includes ==
-# ==
+# Includes {{{
 
 # work config
 if [[ -f "$HOME/.work-dotfiles/zshrc" ]]; then
@@ -222,10 +219,9 @@ source ~/.dotfiles/zsh/aliases.zsh
 # lazy loading
 source ~/.dotfiles/zsh/lazyload.zsh
 
+# }}}
 
-# ==================
-# == Final checks ==
-# ==================
+# Final checks {{{
 
 # Scripts in ~/.local/bin take precedence:
 path=( ~/.local/bin $path )
@@ -248,3 +244,5 @@ if [[ -n "$profile_startup" ]]; then
     unsetopt XTRACE
     exec 2>&3 3>&-
 fi
+
+# }}}
