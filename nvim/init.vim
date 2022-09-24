@@ -26,6 +26,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }            " Compl
 Plug 'tpope/vim-fugitive'                                                " Git integration
 Plug 'dense-analysis/ale'                                                " Async linter for nvim/vim8
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}              " Syntax based highlighting and operations using tree-sitter
+Plug 'nvim-treesitter/nvim-treesitter-refactor'                          " Refactoring using tree-sitter
 
 " Enhancements
 Plug 'mhinz/vim-signify'                                                 " Show VCS add/change/deletes
@@ -148,6 +149,17 @@ require'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false,
+  },
+}
+
+require'nvim-treesitter.configs'.setup {
+  refactor = {
+    smart_rename = {
+      enable = true,
+      keymaps = {
+        smart_rename = "grr",
+      },
+    },
   },
 }
 EOF
