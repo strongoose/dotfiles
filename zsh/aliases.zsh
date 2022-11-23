@@ -72,6 +72,10 @@ git-purge () {
     fi
 }
 
+base64url () {
+    base64 $@ | tr + - | tr / _ | sed 's/=*$//'
+}
+
 # Die aliases
 for n in 4 6 8 10 12 20; do
   alias d$n="dn $n"
