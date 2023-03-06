@@ -40,5 +40,4 @@ NeoVim virtualenv for $venv installed. Add the following line to your zshrc:
 EOF
 }
 
-setup 2
 setup 3
