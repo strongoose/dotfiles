@@ -35,27 +35,6 @@ cached_aws_creds () {
     export AWS_SESSION_TOKEN=$(cat "${HOME}/.aws/cli/cache/${latest_creds}" | jq -r '.Credentials.SessionToken')
 }
 
-proceed() {
-    if [[ -n "$1" ]]; then
-        prompt=$1
-    else
-        prompt="Proceed?"
-    fi
-    local confirm
-    while [[ -z "$confirm" ]]; do
-        1>&2 read -r "confirm?$prompt (yes/no) "
-        if [[ "$confirm" != "yes" ]] && [[ "$confirm" != "no" ]]; then
-            1>&2 echo "Please answer exactly yes or no (case-sensitive)"
-            unset confirm
-        fi
-    done
-    if [[ "$confirm" == "yes" ]]; then
-        echo "yes"
-    else
-        echo "no"
-    fi
-}
-
 git-purge () {
     non_master_branches=$(git branch | grep -v master)
     echo "This will force delete (git branch -D) all non-master branches"
@@ -76,17 +55,33 @@ base64url () {
     base64 $@ | tr + - | tr / _ | sed 's/=*$//'
 }
 
+colours () {
+    for n in $(seq 31 37); do
+        echo -n "\e[1;${n}mECHO\e[0m "
+    done
+    echo
+    for n in $(seq 91 97); do
+        echo -n "\e[1;${n}mECHO\e[0m "
+    done
+    echo
+}
+
 # Die aliases
 for n in 4 6 8 10 12 20; do
   alias d$n="dn $n"
 done
 
 ## Aliases
+alt () {
+    # If cmd exists, create an alias to it for each additional argument
+    cmd=$1; shift
+    whence $cmd >/dev/null || return
+
+    for al in $@; do alias "$al=$cmd"; done
+}
 
 # Convenience
 alias c='cd'
-alias g='git'
-alias k='kubectl'
 alias l='ls -lh'
 alias la='ls -lha'
 alias ll='ls -lh'
@@ -94,37 +89,25 @@ alias myip='curl -s icanhazip.com'
 alias t='true'
 alias ipgrep="rg '([0-9]{1,3}\.){3}[0-9]{1,3}(/[0-9]{1,2})?'"
 
-# Dangerous
-# These aliases are prefixed with a bare read; they require double tapping enter to execute.
-alias 'frig!'='read && git commit -a --amend --no-edit && git push -f'
-
 # Common opts
 alias grep='grep --color=auto'
-alias ls='ls --color=auto'
-alias pcp='gopass show -c'
 alias xclip='xclip -selection clipboard'
 alias qmv='qmv -o tabsize=4' # To match my nvim tabsize
 
 # Alternative names
-alias loc='tokei'
-alias nc='ncat'
-alias pass='gopass'
-alias vim='nvim'
+# alt () { whence $2 >/dev/null && alias "$1=$2" }
+
+alt git     g
+alt kubectl k
+alt tokei   loc
+alt ncat    nc
+alt nvim    vim ivm
+alt podman  docker
 
 # Typos
 alias sl='ls'
-alias ivm='vim'
 alias gs='g s'
 
 # Docker
 alias ubuntu='docker run -it --rm ubuntu /bin/bash'
 alias centos='docker run -it --rm centos /bin/bash'
-alias atestalias='echo test'
-
-# OSX
-if [[ "$OSTYPE" =~ darwin ]]; then
-    alias find='gfind'
-    alias sed='gsed'
-    alias tar='gtar'
-    alias ls='exa --color=auto'
-fi

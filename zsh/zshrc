@@ -1,6 +1,6 @@
 # vim:foldmethod=marker
 
-# Initianlisation {{{
+# Optional profiling {{{
 
 ## Toggle the comment below to profile zsh start speed
 # profile_startup=1
@@ -20,42 +20,36 @@ if [[ -n "$profile_startup" ]]; then
     setopt XTRACE
 fi
 
-# Starship prompt
-eval "$(starship init zsh)"
-
-# Allow interactive comments
-setopt interactive_comments
-
 # }}}
 
 # Utility functions {{{
 
-alert () {
-    echo "\e[1;31m$@\e[0m"
+autoload colors && colors
+
+for COLOR in RED GREEN YELLOW BLUE MAGENTA CYAN BLACK WHITE; do
+    eval $COLOR='$fg_no_bold[${(L)COLOR}]'
+    eval BOLD_$COLOR='$fg_bold[${(L)COLOR}]'
+done
+eval RESET='$reset_color'
+
+_err () {
+    echo "$BOLD_RED$@$RESET"
 }
 
+_warn () {
+    echo "$BOLD_YELLOW$@$RESET"
+}
 
-# ===============
-# == OSX hacks ==
-# ===============
-
-if [[ "$(uname -s)" =~ Darwin ]] && [[ "$(uname -m)" != "arm64" ]]; then
-    # /usr/libexec/path_helper is path unhelpful
-    path=(
-        "/usr/local/bin"
-        "/usr/bin"
-        "/bin"
-        "/usr/sbin"
-        "/sbin"
-    )
-
-    # Use GNU tools not crappy BSD ones
-    path=( "/usr/local/opt/coreutils/libexec/gnubin" $path )
-fi
+_info () {
+    echo "$BOLD_BLUE$@$RESET"
+}
 
 # }}}
 
 # ZSH settings {{{
+
+# Allow interactive comments
+setopt interactive_comments
 
 # Zsh completion help
 bindkey '^Xh' _complete_help
@@ -136,9 +130,8 @@ fi
 # Inventory the toolbox
 expected_tools=(
     # Essentials
-    exa
     git
-    delta
+    difft
     shellcheck
     htop
     tree
@@ -153,6 +146,7 @@ expected_tools=(
     rg
     fzf
     fd
+    starship
     zoxide
 )
 
@@ -163,35 +157,40 @@ for tool in ${expected_tools[@]}; do
     fi
 done
 if [[ ${#missing[@]} -ne 0 ]]; then
-    alert Expected ${(j., .)missing} to be installed
+    _warn Expected ${(j., .)missing} to be installed
 fi
 
 # fzf (https://github.com/junegunn/fzf)
 if whence fzf >/dev/null; then
+
     export FZF_DEFAULT_OPTS="--height 25% --border"
-    if whence rg >/dev/null; then
+
+    # source keybinds, but don't keep local fzf_prefix variable
+    function () {
+        local fzf_prefix=${$(whence fzf)%/bin/fzf}
+
+        source $fzf_prefix/share/fzf/key-bindings.zsh
+        source $fzf_prefix/share/fzf/completion.zsh
+    }
+
+    if whence fd >/dev/null; then
         export FZF_DEFAULT_COMMAND='fd --type f'
         export FZF_CTRL_T_COMMAND='fd --type f'
     fi
-    if [[ -d /usr/share/fzf ]]; then
-        source /usr/share/fzf/key-bindings.zsh
-        source /usr/share/fzf/completion.zsh
-    elif [[ -d /usr/local/Cellar/fzf ]]; then
-        # This glob is hacky but we should only have one fzf version intalled
-        source /usr/local/Cellar/fzf/*/shell/key-bindings.zsh
-        source /usr/local/Cellar/fzf/*/shell/completion.zsh
-    elif [[ -f ~/.fzf.zsh ]]; then
-        source ~/.fzf.zsh
-    fi
 fi
 
-eval "$(zoxide init --cmd j zsh)"
+if whence zoxide >/dev/null; then
+    eval "$(zoxide init --cmd j zsh)"
+fi
 
 ## set up bat's theme and it as man pager if it's installed
 export BAT_THEME=gruvbox-light
 if whence bat >/dev/null; then
     export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 fi
+
+# Starship prompt
+eval "$(starship init zsh)"
 
 # }}}
 
@@ -211,16 +210,8 @@ export fpath=( "$HOME/.local/go/share/zsh/site-functions" $fpath )
 
 # Includes {{{
 
-# work config
-if [[ -f "$HOME/.work-dotfiles/zshrc" ]]; then
-    source "$HOME/.work-dotfiles/zshrc"
-fi
-
 # aliases
 source ~/.dotfiles/zsh/aliases.zsh
-
-# lazy loading
-source ~/.dotfiles/zsh/lazyload.zsh
 
 # }}}
 
