@@ -93,6 +93,7 @@ alias ipgrep="rg '([0-9]{1,3}\.){3}[0-9]{1,3}(/[0-9]{1,2})?'"
 alias grep='grep --color=auto'
 alias xclip='xclip -selection clipboard'
 alias qmv='qmv -o tabsize=4' # To match my nvim tabsize
+alias ls='ls --color=auto'
 
 # Alternative names
 # alt () { whence $2 >/dev/null && alias "$1=$2" }
