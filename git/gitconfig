@@ -1,6 +1,6 @@
 [user]
-    email = dstrong@glyx.co.uk
-    name = Daniel Strong
+    email = dan@glyx.co.uk
+    name = Dan Strong
 [includeIf "gitdir:~/work/**"]
     path = ~/work/.gitconfig
 [push]
