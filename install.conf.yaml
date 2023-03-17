@@ -14,11 +14,7 @@
       stdout: true
       stderr: true
 
-    - command: mkdir -p ~/.config/kitty && cd ~/.config/kitty && curl -s -O https://raw.githubusercontent.com/ouroboros8/kitty-gruvbox-theme/master/gruvbox_dark.conf
-      stdout: true
-      stderr: true
-
-    - command: mkdir -p ~/.config/kitty && cd ~/.config/kitty && curl -s -O https://raw.githubusercontent.com/ouroboros8/kitty-gruvbox-theme/master/gruvbox_light.conf
+    - command: bash kitty/setup.sh
       stdout: true
       stderr: true
 
@@ -58,4 +54,4 @@
     ~/.config/starship.toml: starship.toml
 
     # kitty terminal
-    ~/.config/kitty/kitty.conf: kitty.conf
+    ~/.config/kitty/kitty.conf: kitty/kitty.conf
