@@ -12,5 +12,5 @@ curl -s -O https://raw.githubusercontent.com/ouroboros8/kitty-gruvbox-theme/mast
 curl -s -O https://raw.githubusercontent.com/ouroboros8/kitty-gruvbox-theme/master/gruvbox_light.conf
 
 # setup nvim-kitty-navigator
-pip install pynvim
+python3 -mpip install pynvim
 curl -s -O https://raw.githubusercontent.com/ouroboros8/nvim-kitty-navigator/main/navigate.py

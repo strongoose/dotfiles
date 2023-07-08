@@ -161,17 +161,11 @@ if [[ ${#missing[@]} -ne 0 ]]; then
 fi
 
 # fzf (https://github.com/junegunn/fzf)
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 if whence fzf >/dev/null; then
 
     export FZF_DEFAULT_OPTS="--height 25% --border"
-
-    # source keybinds, but don't keep local fzf_prefix variable
-    function () {
-        local fzf_prefix=${$(whence fzf)%/bin/fzf}
-
-        source $fzf_prefix/share/fzf/key-bindings.zsh
-        source $fzf_prefix/share/fzf/completion.zsh
-    }
 
     if whence fd >/dev/null; then
         export FZF_DEFAULT_COMMAND='fd --type f'

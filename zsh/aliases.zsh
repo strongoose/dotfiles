@@ -96,8 +96,6 @@ alias qmv='qmv -o tabsize=4' # To match my nvim tabsize
 alias ls='ls --color=auto'
 
 # Alternative names
-# alt () { whence $2 >/dev/null && alias "$1=$2" }
-
 alt git     g
 alt kubectl k
 alt tokei   loc
