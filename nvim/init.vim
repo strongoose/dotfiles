@@ -139,8 +139,9 @@ require'nvim-treesitter.configs'.setup {
       -- data
       "dockerfile",
       "hcl",
-      "json",
       "html",
+      "json",
+      "terraform",
       "toml",
       "yaml",
   },
