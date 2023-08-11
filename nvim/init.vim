@@ -215,7 +215,7 @@ augroup Jenkinsfile
 augroup END
 
 " Various: 2 space tabstop
-autocmd FileType javascript,typescript,typescriptreact,html,css,ruby,yaml,lua,sh,tf,Jenkinsfile,coffee setlocal tabstop=2
+autocmd FileType javascript,typescript,typescriptreact,html,css,ruby,yaml,lua,sh,tf,Jenkinsfile,coffee,elm setlocal tabstop=2
 
 " Set spell checking on appropriate filetypes:
 autocmd FileType markdown,text setlocal spell
