@@ -135,6 +135,7 @@ expected_tools=(
     shellcheck
     htop
     tree
+    pyenv # required for neovim
 
     # Networking
     curl
