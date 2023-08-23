@@ -6,7 +6,7 @@ setup() {
   major=$1
 
   # Install python, if missing
-  python=$(pyenv versions | grep -E "^ *${major}(\.[0-9]+){2}$" | xargs || echo)
+  python=$(pyenv versions --bare | grep -E "^3(\.[0-9]+){2}$" || echo)
 
   if [[ -z "$python" ]]; then
     newest=$(pyenv install --list \
