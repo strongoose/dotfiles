@@ -26,6 +26,7 @@
     co  = checkout
     cb  = checkout -b
     d   = diff
+    dn  = diff --no-ext-diff
     dc  = diff --word-diff --word-diff-regex='.'
     dci = diff --word-diff --word-diff-regex='.' --cached
     di  = diff --cached
@@ -44,3 +45,5 @@
     smash = commit -a --amend
 [init]
 	defaultBranch = main
+[pull]
+	rebase = true
