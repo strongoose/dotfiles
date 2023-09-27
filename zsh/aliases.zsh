@@ -85,7 +85,9 @@ alias c='cd'
 alias l='ls -lh'
 alias la='ls -lha'
 alias ll='ls -lh'
-alias myip='curl -s icanhazip.com'
+alias myipv4='curl -s -4 icanhazip.com'
+alias myipv6='curl -s -6 icanhazip.com'
+alias myip='myipv4'
 alias t='true'
 alias ipgrep="rg '([0-9]{1,3}\.){3}[0-9]{1,3}(/[0-9]{1,2})?'"
 
