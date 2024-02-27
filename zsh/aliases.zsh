@@ -99,6 +99,7 @@ alias ls='ls --color=auto'
 
 # Alternative names
 alt git     g
+alt fossil  f
 alt kubectl k
 alt tokei   loc
 alt ncat    nc
