@@ -9,3 +9,7 @@ style = "blue"
 
 [memory_usage]
 disabled = false
+
+[fossil_branch]
+disabled = false
+symbol = '🌿 '
