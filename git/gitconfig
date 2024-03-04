@@ -44,6 +44,8 @@
     sk  = stash --keep-index
     smash = commit -a --amend
 [init]
-	defaultBranch = main
+    defaultBranch = main
 [pull]
-	rebase = true
+    rebase = true
+[rebase]
+    autostash = true
