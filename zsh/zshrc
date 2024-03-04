@@ -187,6 +187,11 @@ fi
 # Starship prompt
 eval "$(starship init zsh)"
 
+# Atuin
+if whence atuin >/dev/null; then
+    eval "$(atuin init zsh)"
+fi
+
 # }}}
 
 # Environment {{{
