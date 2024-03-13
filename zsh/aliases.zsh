@@ -66,6 +66,11 @@ colours () {
     echo
 }
 
+mc () {
+    mkdir -p "$@"
+    cd "$@"
+}
+
 # Die aliases
 for n in 4 6 8 10 12 20; do
   alias d$n="dn $n"
@@ -98,13 +103,14 @@ alias qmv='qmv -o tabsize=4' # To match my nvim tabsize
 alias ls='ls --color=auto'
 
 # Alternative names
-alt git     g
-alt fossil  f
-alt kubectl k
-alt tokei   loc
-alt ncat    nc
-alt nvim    vim ivm
-alt podman  docker
+alt  git        g
+alt  terraform  tf
+alt  fossil     f
+alt  kubectl    k
+alt  tokei      loc
+alt  ncat       nc
+alt  nvim       vim ivm
+alt  podman     docker
 
 # Typos
 alias sl='ls'
