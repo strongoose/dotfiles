@@ -64,7 +64,7 @@ dialect = "uk"
 
 ## the maximum number of lines the interface should take up
 ## set it to 0 to always go full screen
-inline_height = 25
+inline_height = 16 # 10 lines of history in `full` style
 
 ## Invert the UI - put the search bar at the top , Default to `false`
 # invert = false
