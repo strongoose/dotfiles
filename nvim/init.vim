@@ -57,6 +57,7 @@ set matchtime=2 " i.e. 2/10 second jump
 
 " Show trailing whitespace and tabs
 set list
+set listchars=tab:──\|,trail:╳,nbsp:%
 
 " Show line numbers
 " enabling number and relativenumber puts vim in hybrid mode, whereby the
@@ -86,8 +87,8 @@ set expandtab
 set tabstop=4
 set shiftwidth=0 " use value of tabstop
 
-" Don't autobreak in most files
-set textwidth=0
+" When using `gq` (for example), format text to width 120
+set textwidth=120
 
 " Be smart about case-sensitivity in search: use ignorecase unless pattern contains uppercase
 set ignorecase
