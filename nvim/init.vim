@@ -1,125 +1,136 @@
-" vim:foldmethod=marker
+"vim:foldmethod=marker
 
-" Plugins {{{
+lua<<EOF
+-- Plugins {{{
 
-" Initialise Plug {{{
-if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
-  silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
+local vim = vim
+local Plug = vim.fn['plug#']
 
-call plug#begin('~/.local/share/nvim/plugged')
+vim.call('plug#begin')
 
-" }}}
-
-" Look & feel
+-- Look & feel
 Plug 'vim-airline/vim-airline'
-Plug 'morhetz/gruvbox'                                                   " Colour scheme
+Plug 'morhetz/gruvbox'                                                  -- Colour scheme
 
-" Productivity
-Plug 'junegunn/fzf'                                                      " Fuzzy finder
-Plug 'junegunn/fzf.vim'                                                  " Vim functions for FZF
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }            " Completion
+-- Productivity
+Plug 'junegunn/fzf'                                                     -- Fuzzy finder
+Plug 'junegunn/fzf.vim'                                                 -- Vim functions for FZF
+Plug('Shougo/deoplete.nvim', { ['do'] = function()                      -- Completion
+    vim.cmd(':UpdateRemotePlugins')
+end })
 
-" Development tools
-Plug 'tpope/vim-fugitive'                                                " Git integration
-Plug 'dense-analysis/ale'                                                " Async linter for nvim/vim8
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}              " Syntax based highlighting and operations using tree-sitter
-Plug 'nvim-treesitter/nvim-treesitter-refactor'                          " Refactoring using tree-sitter
+-- Development tools
+Plug 'tpope/vim-fugitive'                                               -- Git integration
+Plug 'dense-analysis/ale'                                               -- Async linter for nvim/vim8
+Plug('nvim-treesitter/nvim-treesitter', {['do'] = function()            -- Syntax based highlighting and operations using tree-sitter
+    vim.cmd("TSUpdate")
+end })
+Plug 'nvim-treesitter/nvim-treesitter-refactor'                         -- Refactoring using tree-sitter
 
-" Enhancements
-Plug 'mhinz/vim-signify'                                                 " Show VCS add/change/deletes
-Plug 'svermeulen/vim-cutlass'                                            " Blackhole deletion
-Plug 'svermeulen/vim-subversive'                                         " Substitute motions
-Plug 'tpope/vim-commentary'                                              " Code comments
-Plug 'tpope/vim-repeat'                                                  " Repeat (. operator) support for plugins
-Plug 'tpope/vim-surround'                                                " Enclose text with brackets/quotes/tags/etc.
-Plug 'tpope/vim-unimpaired'                                              " Various mappings
+-- Enhancements
+Plug 'mhinz/vim-signify'                                                -- Show VCS add/change/deletes
+Plug 'svermeulen/vim-cutlass'                                           -- Blackhole deletion
+Plug 'svermeulen/vim-subversive'                                        -- Substitute motions
+Plug 'tpope/vim-commentary'                                             -- Code comments
+Plug 'tpope/vim-repeat'                                                 -- Repeat (. operator) support for plugins
+Plug 'tpope/vim-surround'                                               -- Enclose text with brackets/quotes/tags/etc.
+Plug 'tpope/vim-unimpaired'                                             -- Various mappings
+Plug 'folke/which-key.nvim'                                             -- Keybinding prompts
 
-call plug#end()
+vim.call('plug#end')
 
-" }}}
+-- }}}
 
-" Appearance {{{
+-- Appearance {{{
 
-" Use true colour
-set termguicolors
+-- Use true colour
+vim.opt.termguicolors = true
 
-" Gruvbox
-let g:gruvbox_italic=1
-colorscheme gruvbox
-set background=light
+-- Gruvbox
+vim.g.gruvbox_italic = true
+vim.cmd.colorscheme 'gruvbox'
+vim.opt.background = "light"
 
-" Jump to matching paren on close
-set showmatch
-set matchtime=2 " i.e. 2/10 second jump
+-- Jump to matching paren on close
+vim.opt.showmatch = true
+vim.opt.matchtime = 2 -- i.e. 2/10 second jump
 
-" Show trailing whitespace and tabs
-set list
-set listchars=tab:──\|,trail:╳,nbsp:%
+-- Show trailing whitespace and tabs
+vim.opt.list = true
+vim.opt.listchars = {
+    tab = '──|',
+    trail = '╳',
+    nbsp = '%'
+}
 
-" Show line numbers
-" enabling number and relativenumber puts vim in hybrid mode, whereby the
-" current line number is absolute and other lines are relative
-set number
+-- Show line numbers
+-- enabling number and relativenumber puts vim in hybrid mode, whereby the
+-- current line number is absolute and other lines are relative
+vim.opt.number = true
 
-" Underline search matches
-highlight Search gui=underline guifg=None guibg=None
+-- Underline search matches
+vim.cmd.highlight { 'Search', 'gui=underline', 'guifg=None', 'guibg=None()' }
 
-" Expand focused windows to occupy vertical space
-set winwidth=84
-set winheight=999
-set winminheight=5
+-- Expand focused windows to occupy vertical space
+vim.opt.winwidth=84
+vim.opt.winheight=999
+vim.opt.winminheight=5
 
-" }}}
+-- }}}
 
-" Python integration {{{
+-- Python integration {{{
 
-let g:python3_host_prog = $HOME . "/.pyenv/versions/neovim3/bin/python"
+vim.g.python3_host_prog = vim.fn.expand("~") .. "/.pyenv/versions/neovim3/bin/python"
 
-" }}}
+-- }}}
 
-" Vim options {{{
 
-" Expand tabs to 4 spaces unless overridden by a filetype plugin
-set expandtab
-set tabstop=4
-set shiftwidth=0 " use value of tabstop
+-- Vim options {{{
 
-" When using `gq` (for example), format text to width 120
-set textwidth=120
+-- Expand tabs to 4 spaces unless overridden by a filetype plugin
+vim.opt.expandtab = true
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 0 -- use value of tabstop
 
-" Be smart about case-sensitivity in search: use ignorecase unless pattern contains uppercase
-set ignorecase
-set smartcase
+-- When using `gq` (for example), format text to width 120
+vim.opt.textwidth = 120
 
-" Never create swapfiles
-set noswapfile
+-- Be smart about case-sensitivity in search: use ignorecase unless pattern contains uppercase
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
-" Clipboard integration
-set clipboard+=unnamedplus
+-- Never create swapfiles
+vim.opt.swapfile = false
 
-" Mouse
-set mouse=a
+-- Clipboard integration
+vim.opt.clipboard:append('unnamedplus')
 
-" }}}
+-- Mouse
+vim.opt.mouse = 'a'
 
-" Plugin options {{{
+-- }}}
 
-" Deoplete
-let g:deoplete#enable_at_startup = 1
-" While pop-up menu is visible, TAB should cycle through autocomplete options.
-inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+-- Plugin options {{{
 
-" signify
-let g:signify_vcs_list = [ 'git', 'hg' ]
+-- Deoplete
+vim.cmd [[let g:deoplete#enable_at_startup = 1]]
+-- While pop-up menu is visible, TAB should cycle through autocomplete options.
+vim.cmd [[inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"]]
 
-" Tree-sitter {{{
+-- signify
+vim.g.signify_vcs_list = { 'git', 'hg', 'fossil' }
 
-" tree-sitter
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
+-- which-key {{{
+vim.o.timeout = true
+vim.o.timeoutlen = 300
+require("which-key").setup {}
+
+-- }}}
+
+-- Tree-sitter {{{
+
+-- tree-sitter
+require 'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
   ensure_installed = {
       -- scripting
@@ -163,9 +174,10 @@ require'nvim-treesitter.configs'.setup {
     },
   },
 }
-EOF
 
-" }}}
+-- }}}
+
+EOF
 
 " }}}
 
@@ -216,7 +228,30 @@ augroup Jenkinsfile
 augroup END
 
 " Various: 2 space tabstop
-autocmd FileType javascript,typescript,typescriptreact,html,css,ruby,yaml,lua,sh,tf,Jenkinsfile,coffee,elm setlocal tabstop=2
+lua <<EOF
+local tabstop_two_filetypes = {
+  "Jenkinsfile",
+  "coffee",
+  "css",
+  "elm",
+  "flitter",
+  "html",
+  "javascript",
+  "lua",
+  "ruby",
+  "sh",
+  "tf",
+  "typescript",
+  "typescriptreact",
+  "yaml",
+}
+
+vim.api.nvim_create_autocmd({"FileType"}, {
+  pattern = table.concat(tabstop_two_filetypes, ","),
+  command = "setlocal tabstop=2",
+})
+
+EOF
 
 " Set spell checking on appropriate filetypes:
 autocmd FileType markdown,text setlocal spell
