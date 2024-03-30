@@ -10,21 +10,16 @@
       stdout: true
       stderr: true
 
-    - command: bash rustup-completion.sh
-      stdout: true
-      stderr: true
-
-    - command: bash kitty/setup.sh
-      stdout: true
-      stderr: true
-
-    - command: bash nvim/neovenv.sh
+    - command: bash setup.sh
       stdout: true
       stderr: true
 
 - link:
     # vim
     ~/.config/nvim/init.vim: nvim/init.vim
+    # Custom filetypes
+    ~/.config/nvim/filetype.vim: nvim/filetype.vim
+    # Filetype settings
     ~/.config/nvim/ftplugin/:
       glob: true
       path: nvim/ftplugin/*

@@ -2,7 +2,38 @@
 
 set -euo pipefail
 
-setup() {
+##
+# If rustup is installed, generate zsh completions
+##
+rustup_completion() {
+  if whence rustup >/dev/null 2>&1; then
+    mkdir -p ~/.zfunc
+    rustup completions zsh > ~/.zfunc/_rustup
+  else
+    echo "$0: rustup not installed, skipping"
+  fi
+}
+rustup_completion
+
+##
+# Set up kitty with gruvbox themes
+##
+kitty() {
+  kitty_dir="$HOME/.config/kitty"
+
+  mkdir -p "$kitty_dir"
+  cd "$kitty_dir"
+
+  # fetch themes
+  curl -s -O https://raw.githubusercontent.com/ouroboros8/kitty-gruvbox-theme/master/gruvbox_dark.conf
+  curl -s -O https://raw.githubusercontent.com/ouroboros8/kitty-gruvbox-theme/master/gruvbox_light.conf
+}
+kitty
+
+##
+# Install neovim python host packages
+##
+neovenv() {
   major=$1
 
   # Install python, if missing
@@ -33,11 +64,10 @@ setup() {
   fi
 
   cat<<EOF
-NeoVim virtualenv for $venv installed. Add the following line to your zshrc:
+NeoVim virtualenv for $venv installed. Add the following line to your nvim.init:
 
   let g:python${major/2/}_host_prog = '$(pyenv which python)'
 
 EOF
 }
-
-setup 3
+neovenv 3
