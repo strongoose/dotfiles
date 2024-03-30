@@ -2,6 +2,10 @@
 
 set -euo pipefail
 
+warn() {
+  1>&2 echo "$@"
+}
+
 ##
 # If rustup is installed, generate zsh completions
 ##
@@ -10,7 +14,7 @@ rustup_completion() {
     mkdir -p ~/.zfunc
     rustup completions zsh > ~/.zfunc/_rustup
   else
-    echo "$0: rustup not installed, skipping"
+    warn "rustup not installed, skipping"
   fi
 }
 rustup_completion
@@ -29,6 +33,17 @@ kitty() {
   curl -s -O https://raw.githubusercontent.com/ouroboros8/kitty-gruvbox-theme/master/gruvbox_light.conf
 }
 kitty
+
+##
+# Install vim-plug
+##
+vimplug() {
+  if ! [[ -f ~/.local/share/nvim/site/autoload/plug.vim ]]; then
+    curl -fLo ~/.var/app/io.neovim.nvim/data/nvim/site/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  fi
+}
+
 
 ##
 # Install neovim python host packages
@@ -50,7 +65,7 @@ neovenv() {
 
   # Create virtualenvs, if missing
   venv="neovim$major"
-  if [[ -z $(pyenv virtualenvs | grep "$venv") ]]; then
+  if pyenv virtualenvs | grep -q "$venv"; then
     pyenv virtualenv "$python" "$venv"
   fi
 
