@@ -24,6 +24,11 @@
       glob: true
       path: nvim/ftplugin/*
 
+    # zed
+    ~/.config/zed/:
+      glob: true
+      path: zed/*
+
     # git
     ~/.gitconfig: git/gitconfig
     ~/.gitignore: git/gitignore
