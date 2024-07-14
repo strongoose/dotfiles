@@ -29,8 +29,8 @@ kitty() {
   cd "$kitty_dir"
 
   # fetch themes
-  curl -s -O https://raw.githubusercontent.com/ouroboros8/kitty-gruvbox-theme/master/gruvbox_dark.conf
-  curl -s -O https://raw.githubusercontent.com/ouroboros8/kitty-gruvbox-theme/master/gruvbox_light.conf
+  curl -sSf -O https://raw.githubusercontent.com/ouroboros8/kitty-gruvbox-theme/master/gruvbox_dark.conf
+  curl -sSf -O https://raw.githubusercontent.com/ouroboros8/kitty-gruvbox-theme/master/gruvbox_light.conf
 }
 kitty
 
@@ -38,11 +38,13 @@ kitty
 # Install vim-plug
 ##
 vimplug() {
-  if ! [[ -f ~/.local/share/nvim/site/autoload/plug.vim ]]; then
-    curl -fLo ~/.var/app/io.neovim.nvim/data/nvim/site/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  plugpath="${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim
+
+  if ! [[ -f "$plugpath" ]]; then
+    curl -sSfLo "$plugpath" --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   fi
 }
+vimplug
 
 
 ##
