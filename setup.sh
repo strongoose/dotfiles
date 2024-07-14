@@ -46,42 +46,36 @@ vimplug() {
 
 
 ##
-# Install neovim python host packages
+# Install Rye and Neovim virtualenvs
 ##
 neovenv() {
   major=$1
 
-  # Install python, if missing
-  python=$(pyenv versions --bare | grep -E "^3(\.[0-9]+){2}$" || echo)
+  venvpath="$HOME/.neovenv"
 
-  if [[ -z "$python" ]]; then
-    newest=$(pyenv install --list \
-      | grep -E "^ *${major}(\.[0-9]+){2}$" \
-      | sort -V | tail -n1 | xargs
-    )
-    pyenv install "$newest"
-    python="$newest"
+  if ! [[ "$(which python)" == *".rye/shims/python"* ]]; then
+    warn "Error: installing Neovim virtual environment - rye required"
+    warn "  curl -sSf https://rye.astral.sh/get | bash"
+    exit 1
   fi
 
   # Create virtualenvs, if missing
-  venv="neovim$major"
-  if pyenv virtualenvs | grep -q "$venv"; then
-    pyenv virtualenv "$python" "$venv"
+  if [[ -d "$venvpath" ]] ; then
+    warn "Already got $venvpath virtual environment, skipping"
+    return
   fi
 
-  # Install neovim package, if missing
-  set +u
-  eval "$(pyenv init -)"
-  pyenv activate "$venv"
-  set -u
-  if ! pip freeze | grep neovim >/dev/null 2>&1; then
+  venv="neovim$major"
+  python -m venv "$venvpath"
+  (
+    source "${venvpath}/bin/activate"
     pip install neovim
-  fi
+  )
 
   cat<<EOF
 NeoVim virtualenv for $venv installed. Add the following line to your nvim.init:
 
-  let g:python${major/2/}_host_prog = '$(pyenv which python)'
+let g:python${major/2/}_host_prog = '${venvpath}/bin/python'
 
 EOF
 }

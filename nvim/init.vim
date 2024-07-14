@@ -80,7 +80,7 @@ vim.opt.winminheight=5
 
 -- Python integration {{{
 
-vim.g.python3_host_prog = vim.fn.expand("~") .. "/.pyenv/versions/neovim3/bin/python"
+vim.g.python3_host_prog = vim.fn.expand("~") .. "/.neovenv/bin/python"
 
 -- }}}
 

@@ -86,17 +86,10 @@ select-word-style bash
 
 # Dev environments {{{
 
-## pyenv
-if whence pyenv >/dev/null ; then
-    export PYENV_ROOT="$HOME/.pyenv"
-    export PATH="$PYENV_ROOT/bin:$PATH"
-    export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-    eval "$(pyenv init --path)"
-    eval "$(pyenv init -)"
+## rye (python)
+if [[ -f "$HOME/.rye/env" ]]; then
+    source "$HOME/.rye/env"
 fi
-
-## poetry
-[[ -d ~/.poetry/bin/ ]] && path=( ~/.poetry/bin/ $path )
 
 ## Go
 if whence go >/dev/null; then
@@ -141,7 +134,7 @@ expected_tools=(
     shellcheck
     htop
     tree
-    pyenv # required for neovim
+    rye # required for setting up neovim venvs
 
     # Networking
     curl
