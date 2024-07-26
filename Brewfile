@@ -31,6 +31,7 @@ brew 'neovim'
 brew 'atuin'
 brew 'lima'
 brew 'helix'
+brew 'syncthing'
 
 # See: https://apple.stackexchange.com/questions/431812/how-can-i-stop-a-bluetooth-keyboard-from-waking-my-macbook-pro/437396#437396
 brew 'sleepwatcher'
@@ -44,6 +45,7 @@ cask 'vlc'
 cask 'monodraw'
 cask 'visual-studio-code'
 cask 'alfred'
+cask 'obsidian'
 
 cask 'font-hack'
 cask 'font-jetbrains-mono'

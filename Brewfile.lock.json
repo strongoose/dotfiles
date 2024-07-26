@@ -1532,6 +1532,50 @@
             }
           }
         }
+      },
+      "syncthing": {
+        "version": "1.27.9",
+        "bottle": {
+          "rebuild": 0,
+          "root_url": "https://ghcr.io/v2/homebrew/core",
+          "files": {
+            "arm64_sonoma": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/syncthing/blobs/sha256:32f6303d824e648a075aa7d40117291417dea65ff3f95de95cf931c7ff758536",
+              "sha256": "32f6303d824e648a075aa7d40117291417dea65ff3f95de95cf931c7ff758536"
+            },
+            "arm64_ventura": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/syncthing/blobs/sha256:84323e5955e71af6caf9c48d983368de4ee6e9d4d5239e725f000b5c37b6ba55",
+              "sha256": "84323e5955e71af6caf9c48d983368de4ee6e9d4d5239e725f000b5c37b6ba55"
+            },
+            "arm64_monterey": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/syncthing/blobs/sha256:5c6a1ccee1f7ea53def9490f27a7b621f021f3292be08c83313a1da90e17b54c",
+              "sha256": "5c6a1ccee1f7ea53def9490f27a7b621f021f3292be08c83313a1da90e17b54c"
+            },
+            "sonoma": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/syncthing/blobs/sha256:a134c4715831dc3d3c6471164ee037d46bb48d7d9d1c333459fd96656217b7a7",
+              "sha256": "a134c4715831dc3d3c6471164ee037d46bb48d7d9d1c333459fd96656217b7a7"
+            },
+            "ventura": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/syncthing/blobs/sha256:f56d44baf41cfa30968c2d90ff59477f4d7698d087574cb0bbbdfded80d1a396",
+              "sha256": "f56d44baf41cfa30968c2d90ff59477f4d7698d087574cb0bbbdfded80d1a396"
+            },
+            "monterey": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/syncthing/blobs/sha256:f7726d0eebf6beb26bc26bcc1f12558cfc86133acd3e6a14ad350d534aa4ba7c",
+              "sha256": "f7726d0eebf6beb26bc26bcc1f12558cfc86133acd3e6a14ad350d534aa4ba7c"
+            },
+            "x86_64_linux": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/syncthing/blobs/sha256:ab1b9b380ff18506f03d26d0cdc6413603dc148ca8632fee9611c2958d26ec19",
+              "sha256": "ab1b9b380ff18506f03d26d0cdc6413603dc148ca8632fee9611c2958d26ec19"
+            }
+          }
+        }
       }
     },
     "cask": {
@@ -1605,6 +1649,12 @@
         "version": "latest",
         "options": {
           "full_name": "font-roboto-mono"
+        }
+      },
+      "obsidian": {
+        "version": "1.6.7",
+        "options": {
+          "full_name": "obsidian"
         }
       }
     },
