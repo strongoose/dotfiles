@@ -15,7 +15,8 @@
       stderr: true
 
 - link:
-    # vim
+
+    # neovim
     ~/.config/nvim/init.vim: nvim/init.vim
     # Custom filetypes
     ~/.config/nvim/filetype.vim: nvim/filetype.vim
@@ -23,6 +24,9 @@
     ~/.config/nvim/ftplugin/:
       glob: true
       path: nvim/ftplugin/*
+
+    # helix
+    ~/.config/helix/config.toml: helix.toml
 
     # zed
     ~/.config/zed/:
