@@ -64,3 +64,6 @@
     ~/.config/atuin/config.toml:
       path: atuin/config.toml
       force: true
+
+    # ghostty
+    ~/.config/ghostty/config: ghostty/config
