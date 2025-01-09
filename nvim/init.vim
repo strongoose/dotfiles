@@ -10,7 +10,8 @@ vim.call('plug#begin')
 
 -- Look & feel
 Plug 'vim-airline/vim-airline'
-Plug 'morhetz/gruvbox'                                                  -- Colour scheme
+Plug 'morhetz/gruvbox'                                                  -- gruvbox colour scheme
+Plug('catppuccin/vim', { [ 'as' ] = 'catppuccin' })                     -- catppuccin colour scheme
 
 -- Productivity
 Plug 'junegunn/fzf'                                                     -- Fuzzy finder
@@ -47,9 +48,8 @@ vim.call('plug#end')
 vim.opt.termguicolors = true
 
 -- Gruvbox
-vim.g.gruvbox_italic = true
-vim.cmd.colorscheme 'gruvbox'
-vim.opt.background = "light"
+vim.cmd.colorscheme 'catppuccin_frappe'
+vim.opt.background = "dark"
 
 -- Jump to matching paren on close
 vim.opt.showmatch = true
