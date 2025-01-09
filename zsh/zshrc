@@ -183,7 +183,9 @@ fi
 # Environment {{{
 
 ## Editor
-if whence nvim >/dev/null; then
+if whence hx >/dev/null; then
+    export EDITOR='hx'
+elif whence nvim >/dev/null; then
     export EDITOR='nvim'
 else
     export EDITOR='vim'
