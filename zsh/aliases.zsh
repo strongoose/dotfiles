@@ -11,6 +11,24 @@ json2yaml () {
     ruby -e "require 'yaml'; require 'json'; puts JSON.load(STDIN.read).to_yaml"
 }
 
+countdown() {
+    start="$(( $(gdate '+%s') + $1))"
+    while [ $start -ge $(gdate +%s) ]; do
+        time="$(( $start - $(gdate +%s) ))"
+        printf '%s\r' "$(gdate -u -d "@$time" +%H:%M:%S)"
+        sleep 0.1
+    done
+}
+
+stopwatch() {
+    start=$(gdate +%s)
+    while true; do
+        time="$(( $(gdate +%s) - $start))"
+        printf '%s\r' "$(gdate -u -d "@$time" +%H:%M:%S)"
+        sleep 0.1
+    done
+}
+
 fib () {
     i=${1:-10}
     prev=0
@@ -111,6 +129,8 @@ alt  tokei      loc
 alt  ncat       nc
 alt  nvim       vim ivm
 alt  podman     docker
+alt  kubens     kns
+alt  kubectx    ktx
 
 # Typos
 alias sl='ls'
