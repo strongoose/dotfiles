@@ -165,7 +165,7 @@ if whence zoxide >/dev/null; then
 fi
 
 ## set up bat's theme and it as man pager if it's installed
-export BAT_THEME=gruvbox-light
+export BAT_THEME="Catppuccin Mocha"
 if whence bat >/dev/null; then
     export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 fi

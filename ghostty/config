@@ -1,4 +1,4 @@
-theme = catppuccin-frappe
+theme = catppuccin-mocha
 
 keybind = cmd+h=goto_split:left
 keybind = cmd+j=goto_split:bottom
