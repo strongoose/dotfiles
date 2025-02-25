@@ -13,3 +13,18 @@ disabled = false
 [fossil_branch]
 disabled = false
 symbol = '🌿 '
+
+[[kubernetes.contexts]]
+context_pattern = ".*dev.*"
+style = "yellow"
+symbol = '🦾 '
+
+[[kubernetes.contexts]]
+context_pattern = ".*prod.*"
+style = "bold red"
+symbol = '🦾 '
+
+[[kubernetes.contexts]]
+context_pattern = "docker-desktop"
+style = 'green'
+symbol = '💻 '
