@@ -1,18 +1,66 @@
+## ---------------- ##
+## General settings ##
+## ---------------- ##
 [user]
     email = dan@glyx.co.uk
     name = Dan Strong
 [includeIf "gitdir:~/work/**"]
     path = ~/work/.gitconfig
-[push]
-    default = simple
-[branch]
-    autosetuprebase = always
-[commit]
-    verbose = true
 [core]
     excludesfile = ~/.gitignore
+[init]
+    defaultBranch = main
+[help]
+    autocorrect = prompt
+[rerere]
+    enabled = true
+    autoupdate = true
+[rebase]
+
+## --------- ##
+## Better UI ##
+## --------- ##
+
+[branch]
+    sort = -committerdate
+    autosetuprebase = always
+[tag]
+    sort = version:refname
+[commit]
+    verbose = true
+[merge]
+    conflictstyle = zdiff3
+
+## ----------------- ##
+## Common operations ##
+## ----------------- ##
+
+[fetch]
+    prune = tags
+    pruneTags = true
+    all = true
+[push]
+    default = simple
+    autoSetupRemote = true
+    followTags = true
+[pull]
+    rebase = true
+[rebase]
+    updateRefs = true
 [diff]
+    # Internal diff settings
+    algorithm = histogram
+    colorMoved = plain
+    mnemonicPrefix = true
+    renames = true
+
+    # External tool
     external = difft
+
+## ------- ##
+## Aliases ##
+## ------- ##
+
 [alias]
     a   = add
     aa  = add .
@@ -42,9 +90,3 @@
     sh  = stash
     sk  = stash --keep-index
     smash = commit -a --amend
-[init]
-    defaultBranch = main
-[pull]
-    rebase = true
-[rebase]
-    autostash = true
