@@ -36,7 +36,7 @@
 ## ----------------- ##
 
 [fetch]
-    prune = tags
+    prune = true
     pruneTags = true
     all = true
 [push]
@@ -64,29 +64,15 @@
 [alias]
     a   = add
     aa  = add .
-    ai  = add -i
     b   = branch
-    br  = branch
     c   = commit
-    ci  = commit
-    ca  = commit -a
-    co  = checkout
-    cb  = checkout -b
+    sw  = switch
     d   = diff
     dn  = diff --no-ext-diff
-    dc  = diff --word-diff --word-diff-regex='.'
-    dci = diff --word-diff --word-diff-regex='.' --cached
-    di  = diff --cached
-    dw  = diff --word-diff
-    dwi = diff --word-diff --cached
-    fup = fetch upstream
     lg  = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     p   = push
     ph  = push -u origin HEAD
     pl  = pull
-    pls = pull --autostash
     r   = rebase
     s   = status
-    sh  = stash
-    sk  = stash --keep-index
     smash = commit -a --amend
