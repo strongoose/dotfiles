@@ -1,0 +1,23 @@
+#!/usr/bin/env python3
+
+import sys
+
+def usage():
+	help='Example usage: cat numbers.txt | add\n\n  Each line of stdin must be an integer.'
+	print(help, file=sys.stderr)
+	sys.exit(1)
+
+if __name__ == '__main__':
+
+	if len(sys.argv) > 1:
+		usage()
+		
+	total = 0
+	for line in sys.stdin:
+		try:
+			n = int(line)
+			total += n
+		except ValueError:
+			usage()
+
+	print(total)
