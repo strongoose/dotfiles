@@ -82,6 +82,10 @@ setopt EXTENDED_HISTORY  # record command start time
 autoload -U select-word-style
 select-word-style bash
 
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey "^X^E" edit-command-line
+
 # }}}
 
 # Dev environments {{{
