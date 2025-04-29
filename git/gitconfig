@@ -66,8 +66,10 @@
     aa  = add .
     b   = branch
     c   = commit
-    sw  = switch
+    w   = switch
+    wn  = switch -c
     d   = diff
+    di  = diff --cached
     dn  = diff --no-ext-diff
     lg  = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     p   = push
