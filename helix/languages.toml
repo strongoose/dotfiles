@@ -1,3 +1,4 @@
 [[language]]
 name = "markdown"
 soft-wrap.enable = true
+language-servers = ["marksman", "ltex-ls-plus"]

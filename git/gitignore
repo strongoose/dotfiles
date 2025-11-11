@@ -5,3 +5,5 @@ tf.plan*
 _build
 .vscode
 .eastwood
+.dev
+.DS_Store

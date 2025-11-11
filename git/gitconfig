@@ -4,10 +4,10 @@
 [user]
     email = dan@glyx.co.uk
     name = Dan Strong
+[core]
+    excludesFile = ~/.gitignore
 [includeIf "gitdir:~/work/**"]
     path = ~/work/.gitconfig
-[core]
-    excludesfile = ~/.gitignore
 [init]
     defaultBranch = main
 [help]
@@ -30,6 +30,7 @@
     verbose = true
 [merge]
     conflictstyle = zdiff3
+    tool = meld
 
 ## ----------------- ##
 ## Common operations ##
