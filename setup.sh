@@ -48,18 +48,12 @@ vimplug
 
 
 ##
-# Install Rye and Neovim virtualenvs
+# Install Neovim virtualenvs
 ##
 neovenv() {
   major=$1
 
   venvpath="$HOME/.neovenv"
-
-  if ! [[ "$(which python)" == *".rye/shims/python"* ]]; then
-    warn "Error: installing Neovim virtual environment - rye required"
-    warn "  curl -sSf https://rye.astral.sh/get | bash"
-    return
-  fi
 
   # Create virtualenvs, if missing
   if [[ -d "$venvpath" ]] ; then

@@ -125,6 +125,7 @@ alias ls='ls --color=auto'
 alt  git        g
 alt  terraform  tf
 alt  fossil     f
+alt  helix      hx
 alt  kubectl    k
 alt  tokei      loc
 alt  ncat       nc
