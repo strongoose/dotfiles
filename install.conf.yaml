@@ -69,3 +69,6 @@
 
     # ghostty
     ~/.config/ghostty/config: ghostty/config
+
+    # toshy
+    ~/.config/toshy/toshy_config.py: toshy/toshy_config.py
