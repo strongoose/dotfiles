@@ -1,4 +1,23 @@
+use-grammars = { except = [ "go", "gomod", "gotmpl", "gowork" ] } # go grammars are broken as of 17/06/2026
+
 [[language]]
 name = "markdown"
 soft-wrap.enable = true
 language-servers = ["marksman", "ltex-ls-plus"]
+
+[[language]]
+name = "uiua"
+scope = "source.uiua"
+language-servers = ["uiua"]
+file-types = ["ua"]
+formatter = { command = "uiua", args = ["fmt", "--io"] }
+auto-format = true
+
+[language-server.uiua]
+command = "uiua"
+args = ["lsp"]
+
+[[grammar]]
+name = "uiua"
+source.git = "https://github.com/shnarazk/tree-sitter-uiua"
+source.rev = "f3fb8b8fe367b00e2ad858a419da3dedc8cbeeeb" # 0.13.0
