@@ -133,7 +133,7 @@ alt  nvim       vim ivm
 alt  podman     docker
 alt  kubens     kns
 alt  kubectx    ktx
-alt  open       xdg-open
+alt  xdg-open   open
 
 # Typos
 alias sl='ls'
