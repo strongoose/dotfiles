@@ -13,6 +13,10 @@ file-types = ["ua"]
 formatter = { command = "uiua", args = ["fmt", "--io"] }
 auto-format = true
 
+[[language]]
+name = "python"
+auto-format = true
+
 [language-server.uiua]
 command = "uiua"
 args = ["lsp"]
