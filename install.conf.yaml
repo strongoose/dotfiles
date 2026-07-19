@@ -30,11 +30,6 @@
       glob: true
       path: helix/*
 
-    # zed
-    ~/.config/zed/:
-      glob: true
-      path: zed/*
-
     # git
     ~/.gitconfig: git/gitconfig
     ~/.gitignore: git/gitignore
@@ -58,9 +53,6 @@
 
     # starship prompt
     ~/.config/starship.toml: starship.toml
-
-    # kitty terminal
-    ~/.config/kitty/kitty.conf: kitty/kitty.conf
 
     # atuin
     ~/.config/atuin/config.toml:
