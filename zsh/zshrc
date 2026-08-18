@@ -23,7 +23,7 @@ fi
 # }}}
 
 # Fix for homebrew {{{
-path=( /opt/homebrew/bin $path)
+path=( /opt/homebrew/bin /opt/homebrew/sbin $path)
 
 # }}}
 
@@ -175,9 +175,9 @@ fi
 # Starship prompt
 eval "$(starship init zsh)"
 
-# Atuin
-if whence atuin >/dev/null; then
-    eval "$(atuin init zsh --disable-up-arrow)"
+# fzf
+if whence fzf >/dev/null; then
+    source <(fzf --zsh)
 fi
 
 # }}}

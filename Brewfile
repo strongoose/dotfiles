@@ -1,6 +1,5 @@
 # vim: set ft=ruby
 
-brew 'atuin'
 brew 'bash'
 brew 'bat'
 brew 'coreutils'

@@ -130,7 +130,6 @@ alt  kubectl    k
 alt  tokei      loc
 alt  ncat       nc
 alt  nvim       vim ivm
-alt  podman     docker
 alt  kubens     kns
 alt  kubectx    ktx
 alt  xdg-open   open
