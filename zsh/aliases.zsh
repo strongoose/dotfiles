@@ -114,6 +114,7 @@ alias myip='myipv4'
 alias t='true'
 alias ipgrep="rg '([0-9]{1,3}\.){3}[0-9]{1,3}(/[0-9]{1,2})?'"
 alias chomp="tr -d '\n'"
+alias yat="bat -lyaml"
 
 # Common opts
 alias grep='grep --color=auto'
