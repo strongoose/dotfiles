@@ -24,7 +24,6 @@ fi
 
 # Fix for homebrew {{{
 path=( /opt/homebrew/bin /opt/homebrew/sbin $path)
-
 # }}}
 
 
@@ -70,13 +69,14 @@ bindkey "[1;5D" backward-word
 
 # Better history
 export HISTFILE=~/.zsh_history
-export HISTSIZE=9999999999999999 # LONG_MAX (64-bit)
-export SAVEHIST=9999999999999999
-setopt HIST_IGNORE_ALL_DUPS  # do not put duplicated command into history list
+export HISTSIZE=4000
+export SAVEHIST=10000000
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_SPACE  # do not persist commands starting with a leading space to history
+setopt HIST_IGNORE_DUPS   # do not put duplicated command into history list
 setopt HIST_SAVE_NO_DUPS  # do not save duplicated command
-setopt HIST_REDUCE_BLANKS  # remove unnecessary blanks
-setopt INC_APPEND_HISTORY_TIME  # append command to history file immediately after execution
-setopt EXTENDED_HISTORY  # record command start time
+setopt HIST_REDUCE_BLANKS # remove unnecessary blanks
+setopt EXTENDED_HISTORY   # record command start time
 
 # Bash style word jumps
 autoload -U select-word-style
@@ -178,6 +178,7 @@ eval "$(starship init zsh)"
 # fzf
 if whence fzf >/dev/null; then
     source <(fzf --zsh)
+    source ~/.dotfiles/zsh/fzf.zsh
 fi
 
 # }}}
@@ -240,3 +241,7 @@ if [[ -n "$profile_startup" ]]; then
 fi
 
 # }}}
+
+# Civica CLI
+
+eval "$(civ init)"
