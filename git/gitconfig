@@ -8,6 +8,8 @@
     excludesFile = ~/.gitignore
 [includeIf "gitdir:~/work/**"]
     path = ~/work/.gitconfig
+[url "ssh://git@github.com/"]
+    insteadOf = https://github.com/
 [init]
     defaultBranch = main
 [help]
