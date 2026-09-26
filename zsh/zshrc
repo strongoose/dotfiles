@@ -241,7 +241,3 @@ if [[ -n "$profile_startup" ]]; then
 fi
 
 # }}}
-
-# Civica CLI
-
-eval "$(civ init)"

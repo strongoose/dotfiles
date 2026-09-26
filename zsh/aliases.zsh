@@ -44,6 +44,16 @@ fib () {
     echo
 }
 
+# Bitwarden CLI helper for smoother unlocking
+bw () {
+    if [[ $# -eq 1 ]] && [[ "$1" == "unlock" ]] {
+        BW_SESSION=$(command bw unlock --raw)
+        export BW_SESSION
+    } else {
+        command bw $@
+    }
+}
+
 cached_aws_creds () {
     unset AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN
     aws s3 ls >/dev/null
