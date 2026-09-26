@@ -1,74 +1,91 @@
 # vim: set ft=ruby
 
+# Basics
 brew 'bash'
-brew 'bat'
 brew 'coreutils'
 brew 'curl'
-brew 'difftastic'
 brew 'findutils'
-brew 'fd'
-brew 'fzf'
-brew 'gh'
 brew 'git'
 brew 'gnu-sed'
 brew 'gnu-tar'
-brew 'go'
-brew 'helix'
-brew 'helm'
 brew 'htop'
-brew 'ipcalc'
-brew 'istioctl'
-brew 'jj'
 brew 'jq'
-brew 'kubectx'
-brew 'lima'
-brew 'mkcert'
 brew 'moreutils'
-brew 'neovim'
 brew 'nmap'
-brew 'npm'
 brew 'openssl'
 brew 'pgrep'
 brew 'pkill'
 brew 'renameutils'
-brew 'ripgrep'
-brew 'rust'
-brew 'rye'
-brew 'shellcheck'
-brew 'sqlite3'
-brew 'starship'
-brew 'stern'
-brew 'syncthing'
-brew 'terraform-ls'
-brew 'tfenv'
-brew 'tflint'
-brew 'tokei'
 brew 'tree'
 brew 'watch'
 brew 'wget'
-brew 'yq'
-brew 'zoxide'
 brew 'zsh'
 
-# See: https://apple.stackexchange.com/questions/431812/how-can-i-stop-a-bluetooth-keyboard-from-waking-my-macbook-pro/437396#437396
-brew 'sleepwatcher'
-brew 'blueutil'
-
+# QoL
+brew 'bat'
+brew 'croc'
+brew 'difftastic'
+brew 'fd'
+brew 'fzf'
+brew 'ipcalc'
 cask 'rectangle'
-cask 'slack'
-cask 'beeper'
+brew 'ripgrep'
+brew 'starship'
+brew 'tokei'
+brew 'zoxide'
+
+# Editors
+brew 'helix'
+brew 'neovim'
+cask 'visual-studio-code'
+
+# Programming tooling
+brew 'gh'
+brew 'go'
+brew 'jj'
+brew 'just'
+brew 'mkcert'
+brew 'npm'
+brew 'rust'
+brew 'shellcheck'
+brew 'sqlite3'
+brew 'terraform-ls'
+brew 'tfenv'
+brew 'uv'
+brew 'yaml-language-server'
+
+# Containers
+brew 'podman'
+cask 'podman-desktop'
+
+# Kubernetes
+brew 'helm'
+brew 'istioctl'
+brew 'kubectx'
+brew 'lima'
+brew 'stern'
+brew 'yq'
+
+# Core apps
+cask 'bitwarden'
+brew 'bitwarden-cli'
+cask 'firefox'
+cask 'ghostty'
+cask 'obsidian'
+cask 'syncthing-app'
+
+# Extras
+cask 'monodraw'
+cask 'numi'
 cask 'spotify'
 cask 'vlc'
-cask 'monodraw'
-cask 'visual-studio-code'
-cask 'alfred'
-cask 'obsidian'
-cask 'numi'
 
+# Fonts
 cask 'font-hack-nerd-font'
 cask 'font-jetbrains-mono-nerd-font'
 cask 'font-roboto-mono-nerd-font'
 
+# App store stuff
 mas 'Xcode', id: 497799835
 mas 'Tailscale', id: 1475387142
 
