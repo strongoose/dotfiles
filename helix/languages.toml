@@ -6,6 +6,21 @@ soft-wrap.enable = true
 language-servers = ["marksman", "ltex-ls-plus"]
 
 [[language]]
+name = "hcl"
+language-id = "opentofu"
+scope = "source.hcl"
+file-types = ["tf", "tofu", "tfvars"]
+auto-format = true
+comment-token = "#"
+block-comment-tokens = { start = "/*", end = "*/" }
+indent = { tab-width = 2, unit = "  " }
+language-servers = [ "tofu-ls" ]
+
+[language-server.tofu-ls]
+command = "tofu-ls"
+args = ["serve"]
+
+[[language]]
 name = "uiua"
 scope = "source.uiua"
 language-servers = ["uiua"]
