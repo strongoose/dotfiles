@@ -11,6 +11,7 @@ language-id = "opentofu"
 scope = "source.hcl"
 file-types = ["tf", "tofu", "tfvars"]
 auto-format = true
+formatter = { command = "tofu", args = ["fmt", "-"] }
 comment-token = "#"
 block-comment-tokens = { start = "/*", end = "*/" }
 indent = { tab-width = 2, unit = "  " }

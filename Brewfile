@@ -40,6 +40,8 @@ brew 'neovim'
 cask 'visual-studio-code'
 
 # Programming tooling
+brew 'bash-language-server'
+brew 'elm'
 brew 'gh'
 brew 'go'
 brew 'jj'
@@ -50,12 +52,15 @@ brew 'rust'
 brew 'shellcheck'
 brew 'sqlite3'
 brew 'terraform-ls'
-brew 'tfenv'
+brew 'tenv'
+brew 'tofu-ls'
 brew 'uv'
 brew 'yaml-language-server'
 
 # Containers
+brew 'podlet'
 brew 'podman'
+brew 'podman-compose'
 cask 'podman-desktop'
 
 # Kubernetes
@@ -75,9 +80,15 @@ cask 'obsidian'
 cask 'syncthing-app'
 
 # Extras
+cask 'calibre'
+cask 'discord'
+brew 'hister'
+cask 'meld'
 cask 'monodraw'
 cask 'numi'
+cask 'soulver'
 cask 'spotify'
+cask 'steam'
 cask 'vlc'
 
 # Fonts
@@ -86,6 +97,5 @@ cask 'font-jetbrains-mono-nerd-font'
 cask 'font-roboto-mono-nerd-font'
 
 # App store stuff
+brew 'mas'
 mas 'Xcode', id: 497799835
-mas 'Tailscale', id: 1475387142
-
