@@ -54,6 +54,11 @@ bw () {
     }
 }
 
+pw () {
+    len=${1-"24"}
+    </dev/urandom gtr -dc 'A-Za-z0-9' | head -c "$len"; echo
+}
+
 cached_aws_creds () {
     unset AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN
     aws s3 ls >/dev/null
