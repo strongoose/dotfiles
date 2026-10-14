@@ -11,7 +11,6 @@ brew 'gnu-tar'
 brew 'htop'
 brew 'jq'
 brew 'moreutils'
-brew 'nmap'
 brew 'openssl'
 brew 'pgrep'
 brew 'pkill'
@@ -21,13 +20,19 @@ brew 'watch'
 brew 'wget'
 brew 'zsh'
 
+# Networking
+brew 'ipcalc'
+brew 'nmap'
+brew 'tcptraceroute'
+
 # QoL
 brew 'bat'
 brew 'croc'
 brew 'difftastic'
 brew 'fd'
 brew 'fzf'
-brew 'ipcalc'
+brew 'gron'
+brew 'homeport/tap/dyff'
 cask 'rectangle'
 brew 'ripgrep'
 brew 'starship'
@@ -48,6 +53,7 @@ brew 'jj'
 brew 'just'
 brew 'mkcert'
 brew 'npm'
+brew 'ruff'
 brew 'rust'
 brew 'shellcheck'
 brew 'sqlite3'
@@ -64,19 +70,34 @@ brew 'podman-compose'
 cask 'podman-desktop'
 
 # Kubernetes
+brew 'argocd'
+brew 'cue'
 brew 'helm'
 brew 'istioctl'
+brew 'k9s'
+brew 'kubectl'
 brew 'kubectx'
 brew 'lima'
+brew 'oras'
+brew 'patrickdappollonio/tap/kubectl-slice'
+brew 'skopeo'
 brew 'stern'
 brew 'yq'
+
+# Cloud
+brew 'awscli'
+brew 'datadog-labs/pack/pup'
+brew 'azure-cli'
 
 # Core apps
 cask 'bitwarden'
 brew 'bitwarden-cli'
 cask 'firefox'
 cask 'ghostty'
+tap 'localsend/localsend'
+cask 'localsend'
 cask 'obsidian'
+cask 'slack'
 cask 'syncthing-app'
 
 # Extras
@@ -99,3 +120,4 @@ cask 'font-roboto-mono-nerd-font'
 # App store stuff
 brew 'mas'
 mas 'Xcode', id: 497799835
+mas 'reMarkable', id: 1276493162
