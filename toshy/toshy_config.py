@@ -5098,6 +5098,8 @@ keymap(
         # Block shortcuts that might get confused with Shift+Cmd+[Left/Right]_Brace
         C("Shift-RC-Minus"): ignore_combo,  # Ignore alternate zoom out shortcut
         C("Shift-RC-Equal"): ignore_combo,  # Ignore alternate zoom in shortcut
+        # Extensions
+        C("RC-Shift-Y"): C("C-Shift-U"),  # Bitwarden
     },
     when=lambda ctx: (
         cnfg.screen_has_focus and matchProps(clas=browsers_firefoxStr)(ctx)
