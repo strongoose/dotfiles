@@ -39,6 +39,10 @@ brew 'starship'
 brew 'tokei'
 brew 'zoxide'
 
+# Other utilities
+brew 'graphviz'
+brew 'pandoc'
+
 # Editors
 brew 'helix'
 brew 'neovim'
