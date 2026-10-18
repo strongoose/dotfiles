@@ -4,6 +4,7 @@ set -euo pipefail
 
 VAULT_DIR=${VAULT_DIR:-"$HOME/Obsidian/spare skull"}
 DATE="$(date -I)"
+DAY="$(date +%A)"
 RELPATH="journal/$DATE.md"
 ABSPATH="$VAULT_DIR/$RELPATH"
 
@@ -42,8 +43,9 @@ create_journal_entry() {
 	read_bool cracked
 	read_bool flaking
 	read_bool dry
+
 	echo ":: Check-in"
-	read_emote work
+	[[ $DAY == "Saturday" ]] || [[ $DAY == "Sunday" ]] || read_emote work
 	read_emote mood
 
 	# Create and open the file with Obsidian
@@ -61,7 +63,7 @@ POEM.Weeping: $weeping
 POEM.Cracked: $cracked
 POEM.Flaking: $flaking
 POEM.Dry: $dry
-Work: $work
+Work: ${work:-""}
 Mood: $mood
 date: $DATE
 ---
