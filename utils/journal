@@ -8,6 +8,12 @@ DAY="$(date +%A)"
 RELPATH="journal/$DATE.md"
 ABSPATH="$VAULT_DIR/$RELPATH"
 
+is_weekday() {
+	[[ $DAY == "Saturday" ]] && return 1
+	[[ $DAY == "Sunday"   ]] && return 1
+	return 0
+}
+
 read_bool() {
 	read -n1 -erp "${1^}? (y/N) " v
 	if [[ $v == "y" ]]; then
@@ -45,7 +51,7 @@ create_journal_entry() {
 	read_bool dry
 
 	echo ":: Check-in"
-	[[ $DAY == "Saturday" ]] || [[ $DAY == "Sunday" ]] || read_emote work
+	is_weekday && read_emote work
 	read_emote mood
 
 	# Create and open the file with Obsidian
@@ -54,7 +60,11 @@ create_journal_entry() {
 	obsidian create open "path=$RELPATH,open"
 	# Hide file properties for journalling
 	obsidian command id=editor:fold-all
-	cat <<EOF > "$ABSPATH"
+
+	# Populate file
+	{
+	  # Frontmatter
+		cat <<EOF
 ---
 POEM.Itchy: $itchy
 POEM.Sleep: $sleep
@@ -68,6 +78,14 @@ Mood: $mood
 date: $DATE
 ---
 EOF
+
+		# Body
+		is_weekday && cat <<EOF
+| Time  | Activity                         |
+| ----- | -------------------------------- |
+| hh-hh | ...                              |
+EOF
+	} > "$ABSPATH"
 }
 
 if [[ -f "$ABSPATH" ]]; then
