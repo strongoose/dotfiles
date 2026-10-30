@@ -88,6 +88,20 @@ EOF
 	} > "$ABSPATH"
 }
 
+
+if ! obsidian vault info >/dev/null 2>&1; then
+	1>&2 echo "Obsidian isn't open"
+	exit 1
+fi
+
+current_vault_dir=$(obsidian vault info=path)
+if [[ "$current_vault_dir" != "$VAULT_DIR" ]]; then
+	1>&2 echo "Not in spare skull vault?"
+	1>&2 echo "Expected path: $VAULT_DIR"
+	1>&2 echo "          got: $current_vault_dir"
+	exit 1
+fi
+
 if [[ -f "$ABSPATH" ]]; then
 	1>&2 echo "Found today's journal"
 else
