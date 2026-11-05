@@ -42,6 +42,7 @@ brew 'zoxide'
 # Other utilities
 brew 'graphviz'
 brew 'pandoc'
+brew 'visidata'
 
 # Editors
 brew 'helix'
