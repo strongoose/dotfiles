@@ -40,7 +40,9 @@ brew 'tokei'
 brew 'zoxide'
 
 # Other utilities
+brew 'ffmpeg'
 brew 'graphviz'
+brew 'imagemagick'
 brew 'pandoc'
 brew 'visidata'
 
@@ -51,13 +53,18 @@ cask 'visual-studio-code'
 
 # Programming tooling
 brew 'bash-language-server'
+brew 'cmake'
 brew 'elm'
 brew 'gh'
+brew 'ghc'
+brew 'haskell-language-server'
 brew 'go'
 brew 'jj'
 brew 'just'
 brew 'mkcert'
 brew 'npm'
+brew 'oils-for-unix'
+brew 'pipx'
 brew 'ruff'
 brew 'rust'
 brew 'shellcheck'
@@ -83,16 +90,21 @@ brew 'k9s'
 brew 'kubectl'
 brew 'kubectx'
 brew 'lima'
+brew 'lima-additional-guestagents' # Emulation support
 brew 'oras'
 brew 'patrickdappollonio/tap/kubectl-slice'
 brew 'skopeo'
 brew 'stern'
 brew 'yq'
 
+# Virtualisation and emulation
+brew 'qemu'
+cask 'utm'
+
 # Cloud
 brew 'awscli'
 brew 'datadog-labs/pack/pup'
-brew 'azure-cli'
+brew 'hcloud'
 
 # Core apps
 cask 'bitwarden'
@@ -108,7 +120,9 @@ cask 'syncthing-app'
 # Extras
 cask 'calibre'
 cask 'discord'
-brew 'hister'
+cask 'handbrake-app'
+brew 'nogon'
+cask 'lagrange'
 cask 'meld'
 cask 'monodraw'
 cask 'numi'
@@ -116,13 +130,9 @@ cask 'soulver'
 cask 'spotify'
 cask 'steam'
 cask 'vlc'
+cask 'zotero'
 
 # Fonts
 cask 'font-hack-nerd-font'
 cask 'font-jetbrains-mono-nerd-font'
 cask 'font-roboto-mono-nerd-font'
-
-# App store stuff
-brew 'mas'
-mas 'Xcode', id: 497799835
-mas 'reMarkable', id: 1276493162
