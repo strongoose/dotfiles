@@ -1,6 +1,6 @@
 # Things that are technically not aliases
 dn () {
-    python -c "import random; print(random.randrange(1, $1 + 1))"
+    python3 -c "import random; print(random.randrange(1, $1 + 1))"
 }
 
 yaml2json () {
